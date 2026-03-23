@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import QRCode from 'react-qr-code'
 import { mockClient, mockReferrals } from '../data/mock'
 import { Copy, Check, Share2, UserPlus } from 'lucide-react'
 
@@ -7,9 +6,8 @@ export default function Referral() {
   const [copied, setCopied] = useState(false)
   const [toast, setToast] = useState(null)
 
-  const baseUrl = window.location.origin + window.location.pathname
-  const referralLink = baseUrl + '?ref=' + mockClient.referral_code
-  const shareText = 'Rejoins le programme fidelite et obtiens 75 points gratuits!'
+  var referralLink = window.location.origin + window.location.pathname + '?ref=' + mockClient.referral_code
+  var shareText = 'Rejoins le programme fidelite et obtiens 75 points gratuits!'
 
   function showToast(msg) {
     setToast(msg)
@@ -19,21 +17,17 @@ export default function Referral() {
   function handleCopy() {
     try {
       navigator.clipboard.writeText(referralLink)
-      setCopied(true)
-      showToast('Lien copie!')
-      setTimeout(function() { setCopied(false) }, 2500)
     } catch (e) {
-      // fallback
       var input = document.createElement('input')
       input.value = referralLink
       document.body.appendChild(input)
       input.select()
       document.execCommand('copy')
       document.body.removeChild(input)
-      setCopied(true)
-      showToast('Lien copie!')
-      setTimeout(function() { setCopied(false) }, 2500)
     }
+    setCopied(true)
+    showToast('Lien copie!')
+    setTimeout(function() { setCopied(false) }, 2500)
   }
 
   function handleNativeShare() {
@@ -48,13 +42,13 @@ export default function Referral() {
     }
   }
 
-  var smsLink = 'sms:?&body=' + encodeURIComponent(shareText + ' ' + referralLink)
-  var whatsappLink = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + referralLink)
-  var facebookLink = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(referralLink)
+  var smsHref = 'sms:?&body=' + encodeURIComponent(shareText + ' ' + referralLink)
+  var waHref = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + referralLink)
+  var fbHref = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(referralLink)
 
   return (
     <div className="page-content">
-      {toast && <div className="toast">{toast}</div>}
+      {toast ? <div className="toast">{toast}</div> : null}
 
       <div style={{ textAlign: 'center', padding: '20px 0 8px' }}>
         <div style={{
@@ -78,8 +72,14 @@ export default function Referral() {
           <div className="referral-code">{mockClient.referral_code}</div>
         </div>
 
-        <div className="qr-container">
-          <QRCode value={referralLink} size={140} fgColor="#32373c" />
+        <div style={{ textAlign: 'center', padding: '20px 0' }}>
+          <img
+            src={'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(referralLink)}
+            alt="QR Code"
+            width={160}
+            height={160}
+            style={{ borderRadius: 8 }}
+          />
         </div>
 
         <p style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', marginBottom: 16, wordBreak: 'break-all', lineHeight: 1.5 }}>
@@ -91,18 +91,18 @@ export default function Referral() {
         </button>
 
         <button className="btn btn-secondary" style={{ marginTop: 8 }} onClick={handleCopy} type="button">
-          {copied ? <><Check size={16} /> Copie!</> : <><Copy size={16} /> Copier le lien</>}
+          {copied ? <span><Check size={16} /> Copie!</span> : <span><Copy size={16} /> Copier le lien</span>}
         </button>
 
         <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-          <a href={smsLink} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}>
+          <a href={smsHref} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}>
             SMS
           </a>
-          <a href={whatsappLink} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}
+          <a href={waHref} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}
             target="_blank" rel="noopener noreferrer">
             WhatsApp
           </a>
-          <a href={facebookLink} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}
+          <a href={fbHref} className="btn btn-secondary btn-small" style={{ flex: 1, textDecoration: 'none' }}
             target="_blank" rel="noopener noreferrer">
             Facebook
           </a>
