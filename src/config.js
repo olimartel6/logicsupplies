@@ -38,6 +38,37 @@ const configs = {
     address: 'Québec, QC',
   },
 
+  'la-peltrie': {
+    businessName: 'La Peltrie',
+    slug: 'la-peltrie',
+    tagline: 'Accumulez des points à chaque visite, mangez gratuit!',
+    logo: null,
+    logoLight: null,
+    favicon: '🍔',
+    pointsPerDollar: 10,
+    referralBonus: 75,
+    visitBonus: 25,
+    pointsLabel: 'Points Peltrie',
+    theme: {
+      primary: '#1a1a2e',
+      primaryLight: '#2d2d44',
+      accent: '#8c54ff',
+      accentLight: '#a478ff',
+      accentDark: '#6b3fd4',
+      bg: '#FAFAF8',
+      font: 'system-ui, -apple-system, sans-serif',
+    },
+    rewards: [
+      { id: 1, name: 'Poutine classique gratuite', points_required: 150, type: 'free_service', value: 'poutine' },
+      { id: 2, name: '10% rabais sur la facture', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Trio gratuit', points_required: 500, type: 'free_service', value: 'trio' },
+      { id: 4, name: 'Repas pour 2 gratuit', points_required: 1000, type: 'free_service', value: 'repas2' },
+    ],
+    referralMessage: 'Rejoins le programme fidélité La Peltrie et obtiens 75 points gratuits!',
+    phone: '(418) 651-0862',
+    address: '4244 Rue St-Félix, Québec, G1Y 1X5',
+  },
+
   // Example: another business
   'salon-beaute': {
     businessName: 'Salon Beauté Élégance',
