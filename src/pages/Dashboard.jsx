@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { CreditCard, MapPin, Users, Gift, ChevronRight } from 'lucide-react'
 import config from '../config'
 import { getClientTransactions, getClientById } from '../services/supabase'
+import { getTier, getNextTier, isBirthdayToday } from '../utils/tiers'
 
 const typeLabels = { purchase: 'Achat', visit: 'Visite', referral: 'Parrainage', redemption: 'Échange', manual: 'Manuel' }
 const typeIcons = {
@@ -47,6 +48,46 @@ export default function Dashboard({ client, business, setClient }) {
           <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent-dark)' }}>{config.businessName}</span>
         )}
       </div>
+
+      {/* Tier Badge */}
+      {(() => {
+        const tier = getTier(client?.total_points_earned || 0, business?.tiers);
+        const next = getNextTier(client?.total_points_earned || 0, business?.tiers);
+        return (
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '12px 16px', marginBottom: 16,
+            background: tier.color + '15', borderRadius: 'var(--radius-sm)',
+            border: `1px solid ${tier.color}30`,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 24 }}>{tier.icon}</span>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: 15, color: tier.color }}>{tier.name}</div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>x{tier.multiplier} points</div>
+              </div>
+            </div>
+            {next && (
+              <div style={{ fontSize: 11, color: 'var(--text-light)', textAlign: 'right' }}>
+                <div>Prochain: {next.name}</div>
+                <div style={{ fontWeight: 600 }}>{next.min_points - (client?.total_points_earned || 0)} pts restants</div>
+              </div>
+            )}
+          </div>
+        );
+      })()}
+
+      {isBirthdayToday(client?.birthday) && (
+        <div style={{
+          padding: '16px', marginBottom: 16, borderRadius: 'var(--radius-sm)',
+          background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+          textAlign: 'center', color: '#1a1a2e',
+        }}>
+          <div style={{ fontSize: 28 }}>🎂</div>
+          <div style={{ fontWeight: 700, fontSize: 16, marginTop: 4 }}>Joyeux anniversaire!</div>
+          <div style={{ fontSize: 13, marginTop: 4 }}>100 points bonus ont été ajoutés à votre compte</div>
+        </div>
+      )}
 
       <div className="points-display" style={config.heroImage ? {
         backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url(${config.heroImage})`,

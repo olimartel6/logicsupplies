@@ -5,6 +5,7 @@ import config from '../config'
 export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
   const [phone, setPhone] = useState('')
   const [name, setName] = useState('')
+  const [birthday, setBirthday] = useState('')
   const [code, setCode] = useState('')
   const [step, setStep] = useState('phone')
   const [loading, setLoading] = useState(false)
@@ -23,7 +24,7 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
     if (code.length === 4) {
       setLoading(true)
       try {
-        await onLogin(phone, name)
+        await onLogin(phone, name, birthday)
       } catch (err) {
         alert('Erreur: ' + (err.message || 'réessayez'))
       } finally {
@@ -72,6 +73,14 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
                 autoFocus
+              />
+            </div>
+            <div className="input-group">
+              <label>Date de naissance (optionnel)</label>
+              <input
+                type="date"
+                value={birthday}
+                onChange={e => setBirthday(e.target.value)}
               />
             </div>
             <button type="submit" className="btn btn-primary" disabled={phone.length < 10}>

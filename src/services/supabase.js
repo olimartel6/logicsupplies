@@ -38,7 +38,7 @@ export async function getClientById(clientId) {
   return data;
 }
 
-export async function createLoyaltyClient(businessId, phone, name, referralCode, referredBy) {
+export async function createLoyaltyClient(businessId, phone, name, referralCode, referredBy, birthday) {
   const { data, error } = await supabase
     .from('loyalty_clients')
     .insert({
@@ -48,6 +48,9 @@ export async function createLoyaltyClient(businessId, phone, name, referralCode,
       referral_code: referralCode,
       referred_by: referredBy || null,
       points_balance: 0,
+      total_points_earned: 0,
+      visit_count: 0,
+      birthday: birthday || null,
     })
     .select()
     .single();
@@ -90,6 +93,17 @@ export async function addTransaction(businessId, clientId, type, points, descrip
     .single();
   if (error) throw error;
   return data;
+}
+
+export async function getAllTransactions(businessId) {
+  const { data, error } = await supabase
+    .from('loyalty_transactions')
+    .select('*')
+    .eq('business_id', businessId)
+    .order('created_at', { ascending: false })
+    .limit(500);
+  if (error) throw error;
+  return data || [];
 }
 
 export async function getClientTransactions(clientId) {
@@ -157,7 +171,15 @@ export async function adminAddPoints(businessId, clientId, points, description, 
   const client = await getClientById(clientId);
   if (!client) throw new Error('Client not found');
 
-  await updateClientPoints(clientId, client.points_balance + points);
+  await supabase
+    .from('loyalty_clients')
+    .update({
+      points_balance: client.points_balance + points,
+      total_points_earned: (client.total_points_earned || 0) + points,
+      visit_count: (client.visit_count || 0) + 1,
+      last_visit: new Date().toISOString(),
+    })
+    .eq('id', clientId);
   await addTransaction(businessId, clientId, 'purchase', points, description, amountSpent);
 }
 

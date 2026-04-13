@@ -35,12 +35,12 @@ function App() {
     if (ref) setReferralFrom(ref)
   }, [])
 
-  const handleLogin = async (phone, name) => {
+  const handleLogin = async (phone, name, birthday) => {
     if (!business) return
     let c = await getClientByPhone(business.id, phone)
     if (!c) {
       const code = generateReferralCode(name || 'CLIENT')
-      c = await createLoyaltyClient(business.id, phone, name || '', code, null)
+      c = await createLoyaltyClient(business.id, phone, name || '', code, null, birthday)
     }
     setClient(c)
     setIsLoggedIn(true)

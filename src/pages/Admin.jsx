@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Users, Star, Clock, LogOut, Plus, CheckCircle, XCircle, Camera, Search } from 'lucide-react'
+import { Users, Star, Clock, LogOut, Plus, CheckCircle, XCircle, Camera, Search, BarChart3, TrendingUp } from 'lucide-react'
 import config from '../config'
 import QRScanner from '../components/QRScanner'
 import {
   getAllClients, getPendingRedemptions, adminAddPoints,
-  updateRedemptionStatus, getClientById
+  updateRedemptionStatus, getClientById, getAllTransactions
 } from '../services/supabase'
 
 export default function Admin({ business, onLogout }) {
@@ -18,16 +18,19 @@ export default function Admin({ business, onLogout }) {
   const [showScanner, setShowScanner] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
+  const [allTransactions, setAllTransactions] = useState([])
 
   const loadData = async () => {
     if (!business?.id) return
     try {
-      const [c, r] = await Promise.all([
+      const [c, r, t] = await Promise.all([
         getAllClients(business.id),
-        getPendingRedemptions(business.id)
+        getPendingRedemptions(business.id),
+        getAllTransactions(business.id)
       ])
       setClients(c)
       setPendingRedemptions(r)
+      setAllTransactions(t)
     } catch (e) {
       console.error(e)
     } finally {
@@ -162,6 +165,9 @@ export default function Admin({ business, onLogout }) {
         <button className={`admin-tab ${tab === 'redemptions' ? 'active' : ''}`} onClick={() => setTab('redemptions')}>
           Échanges {pendingRedemptions.length > 0 && <span className="tab-badge">{pendingRedemptions.length}</span>}
         </button>
+        <button className={`admin-tab ${tab === 'analytics' ? 'active' : ''}`} onClick={() => setTab('analytics')}>
+          Analytiques
+        </button>
       </div>
 
       {tab === 'clients' && (
@@ -270,6 +276,81 @@ export default function Admin({ business, onLogout }) {
               </div>
             ))
           )}
+        </div>
+      )}
+
+      {tab === 'analytics' && (
+        <div style={{ padding: '0 16px' }}>
+          {/* Key Metrics */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 20 }}>
+            <div className="card" style={{ padding: 16, textAlign: 'center' }}>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Clients actifs</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary)', marginTop: 4 }}>{clients.length}</div>
+            </div>
+            <div className="card" style={{ padding: 16, textAlign: 'center' }}>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Points distribués</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--accent-dark)', marginTop: 4 }}>
+                {allTransactions.filter(t => t.points > 0).reduce((s, t) => s + t.points, 0).toLocaleString()}
+              </div>
+            </div>
+            <div className="card" style={{ padding: 16, textAlign: 'center' }}>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Récompenses échangées</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--success)', marginTop: 4 }}>
+                {allTransactions.filter(t => t.type === 'redemption').length}
+              </div>
+            </div>
+            <div className="card" style={{ padding: 16, textAlign: 'center' }}>
+              <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Revenu total</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary)', marginTop: 4 }}>
+                {allTransactions.filter(t => t.amount_spent).reduce((s, t) => s + Number(t.amount_spent), 0).toLocaleString('fr-CA', { style: 'currency', currency: 'CAD' })}
+              </div>
+            </div>
+          </div>
+
+          {/* Top Clients */}
+          <div className="section-title">Top clients</div>
+          <div className="card">
+            {[...clients].sort((a, b) => b.points_balance - a.points_balance).slice(0, 5).map((c, i) => (
+              <div key={c.id} className="client-row">
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{
+                    width: 28, height: 28, borderRadius: '50%',
+                    background: i === 0 ? '#FFD700' : i === 1 ? '#C0C0C0' : i === 2 ? '#CD7F32' : 'var(--bg-warm)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 12, fontWeight: 700, color: i < 3 ? '#1a1a2e' : 'var(--text-muted)',
+                  }}>
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 14 }}>{c.name || c.phone}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{c.visit_count || 0} visites</div>
+                  </div>
+                </div>
+                <div style={{ fontWeight: 700, color: 'var(--accent-dark)' }}>{c.points_balance} pts</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Recent Activity */}
+          <div className="section-title" style={{ marginTop: 20 }}>Dernières transactions</div>
+          <div className="card">
+            {allTransactions.slice(0, 10).map(t => (
+              <div key={t.id} className="client-row">
+                <div>
+                  <div style={{ fontWeight: 600, fontSize: 13 }}>{t.description || t.type}</div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+                    {new Date(t.created_at).toLocaleDateString('fr-CA', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}
+                  </div>
+                </div>
+                <div style={{ fontWeight: 700, color: t.points >= 0 ? 'var(--success)' : 'var(--danger)' }}>
+                  {t.points >= 0 ? '+' : ''}{t.points}
+                </div>
+              </div>
+            ))}
+            {allTransactions.length === 0 && (
+              <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 24 }}>Aucune transaction</p>
+            )}
+          </div>
         </div>
       )}
     </div>
