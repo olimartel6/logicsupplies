@@ -119,14 +119,22 @@ export async function getClientTransactions(clientId) {
 
 // ========== REWARDS / REDEMPTIONS ==========
 
+function generateRedemptionCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = 'RDM-';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+
 export async function createRedemption(businessId, clientId, rewardName, pointsSpent) {
-  // Deduct points
   const client = await getClientById(clientId);
   if (!client || client.points_balance < pointsSpent) throw new Error('Not enough points');
 
   await updateClientPoints(clientId, client.points_balance - pointsSpent);
 
-  // Create redemption record
+  const redemptionCode = generateRedemptionCode();
+  const expiresAt = new Date(Date.now() + 30 * 60 * 1000).toISOString(); // 30 min
+
   const { data, error } = await supabase
     .from('loyalty_redemptions')
     .insert({
@@ -135,12 +143,13 @@ export async function createRedemption(businessId, clientId, rewardName, pointsS
       reward_name: rewardName,
       points_spent: pointsSpent,
       status: 'pending',
+      redemption_code: redemptionCode,
+      expires_at: expiresAt,
     })
     .select()
     .single();
   if (error) throw error;
 
-  // Also create a transaction
   await addTransaction(businessId, clientId, 'redemption', -pointsSpent, `Échange: ${rewardName}`);
 
   return data;
@@ -161,6 +170,29 @@ export async function updateRedemptionStatus(redemptionId, status) {
   const { error } = await supabase
     .from('loyalty_redemptions')
     .update({ status })
+    .eq('id', redemptionId);
+  if (error) throw error;
+}
+
+// ========== VALIDATE REDEMPTION CODE (admin scanner) ==========
+
+export async function validateRedemptionCode(code) {
+  const { data, error } = await supabase
+    .from('loyalty_redemptions')
+    .select('*, loyalty_clients(name, phone)')
+    .eq('redemption_code', code)
+    .eq('status', 'pending')
+    .single();
+  if (error || !data) return null;
+  // Check expiry
+  if (data.expires_at && new Date(data.expires_at) < new Date()) return null;
+  return data;
+}
+
+export async function confirmRedemption(redemptionId) {
+  const { error } = await supabase
+    .from('loyalty_redemptions')
+    .update({ status: 'approved' })
     .eq('id', redemptionId);
   if (error) throw error;
 }
