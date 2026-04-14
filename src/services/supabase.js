@@ -199,20 +199,100 @@ export async function confirmRedemption(redemptionId) {
 
 // ========== ADMIN: ADD POINTS ==========
 
-export async function adminAddPoints(businessId, clientId, points, description, amountSpent) {
+export async function adminAddPoints(businessId, clientId, points, description, amountSpent, businessName) {
   const client = await getClientById(clientId);
   if (!client) throw new Error('Client not found');
+
+  const newVisitCount = (client.visit_count || 0) + 1;
+  let bonusPoints = 0;
+  let bonusDesc = '';
+
+  // Birthday bonus (auto-credit 100 pts)
+  if (client.birthday) {
+    const today = new Date();
+    const bday = new Date(client.birthday);
+    if (today.getMonth() === bday.getMonth() && today.getDate() === bday.getDate()) {
+      // Check if already credited today
+      const { data: todayTx } = await supabase
+        .from('loyalty_transactions')
+        .select('id')
+        .eq('client_id', clientId)
+        .eq('type', 'visit')
+        .eq('description', 'Bonus anniversaire')
+        .gte('created_at', today.toISOString().split('T')[0])
+        .limit(1);
+      if (!todayTx || todayTx.length === 0) {
+        bonusPoints += 100;
+        bonusDesc = 'Bonus anniversaire';
+        sendSMS('birthday', client.phone, businessName || '', { clientName: client.name, businessId, clientId });
+      }
+    }
+  }
+
+  // Surprise reward every 10th visit
+  if (newVisitCount % 10 === 0) {
+    bonusPoints += 50;
+    bonusDesc = bonusDesc ? bonusDesc + ' + Surprise 10e visite' : 'Surprise 10e visite!';
+  }
+
+  const totalPoints = points + bonusPoints;
 
   await supabase
     .from('loyalty_clients')
     .update({
-      points_balance: client.points_balance + points,
-      total_points_earned: (client.total_points_earned || 0) + points,
-      visit_count: (client.visit_count || 0) + 1,
+      points_balance: client.points_balance + totalPoints,
+      total_points_earned: (client.total_points_earned || 0) + totalPoints,
+      visit_count: newVisitCount,
       last_visit: new Date().toISOString(),
     })
     .eq('id', clientId);
+
   await addTransaction(businessId, clientId, 'purchase', points, description, amountSpent);
+
+  if (bonusPoints > 0) {
+    await addTransaction(businessId, clientId, 'visit', bonusPoints, bonusDesc);
+  }
+
+  // SMS: points earned
+  if (client.phone && businessName) {
+    sendSMS('points_earned', client.phone, businessName, { clientName: client.name, points: totalPoints, businessId, clientId });
+  }
+
+  return { bonusPoints, bonusDesc, newVisitCount };
+}
+
+// ========== AUDIT: Verify balance from ledger ==========
+
+export async function verifyBalance(clientId) {
+  const { data, error } = await supabase
+    .from('loyalty_transactions')
+    .select('points')
+    .eq('client_id', clientId);
+  if (error) return null;
+  return (data || []).reduce((sum, t) => sum + t.points, 0);
+}
+
+// ========== SMS ==========
+
+export async function sendSMS(type, to, businessName, opts = {}) {
+  try {
+    const { data, error } = await supabase.functions.invoke('send-sms', {
+      body: {
+        type,
+        to,
+        business_name: businessName,
+        client_name: opts.clientName,
+        points: opts.points,
+        reward_name: opts.rewardName,
+        custom_message: opts.customMessage,
+        business_id: opts.businessId,
+        client_id: opts.clientId,
+      },
+    });
+    return data?.sent || false;
+  } catch {
+    return false;
+  }
 }
 
 // ========== REFERRALS ==========

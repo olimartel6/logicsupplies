@@ -5,10 +5,11 @@ import Dashboard from './pages/Dashboard'
 import Rewards from './pages/Rewards'
 import Referral from './pages/Referral'
 import MyQR from './pages/MyQR'
+import Privacy from './pages/Privacy'
 import Admin from './pages/Admin'
 import BottomNav from './components/BottomNav'
 import { config, applyTheme } from './config'
-import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCode } from './services/supabase'
+import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCode, sendSMS } from './services/supabase'
 import './index.css'
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
     if (!c) {
       const code = generateReferralCode(name || 'CLIENT')
       c = await createLoyaltyClient(business.id, phone, name || '', code, null, birthday)
+      // Welcome SMS
+      sendSMS('welcome', phone, business.name, { clientName: name, businessId: business.id, clientId: c.id })
     }
     setClient(c)
     setIsLoggedIn(true)
@@ -97,6 +100,7 @@ function App() {
           <Route path="/" element={<Dashboard client={client} business={business} setClient={setClient} />} />
           <Route path="/rewards" element={<Rewards client={client} business={business} setClient={setClient} />} />
           <Route path="/myqr" element={<MyQR client={client} />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/referral" element={<Referral client={client} business={business} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

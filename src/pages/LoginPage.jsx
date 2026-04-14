@@ -9,10 +9,11 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
   const [code, setCode] = useState('')
   const [step, setStep] = useState('phone')
   const [loading, setLoading] = useState(false)
+  const [consent, setConsent] = useState(false)
 
   const handleSendCode = (e) => {
     e.preventDefault()
-    if (phone.length >= 10) setStep('verify')
+    if (phone.length >= 10 && consent) setStep('verify')
   }
 
   const handleVerify = async (e) => {
@@ -83,7 +84,18 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
                 onChange={e => setBirthday(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={phone.length < 10}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 16, cursor: 'pointer', fontSize: 12, color: 'var(--text-light)', lineHeight: 1.5 }}>
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={e => setConsent(e.target.checked)}
+                style={{ marginTop: 3, width: 18, height: 18, flexShrink: 0 }}
+              />
+              <span>
+                J'accepte la <a href="#/privacy" style={{ color: 'var(--accent-dark)', fontWeight: 600 }}>politique de confidentialité</a> et je consens à recevoir des SMS relatifs à mon compte fidélité.
+              </span>
+            </label>
+            <button type="submit" className="btn btn-primary" disabled={phone.length < 10 || !consent}>
               <Phone size={16} />
               Recevoir mon code
             </button>
