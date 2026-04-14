@@ -25,17 +25,20 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
     setGeneratedCode(newCode)
 
     // Send code by email
-    const sent = await sendEmail('verify_code', email, config.businessName, {
-      clientName: name,
-      code: newCode,
-    })
-
-    if (sent) {
-      setStep('verify')
-    } else {
-      // If email fails, still go to verify (demo mode)
-      setStep('verify')
+    try {
+      const sent = await sendEmail('verify_code', email, config.businessName, {
+        clientName: name,
+        code: newCode,
+      })
+      console.log('Email sent result:', sent)
+      if (!sent) {
+        alert('Erreur: impossible d\'envoyer le courriel. Vérifiez votre adresse.')
+      }
+    } catch (err) {
+      console.error('Email send error:', err)
+      alert('Erreur: ' + (err?.text || err?.message || 'échec envoi'))
     }
+    setStep('verify')
     setSending(false)
   }
 

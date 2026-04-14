@@ -359,15 +359,17 @@ function buildEmailContent(type, businessName, opts = {}) {
 export async function sendEmail(type, to, businessName, opts = {}) {
   try {
     const { subject, html } = buildEmailContent(type, businessName, opts);
-    await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+    console.log('Sending email via EmailJS:', { to, subject, service: EMAILJS_SERVICE, template: EMAILJS_TEMPLATE });
+    const result = await emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
       to_email: to,
       subject: subject,
       html_content: html,
     }, EMAILJS_KEY);
-    return true;
+    console.log('EmailJS result:', result);
+    return result.status === 200;
   } catch (e) {
-    console.error('EmailJS error:', e);
-    return false;
+    console.error('EmailJS error:', e?.text || e?.message || e);
+    throw e;
   }
 }
 

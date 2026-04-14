@@ -75,6 +75,42 @@ const configs = {
     address: '4244 Rue St-Félix, Québec, G1Y 1X5',
   },
 
+  'smith-cafe': {
+    businessName: 'La Maison Smith',
+    slug: 'smith-cafe',
+    tagline: 'Accumulez des points à chaque café, récoltez les récompenses!',
+    logo: import.meta.env.BASE_URL + 'logos/smith-cafe.png',
+    logoLight: import.meta.env.BASE_URL + 'logos/smith-cafe.png',
+    favicon: '☕',
+    heroImage: import.meta.env.BASE_URL + 'images/smith-cafe/hero.jpg',
+    galleryImages: [
+      import.meta.env.BASE_URL + 'images/smith-cafe/torrefaction.jpg',
+      import.meta.env.BASE_URL + 'images/smith-cafe/giselle.jpg',
+    ],
+    pointsPerDollar: 10,
+    referralBonus: 75,
+    visitBonus: 25,
+    pointsLabel: 'Points Smith',
+    theme: {
+      primary: '#181818',
+      primaryLight: '#333333',
+      accent: '#a97f61',
+      accentLight: '#be865c',
+      accentDark: '#8a6545',
+      bg: '#fdf1e2',
+      font: '"Lora", "Montserrat", system-ui, sans-serif',
+    },
+    rewards: [
+      { id: 1, name: 'Café gratuit', points_required: 100, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '10% rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac de café 340g gratuit', points_required: 500, type: 'free_service', value: 'sac' },
+      { id: 4, name: 'Expérience torréfaction gratuite', points_required: 1000, type: 'free_service', value: 'torrefaction' },
+    ],
+    referralMessage: 'Rejoins le programme fidélité La Maison Smith et obtiens 75 points gratuits!',
+    phone: '418-529-0096',
+    address: 'Québec, QC',
+  },
+
   // Example: another business
   'salon-beaute': {
     businessName: 'Salon Beauté Élégance',
