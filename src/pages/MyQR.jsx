@@ -58,9 +58,21 @@ export default function MyQR({ client }) {
         <button
           className="btn btn-primary btn-small"
           style={{ width: 'auto', padding: '12px 24px', background: '#000', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', gap: 8 }}
-          onClick={() => {
+          onClick={async () => {
             const passUrl = `https://kptphghxhexirezukarr.supabase.co/storage/v1/object/public/reward-images/passes/${user.id || 'test-pass'}.pkpass`;
-            window.open(passUrl, '_blank');
+            try {
+              const check = await fetch(passUrl, { method: 'HEAD' });
+              if (check.ok) {
+                window.open(passUrl, '_blank');
+              } else {
+                const { generateWalletPass } = await import('../services/supabase.js');
+                const url = await generateWalletPass(user.id);
+                if (url) window.open(url, '_blank');
+                else alert('Erreur lors de la génération du pass. Réessayez.');
+              }
+            } catch {
+              window.open(passUrl, '_blank');
+            }
           }}
         >
           <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 24, height: 24 }} />

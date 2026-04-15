@@ -375,13 +375,15 @@ export async function sendEmail(type, to, businessName, opts = {}) {
 
 // ========== WALLET PASS ==========
 
-export async function generateWalletPass(clientId, clientName, businessName, points, tier, color) {
+export async function generateWalletPass(clientId) {
   try {
-    const { data } = await supabase.functions.invoke('generate-wallet-pass', {
-      body: { client_id: clientId, client_name: clientName, business_name: businessName, points, tier, color },
+    const { data, error } = await supabase.functions.invoke('generate-wallet-pass', {
+      body: { client_id: clientId },
     });
+    if (error) throw error;
     return data?.url || null;
-  } catch {
+  } catch (e) {
+    console.error('generateWalletPass error:', e);
     return null;
   }
 }
