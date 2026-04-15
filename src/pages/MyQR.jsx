@@ -54,43 +54,56 @@ export default function MyQR({ client }) {
         Montrez ce code à la caisse pour<br />accumuler vos points
       </p>
 
-      <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginBottom: 24 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center', marginBottom: 24 }}>
         <button
-          className="btn btn-accent btn-small"
-          style={{ width: 'auto', padding: '10px 20px' }}
-          onClick={async () => {
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(user.id || 'demo-client')}`;
-            try {
-              const resp = await fetch(qrUrl);
-              const blob = await resp.blob();
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url;
-              a.download = `qr-${config.businessName.replace(/\s/g, '-')}.png`;
-              a.click();
-              URL.revokeObjectURL(url);
-            } catch {
-              window.open(qrUrl, '_blank');
-            }
-          }}
-        >
-          📥 Sauvegarder le QR
-        </button>
-        <button
-          className="btn btn-secondary btn-small"
-          style={{ width: 'auto', padding: '10px 20px' }}
+          className="btn btn-primary btn-small"
+          style={{ width: 'auto', padding: '12px 24px', background: '#000', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', gap: 8 }}
           onClick={() => {
-            if (navigator.share) {
-              navigator.share({
-                title: `Mon QR - ${config.businessName}`,
-                text: `Mon QR code fidélité ${config.businessName}`,
-                url: window.location.href,
-              }).catch(() => {});
-            }
+            const passUrl = `https://kptphghxhexirezukarr.supabase.co/storage/v1/object/public/reward-images/passes/${user.id || 'test-pass'}.pkpass`;
+            window.open(passUrl, '_blank');
           }}
         >
-          📤 Partager
+          <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 24, height: 24 }} />
+          Ajouter au Wallet Apple
         </button>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button
+            className="btn btn-accent btn-small"
+            style={{ width: 'auto', padding: '10px 20px' }}
+            onClick={async () => {
+              const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(user.id || 'demo-client')}`;
+              try {
+                const resp = await fetch(qrUrl);
+                const blob = await resp.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `qr-${config.businessName.replace(/\s/g, '-')}.png`;
+                a.click();
+                URL.revokeObjectURL(url);
+              } catch {
+                window.open(qrUrl, '_blank');
+              }
+            }}
+          >
+            📥 Sauvegarder le QR
+          </button>
+          <button
+            className="btn btn-secondary btn-small"
+            style={{ width: 'auto', padding: '10px 20px' }}
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: `Mon QR - ${config.businessName}`,
+                  text: `Mon QR code fidélité ${config.businessName}`,
+                  url: window.location.href,
+                }).catch(() => {});
+              }
+            }}
+          >
+            📤 Partager
+          </button>
+        </div>
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: 20 }}>
