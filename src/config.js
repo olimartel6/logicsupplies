@@ -9,6 +9,13 @@ const configs = {
     logo: './logo-dark.png',
     logoLight: './logo.png',
     favicon: '💎',
+    heroImage: './images/institut-epilation/laser.jpg',
+    galleryImages: [
+      './images/institut-epilation/epilation-femme.jpg',
+      './images/institut-epilation/epilation-cire.jpg',
+      './images/institut-epilation/epilation-homme.jpg',
+      './images/institut-epilation/creme.jpg',
+    ],
     // Points settings
     pointsPerDollar: 10,
     referralBonus: 75,
@@ -28,8 +35,8 @@ const configs = {
     rewards: [
       { id: 1, name: '10% rabais sur un service', points_required: 250, type: 'discount_percent', value: 10 },
       { id: 2, name: '25$ de rabais', points_required: 500, type: 'discount_fixed', value: 25 },
-      { id: 3, name: 'Épilation cire gratuite', points_required: 1000, type: 'free_service', value: 'cire' },
-      { id: 4, name: 'Séance laser gratuite', points_required: 2000, type: 'free_service', value: 'laser' },
+      { id: 3, name: 'Épilation cire gratuite', points_required: 1000, type: 'free_service', value: 'cire', image: './images/institut-epilation/epilation-cire.jpg' },
+      { id: 4, name: 'Séance laser gratuite', points_required: 2000, type: 'free_service', value: 'laser', image: './images/institut-epilation/laser.jpg' },
     ],
     // Referral message
     referralMessage: 'Rejoins le programme fidélité et obtiens 75 points gratuits!',
