@@ -20,13 +20,16 @@ async function main() {
                  (client.total_points_earned || 0) >= 500 ? 'Argent' : 'Bronze';
 
     console.log(`Generating pass for ${client.name || client.phone} (${client.id})...`);
+    const bizSlug = client.loyalty_businesses?.slug || 'institut-epilation';
+    const colorMap = { 'smith-cafe': '#181818', 'la-peltrie': '#1a1a2e', 'institut-epilation': '#32373c' };
     const passFile = generatePass({
       clientId: client.id,
       clientName: client.name || 'Client',
       businessName: bizName,
       points: client.points_balance || 0,
       tier,
-      color,
+      color: colorMap[bizSlug] || '#a97f61',
+      slug: bizSlug,
     });
 
     // Upload to Supabase Storage
