@@ -377,10 +377,13 @@ export async function sendEmail(type, to, businessName, opts = {}) {
 
 export async function generateWalletPass(clientId) {
   try {
-    const { data, error } = await supabase.functions.invoke('generate-wallet-pass', {
-      body: { client_id: clientId },
+    const resp = await fetch('https://kptphghxhexirezukarr.supabase.co/functions/v1/generate-wallet-pass', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client_id: clientId }),
     });
-    if (error) throw error;
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
     return data?.url || null;
   } catch (e) {
     console.error('generateWalletPass error:', e);
