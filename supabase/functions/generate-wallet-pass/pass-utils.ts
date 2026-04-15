@@ -4,10 +4,9 @@ import JSZip from "npm:jszip@3.10.1";
 // --- Color helper ---
 
 export function hexToRgb(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgb(${r}, ${g}, ${b})`;
+  const match = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex);
+  if (!match) return "rgb(26, 26, 46)";
+  return `rgb(${parseInt(match[1], 16)}, ${parseInt(match[2], 16)}, ${parseInt(match[3], 16)})`;
 }
 
 // --- Tier logic ---
@@ -49,7 +48,7 @@ export function buildPassJson(params: PassParams): Record<string, unknown> {
     teamIdentifier,
   } = params;
 
-  const serial = `loyalty-${clientId}-${Date.now()}`;
+  const serial = `loyalty-${clientId}`;
 
   return {
     formatVersion: 1,

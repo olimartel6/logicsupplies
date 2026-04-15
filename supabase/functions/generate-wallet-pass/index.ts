@@ -16,6 +16,12 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
+const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 Deno.serve(async (req) => {
   // CORS preflight
   if (req.method === "OPTIONS") {
@@ -23,18 +29,23 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { client_id } = await req.json();
-    if (!client_id) {
+    let body: { client_id?: string };
+    try {
+      body = await req.json();
+    } catch {
+      return new Response(JSON.stringify({ error: "Invalid JSON body" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const { client_id } = body;
+
+    if (!client_id || !UUID_RE.test(client_id)) {
       return new Response(
-        JSON.stringify({ error: "client_id is required" }),
+        JSON.stringify({ error: "client_id must be a valid UUID" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
-
-    // Init Supabase with service role
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Fetch client with business join
     const { data: client, error: clientErr } = await supabase
@@ -135,7 +146,7 @@ Deno.serve(async (req) => {
   } catch (err) {
     console.error("generate-wallet-pass error:", err);
     return new Response(
-      JSON.stringify({ error: "Internal server error", details: (err as Error).message }),
+      JSON.stringify({ error: "Internal server error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
   }
