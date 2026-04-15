@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { mockClient } from '../data/mock'
 import config from '../config'
 import { getTier } from '../utils/tiers'
@@ -6,6 +6,7 @@ import { getTier } from '../utils/tiers'
 export default function MyQR({ client }) {
   const user = client || mockClient
   const tier = getTier(user.total_points_earned || 0)
+  const [walletLoading, setWalletLoading] = useState(false)
 
   // Max brightness on this screen
   useEffect(() => {
@@ -58,18 +59,24 @@ export default function MyQR({ client }) {
         <button
           className="btn btn-primary btn-small"
           style={{ width: 'auto', padding: '12px 24px', background: '#000', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', gap: 8 }}
+          disabled={walletLoading}
           onClick={async () => {
-            const { generateWalletPass } = await import('../services/supabase.js');
-            const url = await generateWalletPass(user.id);
-            if (url) {
-              window.location.href = url;
-            } else {
-              alert('Erreur lors de la génération du pass. Réessayez.');
+            setWalletLoading(true);
+            try {
+              const { generateWalletPass } = await import('../services/supabase.js');
+              const url = await generateWalletPass(user.id);
+              if (url) {
+                window.location.href = url;
+              } else {
+                alert('Erreur lors de la génération du pass. Réessayez.');
+              }
+            } finally {
+              setWalletLoading(false);
             }
           }}
         >
           <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 24, height: 24 }} />
-          Ajouter au Wallet Apple
+          {walletLoading ? 'Génération en cours...' : 'Ajouter au Wallet Apple'}
         </button>
         <div style={{ display: 'flex', gap: 8 }}>
           <button
