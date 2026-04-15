@@ -1,36 +1,35 @@
 import { useState } from 'react'
-import { Mail, ShieldCheck, ArrowLeft } from 'lucide-react'
+import { Mail, ShieldCheck, ArrowLeft, Lock, UserPlus, LogIn } from 'lucide-react'
 import config from '../config'
 import { sendEmail } from '../services/supabase'
 
-export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
-  const [phone, setPhone] = useState('')
+export default function LoginPage({ onLogin, onSignup, onAdminLogin, referralFrom }) {
+  const [mode, setMode] = useState('login') // 'login' | 'signup'
+  const [step, setStep] = useState('info') // 'info' | 'verify' (verify only for signup)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [phone, setPhone] = useState('')
   const [birthday, setBirthday] = useState('')
   const [code, setCode] = useState('')
   const [generatedCode, setGeneratedCode] = useState('')
-  const [step, setStep] = useState('info')
   const [loading, setLoading] = useState(false)
   const [sending, setSending] = useState(false)
   const [consent, setConsent] = useState(false)
 
   const handleSendCode = async (e) => {
     e.preventDefault()
-    if (!email || !consent) return
+    if (!email || !password || !consent) return
 
     setSending(true)
-    // Generate 4-digit code
     const newCode = String(Math.floor(1000 + Math.random() * 9000))
     setGeneratedCode(newCode)
 
-    // Send code by email
     try {
       const sent = await sendEmail('verify_code', email, config.businessName, {
         clientName: name,
         code: newCode,
       })
-      console.log('Email sent result:', sent)
       if (!sent) {
         alert('Erreur: impossible d\'envoyer le courriel. Vérifiez votre adresse.')
       }
@@ -42,14 +41,12 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
     setSending(false)
   }
 
-  const handleVerify = async (e) => {
+  const handleVerifyAndSignup = async (e) => {
     e.preventDefault()
-    // Admin login removed — admin uses Loggic Business app
-    // Check code matches (or accept any in demo mode if email wasn't configured)
     if (code.length === 4 && (code === generatedCode || !generatedCode)) {
       setLoading(true)
       try {
-        await onLogin(phone, name, birthday, email)
+        await onSignup(email, password, name, phone, birthday)
       } catch (err) {
         alert('Erreur: ' + (err.message || 'réessayez'))
       } finally {
@@ -58,6 +55,29 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
     } else if (code.length === 4) {
       alert('Code invalide. Vérifiez votre courriel.')
     }
+  }
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault()
+    if (!email || !password) return
+    setLoading(true)
+    try {
+      await onLogin(email, password)
+    } catch (err) {
+      alert('Erreur: ' + (err.message || 'réessayez'))
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const switchMode = (newMode) => {
+    setMode(newMode)
+    setStep('info')
+    setCode('')
+    setGeneratedCode('')
+    setPassword('')
+    setLoading(false)
+    setSending(false)
   }
 
   return (
@@ -75,13 +95,54 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
         <h1>Programme Fidélité</h1>
         <p>{config.tagline}</p>
 
-        {referralFrom && (
+        {referralFrom && mode === 'signup' && (
           <div style={{ background: 'var(--bg-warm)', borderRadius: 'var(--radius-sm)', padding: '12px 16px', marginBottom: 24, fontSize: 13, color: 'var(--accent-dark)', fontWeight: 600 }}>
             Vous avez été parrainé(e) — inscrivez-vous pour recevoir {config.referralBonus} points!
           </div>
         )}
 
-        {step === 'info' ? (
+        {/* ========== LOGIN MODE ========== */}
+        {mode === 'login' && (
+          <form onSubmit={handleLoginSubmit}>
+            <div className="input-group">
+              <label>Courriel</label>
+              <input
+                type="email"
+                placeholder="marie@email.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                autoFocus
+              />
+            </div>
+            <div className="input-group">
+              <label>Mot de passe</label>
+              <input
+                type="password"
+                placeholder="Votre mot de passe"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={!email || !password || loading}>
+              <LogIn size={16} />
+              {loading ? 'Connexion...' : 'Connexion'}
+            </button>
+            <div className="login-divider"><span>ou</span></div>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => switchMode('signup')}
+            >
+              <UserPlus size={16} />
+              Pas de compte? Inscrivez-vous
+            </button>
+          </form>
+        )}
+
+        {/* ========== SIGNUP MODE — STEP 1: INFO ========== */}
+        {mode === 'signup' && step === 'info' && (
           <form onSubmit={handleSendCode}>
             <div className="input-group">
               <label>Votre nom</label>
@@ -101,6 +162,17 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
                 onChange={e => setEmail(e.target.value)}
                 required
                 autoFocus
+              />
+            </div>
+            <div className="input-group">
+              <label>Mot de passe *</label>
+              <input
+                type="password"
+                placeholder="Choisissez un mot de passe"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+                minLength={6}
               />
             </div>
             <div className="input-group">
@@ -131,18 +203,25 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
                 J'accepte la <a href="#/privacy" style={{ color: 'var(--accent-dark)', fontWeight: 600 }}>politique de confidentialité</a> et je consens à recevoir des courriels relatifs à mon compte fidélité.
               </span>
             </label>
-            <button type="submit" className="btn btn-primary" disabled={!email || !consent || sending}>
+            <button type="submit" className="btn btn-primary" disabled={!email || !password || !consent || sending}>
               <Mail size={16} />
               {sending ? 'Envoi...' : 'Recevoir mon code par courriel'}
             </button>
-            <div className="login-divider"><span>Sécurisé par courriel</span></div>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-              <ShieldCheck size={14} />
-              Un code de vérification sera envoyé à votre courriel
-            </p>
+            <div className="login-divider"><span>ou</span></div>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => switchMode('login')}
+            >
+              <LogIn size={16} />
+              Déjà un compte? Connectez-vous
+            </button>
           </form>
-        ) : (
-          <form onSubmit={handleVerify}>
+        )}
+
+        {/* ========== SIGNUP MODE — STEP 2: VERIFY CODE ========== */}
+        {mode === 'signup' && step === 'verify' && (
+          <form onSubmit={handleVerifyAndSignup}>
             <p style={{ marginBottom: 20, fontSize: 14, color: 'var(--text-light)' }}>
               Code envoyé à <strong>{email}</strong>
             </p>
@@ -160,7 +239,7 @@ export default function LoginPage({ onLogin, onAdminLogin, referralFrom }) {
             </div>
             <button type="submit" className="btn btn-primary" disabled={code.length < 4 || loading}>
               <ShieldCheck size={16} />
-              {loading ? 'Connexion...' : 'Connexion'}
+              {loading ? 'Inscription...' : 'Créer mon compte'}
             </button>
             <button
               type="button"

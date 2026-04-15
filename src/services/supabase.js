@@ -495,6 +495,39 @@ export async function getReferrals(clientId) {
   return data || [];
 }
 
+// ========== AUTH (email + password) ==========
+
+export async function registerClient(businessId, email, password, name, phone, birthday, referralCode, referredBy) {
+  const { data, error } = await supabase.rpc('register_client', {
+    p_business_id: businessId,
+    p_email: email,
+    p_password: password,
+    p_name: name || '',
+    p_phone: phone || null,
+    p_birthday: birthday || null,
+    p_referral_code: referralCode,
+    p_referred_by: referredBy || null,
+  });
+  if (error) {
+    if (error.message.includes('EMAIL_EXISTS')) throw new Error('Un compte existe déjà avec ce courriel.');
+    throw error;
+  }
+  return data;
+}
+
+export async function loginClient(businessId, email, password) {
+  const { data, error } = await supabase.rpc('login_client', {
+    p_business_id: businessId,
+    p_email: email,
+    p_password: password,
+  });
+  if (error) {
+    if (error.message.includes('INVALID_CREDENTIALS')) throw new Error('Courriel ou mot de passe invalide.');
+    throw error;
+  }
+  return data;
+}
+
 // ========== HELPERS ==========
 
 export function generateReferralCode(name) {

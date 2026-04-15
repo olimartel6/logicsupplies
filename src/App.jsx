@@ -10,7 +10,7 @@ import Privacy from './pages/Privacy'
 import Admin from './pages/Admin'
 import BottomNav from './components/BottomNav'
 import { config, applyTheme } from './config'
-import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCode, sendSMS, sendEmail, generateWalletPass } from './services/supabase'
+import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCode, sendSMS, sendEmail, generateWalletPass, registerClient, loginClient } from './services/supabase'
 import './index.css'
 
 function App() {
@@ -38,18 +38,26 @@ function App() {
     if (ref) setReferralFrom(ref)
   }, [])
 
-  const handleLogin = async (phone, name, birthday, email) => {
+  const handleLogin = async (email, password) => {
     if (!business) return
-    let c = await getClientByPhone(business.id, phone)
-    if (!c) {
-      const code = generateReferralCode(name || 'CLIENT')
-      c = await createLoyaltyClient(business.id, phone, name || '', code, null, birthday, email)
-      // Welcome notifications
-      if (email) sendEmail('welcome', email, business.name, { clientName: name, businessId: business.id, clientId: c.id })
-      if (phone) sendSMS('welcome', phone, business.name, { clientName: name, businessId: business.id, clientId: c.id })
-      // Generate Apple Wallet pass
-      generateWalletPass(c.id, name || 'Client', business.name, 0, 'Bronze')
+    const c = await loginClient(business.id, email, password)
+    setClient(c)
+    setIsLoggedIn(true)
+  }
+
+  const handleSignup = async (email, password, name, phone, birthday) => {
+    if (!business) return
+    const code = generateReferralCode(name || 'CLIENT')
+    const referralFromParam = new URLSearchParams(window.location.search).get('ref')
+    let referredBy = null
+    if (referralFromParam) {
+      // Lookup referrer by referral code
+      referredBy = referralFromParam
     }
+    const c = await registerClient(business.id, email, password, name, phone, birthday, code, referredBy)
+    if (email) sendEmail('welcome', email, business.name, { clientName: name, businessId: business.id, clientId: c.id })
+    if (phone) sendSMS('welcome', phone, business.name, { clientName: name, businessId: business.id, clientId: c.id })
+    generateWalletPass(c.id)
     setClient(c)
     setIsLoggedIn(true)
   }
@@ -79,6 +87,7 @@ function App() {
         <div className="app">
           <LoginPage
             onLogin={handleLogin}
+            onSignup={handleSignup}
             onAdminLogin={handleAdminLogin}
             referralFrom={referralFrom}
           />
