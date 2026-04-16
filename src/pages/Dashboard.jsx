@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { CreditCard, MapPin, Users, Gift, ChevronRight } from 'lucide-react'
+import { CreditCard, MapPin, Users, Gift, ChevronRight, LogOut } from 'lucide-react'
 import config from '../config'
 import { getClientTransactions, getClientById } from '../services/supabase'
 import { getTier, getNextTier, isBirthdayToday } from '../utils/tiers'
@@ -14,7 +14,7 @@ const typeIcons = {
 }
 const typeColors = { purchase: 'var(--success)', visit: 'var(--accent-dark)', referral: '#7C5CFC', redemption: 'var(--danger)', manual: 'var(--success)' }
 
-export default function Dashboard({ client, business, setClient }) {
+export default function Dashboard({ client, business, setClient, onLogout }) {
   const [transactions, setTransactions] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -42,11 +42,24 @@ export default function Dashboard({ client, business, setClient }) {
           <div className="welcome-sub">Bonjour,</div>
           <div className="welcome-name">{client?.name || 'Client'}</div>
         </div>
-        {config.logo ? (
-          <img src={config.logo} alt="" className="welcome-logo" />
-        ) : (
-          <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)' }}>{config.businessName}</span>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {config.logo ? (
+            <img src={config.logo} alt="" className="welcome-logo" />
+          ) : (
+            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)' }}>{config.businessName}</span>
+          )}
+          <button
+            onClick={onLogout}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: 'var(--text-muted)', padding: 6, borderRadius: 8,
+              display: 'flex', alignItems: 'center',
+            }}
+            title="Déconnexion"
+          >
+            <LogOut size={18} />
+          </button>
+        </div>
       </div>
 
       {/* Tier Badge */}

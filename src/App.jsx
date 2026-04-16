@@ -14,9 +14,10 @@ import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCod
 import './index.css'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const savedClient = (() => { try { return JSON.parse(localStorage.getItem('loyalty_client')) } catch { return null } })()
+  const [isLoggedIn, setIsLoggedIn] = useState(!!savedClient)
   const [isAdmin, setIsAdmin] = useState(false)
-  const [client, setClient] = useState(null)
+  const [client, setClient] = useState(savedClient)
   const [business, setBusiness] = useState(null)
   const [referralFrom, setReferralFrom] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -41,6 +42,7 @@ function App() {
   const handleLogin = async (email, password) => {
     if (!business) return
     const c = await loginClient(business.id, email, password)
+    localStorage.setItem('loyalty_client', JSON.stringify(c))
     setClient(c)
     setIsLoggedIn(true)
   }
@@ -58,6 +60,7 @@ function App() {
     if (email) sendEmail('welcome', email, business.name, { clientName: name, businessId: business.id, clientId: c.id })
     if (phone) sendSMS('welcome', phone, business.name, { clientName: name, businessId: business.id, clientId: c.id })
     generateWalletPass(c.id)
+    localStorage.setItem('loyalty_client', JSON.stringify(c))
     setClient(c)
     setIsLoggedIn(true)
   }
@@ -68,6 +71,7 @@ function App() {
   }
 
   const handleLogout = () => {
+    localStorage.removeItem('loyalty_client')
     setIsLoggedIn(false)
     setIsAdmin(false)
     setClient(null)
@@ -110,7 +114,7 @@ function App() {
     <HashRouter>
       <div className="app">
         <Routes>
-          <Route path="/" element={<Dashboard client={client} business={business} setClient={setClient} />} />
+          <Route path="/" element={<Dashboard client={client} business={business} setClient={setClient} onLogout={handleLogout} />} />
           <Route path="/rewards" element={<Rewards client={client} business={business} setClient={setClient} />} />
           <Route path="/offers" element={<Offers client={client} business={business} />} />
           <Route path="/myqr" element={<MyQR client={client} />} />
