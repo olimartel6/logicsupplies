@@ -694,6 +694,51 @@ const configs = {
     phone: '', address: 'Cap-Rouge, Quebec',
   },
 
+  'le-cafeier': {
+    businessName: 'Boutique Le Cafeier', slug: 'le-cafeier', tagline: 'Cafes, thes et gourmandises depuis 1992', logo: null, logoLight: null, favicon: '☕',
+    heroImage: './images/le-cafeier/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Cafeier',
+    theme: { primary: '#5D4037', primaryLight: '#795548', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cafe gratuit', points_required: 100, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac de cafe gratuit', points_required: 500, type: 'free_service', value: 'sac' },
+      { id: 4, name: '25$ de credit', points_required: 1000, type: 'free_service', value: 'credit25' },
+    ],
+    referralMessage: 'Rejoins Le Cafeier et obtiens 75 points gratuits!',
+    phone: '418-871-9304', address: '811 Route Jean Gauvin, Cap-Rouge',
+  },
+
+  'les-bruleries': {
+    businessName: 'Les Bruleries', slug: 'les-bruleries', tagline: 'Micro-torrefacteur artisanal', logo: null, logoLight: null, favicon: '☕',
+    heroImage: './images/les-bruleries/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Bruleries',
+    theme: { primary: '#3E2723', primaryLight: '#5D4037', accent: '#8D6E63', accentLight: '#A1887F', accentDark: '#6D4C41', bg: '#EFEBE9', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Espresso gratuit', points_required: 100, type: 'free_service', value: 'espresso' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac de cafe 340g gratuit', points_required: 500, type: 'free_service', value: 'sac' },
+      { id: 4, name: 'Atelier degustation', points_required: 1000, type: 'free_service', value: 'atelier' },
+    ],
+    referralMessage: 'Rejoins Les Bruleries et obtiens 75 points gratuits!',
+    phone: '', address: 'Sainte-Foy, Quebec',
+  },
+
+  'brulerie-rousseau': {
+    businessName: 'Brulerie Rousseau', slug: 'brulerie-rousseau', tagline: 'Expert en cafe depuis 1867', logo: null, logoLight: null, favicon: '☕',
+    heroImage: './images/brulerie-rousseau/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Rousseau',
+    theme: { primary: '#6D4C41', primaryLight: '#8D6E63', accent: '#A1887F', accentLight: '#BCAAA4', accentDark: '#5D4037', bg: '#FBF5F0', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cafe gratuit', points_required: 100, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac de cafe gratuit', points_required: 500, type: 'free_service', value: 'sac' },
+      { id: 4, name: '30$ de credit', points_required: 1000, type: 'free_service', value: 'credit30' },
+    ],
+    referralMessage: 'Rejoins Brulerie Rousseau et obtiens 75 points gratuits!',
+    phone: '418-659-7786', address: 'Halles Sainte-Foy, Quebec',
+  },
+
   'quai-1635': {
     businessName: 'Quai 1635', slug: 'quai-1635', tagline: 'Restaurant sur le fleuve', logo: null, logoLight: null, favicon: '⚓',
     heroImage: './images/quai-1635/hero.png', galleryImages: [],
