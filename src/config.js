@@ -693,6 +693,51 @@ const configs = {
     referralMessage: 'Rejoins Coiffure Synergie et obtiens 75 points gratuits!',
     phone: '', address: 'Cap-Rouge, Quebec',
   },
+
+  'quai-1635': {
+    businessName: 'Quai 1635', slug: 'quai-1635', tagline: 'Restaurant sur le fleuve', logo: null, logoLight: null, favicon: '⚓',
+    heroImage: './images/quai-1635/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Quai',
+    theme: { primary: '#1B4F72', primaryLight: '#2471A3', accent: '#3498DB', accentLight: '#5DADE2', accentDark: '#2980B9', bg: '#F0F8FF', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cocktail gratuit', points_required: 150, type: 'free_service', value: 'cocktail' },
+      { id: 2, name: '10% de rabais', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Entree gratuite', points_required: 500, type: 'free_service', value: 'entree' },
+      { id: 4, name: 'Repas pour 2 offert', points_required: 1500, type: 'free_service', value: 'repas2' },
+    ],
+    referralMessage: 'Rejoins Quai 1635 et obtiens 75 points gratuits!',
+    phone: '418-651-7824', address: '4155 Ch. de la Plage-Jacques-Cartier, Cap-Rouge',
+  },
+
+  'shaker-cap-rouge': {
+    businessName: 'Shaker', slug: 'shaker-cap-rouge', tagline: 'Cuisine & Mixologie', logo: null, logoLight: null, favicon: '🍸',
+    heroImage: './images/shaker-cap-rouge/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Shaker',
+    theme: { primary: '#E74C3C', primaryLight: '#EC7063', accent: '#C0392B', accentLight: '#E74C3C', accentDark: '#A93226', bg: '#FDF5F4', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cocktail gratuit', points_required: 150, type: 'free_service', value: 'cocktail' },
+      { id: 2, name: '10% de rabais', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Burger gratuit', points_required: 500, type: 'free_service', value: 'burger' },
+      { id: 4, name: 'Tartare pour 2 offert', points_required: 1500, type: 'free_service', value: 'tartare2' },
+    ],
+    referralMessage: 'Rejoins Shaker et obtiens 75 points gratuits!',
+    phone: '', address: '3695 Rue de l\'Hetriere #250, Saint-Augustin',
+  },
+
+  'bar-le-st-aug': {
+    businessName: 'Bar Le St-Aug', slug: 'bar-le-st-aug', tagline: 'Bar et ambiance locale', logo: null, logoLight: null, favicon: '🍺',
+    heroImage: './images/bar-le-st-aug/hero.png', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points St-Aug',
+    theme: { primary: '#2ECC71', primaryLight: '#58D68D', accent: '#27AE60', accentLight: '#2ECC71', accentDark: '#1E8449', bg: '#F0FFF4', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Consommation gratuite', points_required: 100, type: 'free_service', value: 'drink' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Pizza gratuite', points_required: 500, type: 'free_service', value: 'pizza' },
+      { id: 4, name: '25$ de credit', points_required: 1000, type: 'free_service', value: 'credit25' },
+    ],
+    referralMessage: 'Rejoins Bar Le St-Aug et obtiens 75 points gratuits!',
+    phone: '418-878-5321', address: '201 Route 138, Saint-Augustin',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
