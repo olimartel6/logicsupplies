@@ -606,7 +606,7 @@ const configs = {
 
   'boulangerie-bonneau': {
     businessName: 'Boulangerie Bonneau', slug: 'boulangerie-bonneau', tagline: 'Pains et patisseries artisanales', logo: null, logoLight: null, favicon: '🍞',
-    heroImage: './images/boulangerie-bonneau/hero.png', galleryImages: [],
+    heroImage: './images/boulangerie-bonneau/food1.jpg', galleryImages: ['./images/boulangerie-bonneau/interior1.jpg'],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Bonneau',
     theme: { primary: '#8B6914', primaryLight: '#A07D1A', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
     rewards: [
@@ -620,8 +620,8 @@ const configs = {
   },
 
   'paillard-cap-rouge': {
-    businessName: 'Paillard', slug: 'paillard-cap-rouge', tagline: 'Boulangerie-patisserie artisanale', logo: null, logoLight: null, favicon: '🥖',
-    heroImage: './images/paillard-cap-rouge/hero.png', galleryImages: [],
+    businessName: 'Paillard', slug: 'paillard-cap-rouge', tagline: 'Boulangerie-patisserie artisanale', logo: './images/paillard-cap-rouge/logo.png', logoLight: './images/paillard-cap-rouge/logo.png', favicon: '🥖',
+    heroImage: './images/paillard-cap-rouge/food.jpg', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Paillard',
     theme: { primary: '#1A1A1A', primaryLight: '#333333', accent: '#C8A97E', accentLight: '#D9C0A0', accentDark: '#A88D62', bg: '#FAFAF8', font: 'system-ui, sans-serif' },
     rewards: [
@@ -635,8 +635,8 @@ const configs = {
   },
 
   'patisserie-de-la-gare': {
-    businessName: 'Patisserie De La Gare', slug: 'patisserie-de-la-gare', tagline: 'Patisseries fines', logo: null, logoLight: null, favicon: '🎂',
-    heroImage: './images/patisserie-de-la-gare/hero.png', galleryImages: [],
+    businessName: 'Patisserie De La Gare', slug: 'patisserie-de-la-gare', tagline: 'Patisseries fines', logo: './images/patisserie-de-la-gare/logo.jpg', logoLight: './images/patisserie-de-la-gare/logo.jpg', favicon: '🎂',
+    heroImage: './images/patisserie-de-la-gare/food1.jpg', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points La Gare',
     theme: { primary: '#C2185B', primaryLight: '#E91E63', accent: '#F06292', accentLight: '#F8BBD0', accentDark: '#AD1457', bg: '#FFF5F8', font: 'system-ui, sans-serif' },
     rewards: [
@@ -650,8 +650,8 @@ const configs = {
   },
 
   'concept-beaute': {
-    businessName: 'Concept Beaute Signature', slug: 'concept-beaute', tagline: 'Coiffure et soins beaute', logo: null, logoLight: null, favicon: '💇',
-    heroImage: './images/concept-beaute/hero.png', galleryImages: [],
+    businessName: 'Concept Beaute Signature', slug: 'concept-beaute', tagline: 'Coiffure et soins beaute', logo: './images/concept-beaute/logo.png', logoLight: './images/concept-beaute/logo.png', favicon: '💇',
+    heroImage: './images/concept-beaute/service.jpg', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Beaute',
     theme: { primary: '#B8860B', primaryLight: '#DAA520', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF8F0', font: 'system-ui, sans-serif' },
     rewards: [
@@ -665,8 +665,8 @@ const configs = {
   },
 
   'pro-coiffure': {
-    businessName: 'Pro Coiffure', slug: 'pro-coiffure', tagline: 'Coiffure et esthetique', logo: null, logoLight: null, favicon: '✂️',
-    heroImage: './images/pro-coiffure/hero.png', galleryImages: [],
+    businessName: 'Pro Coiffure', slug: 'pro-coiffure', tagline: 'Coiffure et esthetique', logo: './images/pro-coiffure/logo.png', logoLight: './images/pro-coiffure/logo.png', favicon: '✂️',
+    heroImage: './images/pro-coiffure/slider.png', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Pro',
     theme: { primary: '#2C3E50', primaryLight: '#34495E', accent: '#3498DB', accentLight: '#5DADE2', accentDark: '#2980B9', bg: '#F5F7FA', font: 'system-ui, sans-serif' },
     rewards: [
