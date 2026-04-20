@@ -587,6 +587,22 @@ const configs = {
     referralMessage: 'Rejoins le programme fidelite Fendel & Lilo et obtiens 75 points gratuits!',
     phone: '418-478-3039', address: '955 Rte Jean-Gauvin, Quebec',
   },
+
+  'ramona-tannous': {
+    businessName: 'Patisserie Ramona Tannous', slug: 'ramona-tannous', tagline: 'Patisseries artisanales depuis 30 ans', logo: null, logoLight: null, favicon: '🥐',
+    heroImage: './images/ramona-tannous/hero.png',
+    galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Ramona',
+    theme: { primary: '#8B4513', primaryLight: '#A0522D', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Patisserie gratuite', points_required: 100, type: 'free_service', value: 'patisserie' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Gateau gratuit', points_required: 500, type: 'free_service', value: 'gateau' },
+      { id: 4, name: '30$ de credit', points_required: 1000, type: 'free_service', value: 'credit30' },
+    ],
+    referralMessage: 'Rejoins le programme fidelite Patisserie Ramona Tannous et obtiens 75 points gratuits!',
+    phone: '418-877-4691', address: '3583 Rue de l\'Hetriere, Saint-Augustin-de-Desmaures',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
