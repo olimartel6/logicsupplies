@@ -555,6 +555,20 @@ const configs = {
     referralMessage: 'Rejoins Les Halles en Fleurs et obtiens 75 points!',
     phone: '', address: 'Montcalm, Québec',
   },
+
+  'cafe-vieux-cap-rouge': {
+    businessName: 'Cafe Vieux-Cap-Rouge', slug: 'cafe-vieux-cap-rouge', tagline: 'Votre cafe fidele, 24h/24', logo: null, logoLight: null, favicon: '☕',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Cafe',
+    theme: { primary: '#5D4037', primaryLight: '#795548', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cafe gratuit', points_required: 100, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Dejeuner gratuit', points_required: 500, type: 'free_service', value: 'dejeuner' },
+      { id: 4, name: '25$ de credit', points_required: 1000, type: 'free_service', value: 'credit25' },
+    ],
+    referralMessage: 'Rejoins le programme fidelite Cafe Vieux-Cap-Rouge et obtiens 75 points gratuits!',
+    phone: '418-653-3969', address: '1487 Rue Provancher Local 104, Quebec',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
