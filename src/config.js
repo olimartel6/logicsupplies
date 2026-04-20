@@ -558,6 +558,8 @@ const configs = {
 
   'cafe-vieux-cap-rouge': {
     businessName: 'Cafe Vieux-Cap-Rouge', slug: 'cafe-vieux-cap-rouge', tagline: 'Votre cafe fidele, 24h/24', logo: null, logoLight: null, favicon: '☕',
+    heroImage: './images/cafe-vieux-cap-rouge/hero.png',
+    galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Cafe',
     theme: { primary: '#5D4037', primaryLight: '#795548', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
     rewards: [
@@ -568,6 +570,22 @@ const configs = {
     ],
     referralMessage: 'Rejoins le programme fidelite Cafe Vieux-Cap-Rouge et obtiens 75 points gratuits!',
     phone: '418-653-3969', address: '1487 Rue Provancher Local 104, Quebec',
+  },
+
+  'fendel-lilo': {
+    businessName: 'Fendel & Lilo', slug: 'fendel-lilo', tagline: 'Cheesecakes, patisseries et gourmandises', logo: './images/fendel-lilo/logo.png', logoLight: null, favicon: '🍰',
+    heroImage: './images/fendel-lilo/hero.png',
+    galleryImages: ['./images/fendel-lilo/food.png'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Fendel',
+    theme: { primary: '#E8A0BF', primaryLight: '#F0BCD4', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FFF5F9', font: 'system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Mini cheesecake gratuit', points_required: 100, type: 'free_service', value: 'mini' },
+      { id: 2, name: '10% de rabais', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Cheesecake entier gratuit', points_required: 500, type: 'free_service', value: 'cheesecake' },
+      { id: 4, name: '30$ de credit', points_required: 1000, type: 'free_service', value: 'credit30' },
+    ],
+    referralMessage: 'Rejoins le programme fidelite Fendel & Lilo et obtiens 75 points gratuits!',
+    phone: '418-478-3039', address: '955 Rte Jean-Gauvin, Quebec',
   },
 };
 
