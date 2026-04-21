@@ -1010,7 +1010,7 @@ const configs = {
   },
 
   'studio-rebel': {
-    businessName: 'Studio Rebel', slug: 'studio-rebel', tagline: 'Yoga, Pilates, Buti et plus', logo: './images/studio-rebel/hero.png', logoLight: './images/studio-rebel/hero.png', favicon: '🧘',
+    businessName: 'Studio Rebel', slug: 'studio-rebel', tagline: 'Yoga, Pilates, Buti et plus', favicon: '🧘',
     heroImage: './images/studio-rebel/studio.jpg', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Rebel',
     theme: { primary: '#9B59B6', primaryLight: '#AF7AC5', accent: '#8E44AD', accentLight: '#BB8FCE', accentDark: '#7D3C98', bg: '#F9F5FC', font: 'system-ui, sans-serif' },
