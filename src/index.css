@@ -151,12 +151,13 @@ body {
 }
 .btn-secondary {
   background: var(--bg-card);
-  color: var(--primary);
-  border: 1.5px solid rgba(0,0,0,0.1);
+  color: var(--text);
+  border: 1.5px solid rgba(0,0,0,0.18);
+  font-weight: 600;
 }
 .btn-secondary:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-dark);
   box-shadow: var(--shadow-sm);
 }
 .btn-success { background: var(--success); color: #FFFFFF; }

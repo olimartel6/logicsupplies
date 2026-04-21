@@ -147,7 +147,7 @@ export default function LoginPage({ onLogin, onSignup, onAdminLogin, onDemo, ref
               <button
                 type="button"
                 className="btn btn-secondary"
-                style={{ marginTop: 8, opacity: 0.7 }}
+                style={{ marginTop: 8 }}
                 onClick={onDemo}
               >
                 <Eye size={16} />
