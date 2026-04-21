@@ -39,6 +39,13 @@ function App() {
     if (ref) setReferralFrom(ref)
   }, [])
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (params.get('demo') === '1' && !isLoggedIn && !loading) {
+      handleDemo()
+    }
+  }, [loading])
+
   const handleLogin = async (email, password) => {
     if (!business) return
     const c = await loginClient(business.id, email, password)
