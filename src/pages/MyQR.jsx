@@ -14,52 +14,52 @@ export default function MyQR({ client }) {
 
   return (
     <div className="page-content">
-      <div style={{ textAlign: 'center', padding: '20px 0 8px' }}>
+      <div style={{ textAlign: 'center', padding: '12px 0 4px' }}>
         {config.logo ? (
-          <img src={config.logo} alt={config.businessName} style={{ height: 40, marginBottom: 12 }} />
+          <img src={config.logo} alt={config.businessName} style={{ height: 32, marginBottom: 6 }} />
         ) : (
-          <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)' }}>{config.businessName}</h2>
+          <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)' }}>{config.businessName}</h2>
         )}
-        <p style={{ fontSize: 14, color: 'var(--text-light)', marginTop: 4 }}>{user.name || 'Client'}</p>
+        <p style={{ fontSize: 13, color: 'var(--text-light)', marginTop: 2 }}>{user.name || 'Client'}</p>
       </div>
 
-      <div className="gold-line" style={{ margin: '12px auto 24px' }} />
+      <div className="gold-line" style={{ margin: '8px auto 12px' }} />
 
-      <div style={{ textAlign: 'center', padding: '0 0 24px', position: 'relative' }}>
+      <div style={{ textAlign: 'center', padding: '0 0 12px', position: 'relative' }}>
         <div style={{
-          position: 'relative', display: 'inline-block', padding: 6,
+          position: 'relative', display: 'inline-block', padding: 4,
           background: 'linear-gradient(135deg, var(--accent), var(--accent-dark), var(--accent-light), var(--accent))',
           backgroundSize: '300% 300%',
           animation: 'shimmer 6s ease infinite',
-          borderRadius: 32,
+          borderRadius: 24,
           boxShadow: '0 24px 60px rgba(201,169,110,0.25), 0 8px 20px rgba(0,0,0,0.08)',
         }}>
           <div style={{
-            padding: 32, background: '#FFFFFF', borderRadius: 26,
+            padding: 16, background: '#FFFFFF', borderRadius: 20,
             position: 'relative', overflow: 'hidden',
           }}>
             <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(user.id || 'demo-client')}&margin=0`}
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(user.id || 'demo-client')}&margin=0`}
               alt="Mon QR Code"
-              width={280}
-              height={280}
-              style={{ borderRadius: 12, display: 'block' }}
+              width={180}
+              height={180}
+              style={{ borderRadius: 10, display: 'block' }}
             />
           </div>
         </div>
       </div>
 
       <p style={{
-        textAlign: 'center', fontSize: 14, color: 'var(--text-light)',
-        fontWeight: 600, marginBottom: 16, lineHeight: 1.5,
+        textAlign: 'center', fontSize: 12, color: 'var(--text-light)',
+        fontWeight: 600, marginBottom: 10, lineHeight: 1.4,
       }}>
-        Montrez ce code à la caisse pour<br />accumuler vos points
+        Montrez ce code à la caisse pour accumuler vos points
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center', marginBottom: 24 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center', marginBottom: 14 }}>
         <button
           className="btn btn-primary btn-small"
-          style={{ width: 'auto', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: 8 }}
+          style={{ width: 'auto', padding: '8px 18px', display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 }}
           disabled={walletLoading}
           onClick={async () => {
             setWalletLoading(true);
@@ -76,13 +76,13 @@ export default function MyQR({ client }) {
             }
           }}
         >
-          <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 24, height: 24 }} />
+          <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 18, height: 18 }} />
           {walletLoading ? 'Génération en cours...' : 'Ajouter au Wallet Apple'}
         </button>
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 6 }}>
           <button
             className="btn btn-accent btn-small"
-            style={{ width: 'auto', padding: '10px 20px' }}
+            style={{ width: 'auto', padding: '7px 14px', fontSize: 12 }}
             onClick={async () => {
               const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(user.id || 'demo-client')}`;
               try {
@@ -103,7 +103,7 @@ export default function MyQR({ client }) {
           </button>
           <button
             className="btn btn-secondary btn-small"
-            style={{ width: 'auto', padding: '10px 20px' }}
+            style={{ width: 'auto', padding: '7px 14px', fontSize: 12 }}
             onClick={() => {
               if (navigator.share) {
                 navigator.share({
@@ -119,26 +119,26 @@ export default function MyQR({ client }) {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', marginBottom: 20 }}>
+      <div style={{ textAlign: 'center', marginBottom: 10 }}>
         <div style={{
-          fontSize: 48, fontWeight: 800,
-          color: 'var(--accent)',
+          fontSize: 34, fontWeight: 800,
+          color: 'var(--accent)', lineHeight: 1.1,
         }}>{user.points_balance || 0}</div>
-        <div style={{ fontSize: 13, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>
+        <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>
           {config.pointsLabel}
         </div>
       </div>
 
       <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-        padding: '12px 18px', margin: '0 auto',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+        padding: '7px 14px', margin: '0 auto',
         background: 'var(--bg-warm)', borderRadius: 'var(--radius-sm)',
         boxShadow: 'var(--shadow-sm)',
         width: 'fit-content',
       }}>
-        <span style={{ fontSize: 22 }}>{tier.icon}</span>
-        <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--accent-dark)' }}>{tier.name}</span>
-        <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>x{tier.multiplier}</span>
+        <span style={{ fontSize: 18 }}>{tier.icon}</span>
+        <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--accent-dark)' }}>{tier.name}</span>
+        <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>x{tier.multiplier}</span>
       </div>
     </div>
   )
