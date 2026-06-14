@@ -44,6 +44,9 @@ function App() {
     if (params.get('demo') === '1' && !isLoggedIn && !loading) {
       handleDemo()
     }
+    if (params.get('admin') === '1' && !isLoggedIn && !loading) {
+      handleAdminLogin()
+    }
   }, [loading])
 
   const handleLogin = async (email, password) => {
