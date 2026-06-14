@@ -890,7 +890,7 @@ const configs = {
   },
 
   'borderon-fils': {
-    businessName: 'Borderon & Fils', slug: 'borderon-fils', tagline: 'Boulangerie artisanale depuis 30 ans', logo: './images/borderon-fils/logo.jpg', logoLight: './images/borderon-fils/logo.jpg', favicon: '🍞',
+    businessName: 'Borderon le Fils', slug: 'borderon-fils', tagline: 'Boulangerie artisanale depuis 30 ans', logo: './images/borderon-fils/logo.jpg', logoLight: './images/borderon-fils/logo.jpg', favicon: '🍞',
     heroImage: './images/borderon-fils/hero.jpg', galleryImages: [],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Borderon',
     theme: { primary: '#5D4037', primaryLight: '#795548', accent: '#D4A76A', accentLight: '#E0BB88', accentDark: '#B88D52', bg: '#FDF6EF', font: 'system-ui, sans-serif' },
@@ -900,7 +900,7 @@ const configs = {
       { id: 3, name: 'Pain au levain gratuit', points_required: 500, type: 'free_service', value: 'pain' },
       { id: 4, name: '30$ de crédit', points_required: 1000, type: 'free_service', value: 'credit30' },
     ],
-    referralMessage: 'Rejoins Borderon & Fils et obtiens 75 points gratuits!',
+    referralMessage: 'Rejoins Borderon le Fils et obtiens 75 points gratuits!',
     phone: '418-521-5757', address: '1191 Ave Cartier, Québec',
   },
 
