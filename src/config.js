@@ -13576,6 +13576,143 @@ const configs = {
     referralMessage: 'Rejoins le programme fidélité Les Branchés Lunetterie Sainte-Foy et obtiens 75 points!',
     phone: '418-658-7878', address: '3229 chemin des Quatre-Bourgeois', website: 'https://lesbrancheslunetterie.ca/locations/quebec-sainte-foy/',
   },
+  // ========== BATCH FLAGSHIP 2026-06-19 — 8 leads ==========
+  'studio-massive-ink': {
+    businessName: 'Studio Massive Ink', slug: 'studio-massive-ink',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://static.wixstatic.com/media/14bd62_1f37f26898ae4dcf8104d488e1a174ff~mv2.png', logoLight: 'https://static.wixstatic.com/media/14bd62_1f37f26898ae4dcf8104d488e1a174ff~mv2.png', favicon: '🖋️',
+    heroImage: 'https://static.wixstatic.com/media/14bd62_61ac27cdc3754b3b81cabe617f65f8a7~mv2.jpg',
+    galleryImages: ['https://static.wixstatic.com/media/14bd62_61ac27cdc3754b3b81cabe617f65f8a7~mv2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Encre',
+    theme: { primary: '#0D0D0D', primaryLight: '#3D3D3D', accent: '#C0392B', accentLight: '#CB5C51', accentDark: '#992D22', bg: '#FAFAF8', font: '"Bebas Neue", "Oswald", sans-serif' },
+    rewards: [
+      { id: 1, name: 'Retouche offerte', points_required: 300, type: 'free_service', value: 'retouche' },
+      { id: 2, name: '10% rabais tatouage', points_required: 500, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Session 1h gratuite', points_required: 1000, type: 'free_service', value: 'session' },
+      { id: 4, name: 'Forfait flash 250$', points_required: 2000, type: 'discount_fixed', value: 250 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Studio Massive Ink et obtiens 75 points!',
+    phone: '418-845-0090', address: '1700 Boulevard Pie-XI Nord', website: 'https://www.studiomassiveink.ca/',
+  },
+  'le-joy-tatouage': {
+    businessName: 'Le Joy Tatouage', slug: 'le-joy-tatouage',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://www.lejoytatouage.com/cdn/shop/files/logo.png', logoLight: 'https://www.lejoytatouage.com/cdn/shop/files/logo.png', favicon: '🖋️',
+    heroImage: 'https://www.lejoytatouage.com/cdn/shop/files/lejoy_hero.jpg',
+    galleryImages: ['https://www.lejoytatouage.com/cdn/shop/files/lejoy_hero.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Encre',
+    theme: { primary: '#0D0D0D', primaryLight: '#3D3D3D', accent: '#C0392B', accentLight: '#CB5C51', accentDark: '#992D22', bg: '#FAFAF8', font: '"Bebas Neue", "Oswald", sans-serif' },
+    rewards: [
+      { id: 1, name: 'Retouche offerte', points_required: 300, type: 'free_service', value: 'retouche' },
+      { id: 2, name: '10% rabais tatouage', points_required: 500, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Session 1h gratuite', points_required: 1000, type: 'free_service', value: 'session' },
+      { id: 4, name: 'Forfait flash 250$', points_required: 2000, type: 'discount_fixed', value: 250 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Le Joy Tatouage et obtiens 75 points!',
+    phone: '418-614-4420', address: '88 Rue Saint-Jean', website: 'https://www.lejoytatouage.com/',
+  },
+  'pro-shine-quebec': {
+    businessName: 'Pro-Shine', slug: 'pro-shine-quebec',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://proshinequebec.ca/wp-content/uploads/2024/01/Logo-PNG-noir.png', logoLight: 'https://proshinequebec.ca/wp-content/uploads/2024/01/Logo-PNG-noir.png', favicon: '🚗',
+    heroImage: 'https://proshinequebec.ca/wp-content/uploads/2024/09/19441686_719122714937517_1035122483564362671_o.jpg',
+    galleryImages: ['https://proshinequebec.ca/wp-content/uploads/2024/09/19441686_719122714937517_1035122483564362671_o.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Détaillage',
+    theme: { primary: '#1F2937', primaryLight: '#4B535F', accent: '#DC2626', accentLight: '#E24D4D', accentDark: '#B01E1E', bg: '#FAFAF8', font: '"Bebas Neue", "Oswald", sans-serif' },
+    rewards: [
+      { id: 1, name: 'Lavage premium offert', points_required: 200, type: 'free_service', value: 'lavage' },
+      { id: 2, name: '10% rabais détaillage', points_required: 400, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Détaillage complet gratuit', points_required: 900, type: 'free_service', value: 'complet' },
+      { id: 4, name: 'Forfait protection 200$', points_required: 1700, type: 'discount_fixed', value: 200 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Pro-Shine et obtiens 75 points!',
+    phone: '418-688-8420', address: '2485 Boulevard Wilfrid-Hamel #155', website: 'https://proshinequebec.ca/',
+  },
+  'pro-wax-esthetique-auto': {
+    businessName: 'Pro Wax Esthétique Auto', slug: 'pro-wax-esthetique-auto',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://prowax.ca/images/logo_prowax.svg', logoLight: 'https://prowax.ca/images/logo_prowax.svg', favicon: '🚗',
+    heroImage: 'https://prowax.ca/images/accueil-a-propos-de-nous.jpg',
+    galleryImages: ['https://prowax.ca/images/accueil-a-propos-de-nous.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Détaillage',
+    theme: { primary: '#1F2937', primaryLight: '#4B535F', accent: '#DC2626', accentLight: '#E24D4D', accentDark: '#B01E1E', bg: '#FAFAF8', font: '"Bebas Neue", "Oswald", sans-serif' },
+    rewards: [
+      { id: 1, name: 'Lavage premium offert', points_required: 200, type: 'free_service', value: 'lavage' },
+      { id: 2, name: '10% rabais détaillage', points_required: 400, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Détaillage complet gratuit', points_required: 900, type: 'free_service', value: 'complet' },
+      { id: 4, name: 'Forfait protection 200$', points_required: 1700, type: 'discount_fixed', value: 200 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Pro Wax Esthétique Auto et obtiens 75 points!',
+    phone: '418-624-9291', address: '1255 Boulevard Lebourgneuf, S1', website: 'https://prowax.ca/',
+  },
+  'auto-esthetica-quebec': {
+    businessName: 'Auto-Esthetica', slug: 'auto-esthetica-quebec',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://www.autoesthetica.com/uploads/b/955945d0-ae7d-11ef-bf1a-174ccd0b5b9a/logo.png', logoLight: 'https://www.autoesthetica.com/uploads/b/955945d0-ae7d-11ef-bf1a-174ccd0b5b9a/logo.png', favicon: '🚗',
+    heroImage: 'https://www.autoesthetica.com/uploads/b/955945d0-ae7d-11ef-bf1a-174ccd0b5b9a/20250603_193656.jpg',
+    galleryImages: ['https://www.autoesthetica.com/uploads/b/955945d0-ae7d-11ef-bf1a-174ccd0b5b9a/20250603_193656.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Détaillage',
+    theme: { primary: '#1F2937', primaryLight: '#4B535F', accent: '#DC2626', accentLight: '#E24D4D', accentDark: '#B01E1E', bg: '#FAFAF8', font: '"Bebas Neue", "Oswald", sans-serif' },
+    rewards: [
+      { id: 1, name: 'Lavage premium offert', points_required: 200, type: 'free_service', value: 'lavage' },
+      { id: 2, name: '10% rabais détaillage', points_required: 400, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Détaillage complet gratuit', points_required: 900, type: 'free_service', value: 'complet' },
+      { id: 4, name: 'Forfait protection 200$', points_required: 1700, type: 'discount_fixed', value: 200 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Auto-Esthetica et obtiens 75 points!',
+    phone: '418-906-5171', address: 'Service à domicile (Québec et environs)', website: 'https://www.autoesthetica.com/',
+  },
+  'sushi-sakura-quebec': {
+    businessName: 'Sushi Sakura', slug: 'sushi-sakura-quebec',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://sushisakura.ca/wp-content/uploads/2026/03/logo-without-1.jpg', logoLight: 'https://sushisakura.ca/wp-content/uploads/2026/03/logo-without-1.jpg', favicon: '🍣',
+    heroImage: 'https://sushisakura.ca/wp-content/uploads/2026/03/image.jpg',
+    galleryImages: ['https://sushisakura.ca/wp-content/uploads/2026/03/image.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Sushi',
+    theme: { primary: '#0F1F2F', primaryLight: '#3F4B58', accent: '#D43F3F', accentLight: '#DB6161', accentDark: '#A93232', bg: '#FAFAF8', font: '"Noto Serif", "Lora", serif' },
+    rewards: [
+      { id: 1, name: 'Edamame offert', points_required: 150, type: 'free_service', value: 'edamame' },
+      { id: 2, name: '10% rabais commande', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Plateau signature gratuit', points_required: 700, type: 'free_service', value: 'plateau' },
+      { id: 4, name: 'Forfait découverte 80$', points_required: 1300, type: 'discount_fixed', value: 80 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Sushi Sakura et obtiens 75 points!',
+    phone: '581-981-8008', address: '3400 Chemin des Quatre-Bourgeois', website: 'https://www.sushisakura.ca/',
+  },
+  'le-calao-restaurant': {
+    businessName: 'Le Calao Restaurant', slug: 'le-calao-restaurant',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-1/141635283_734167240555828_2915666615688649960_n.jpg', logoLight: 'https://scontent-ord5-1.xx.fbcdn.net/v/t1.6435-1/141635283_734167240555828_2915666615688649960_n.jpg', favicon: '🍣',
+    heroImage: 'https://scontent-ord5-2.xx.fbcdn.net/v/t15.5256-10/526561331_1314566626967379_2500915872939762806_n.jpg',
+    galleryImages: ['https://scontent-ord5-2.xx.fbcdn.net/v/t15.5256-10/526561331_1314566626967379_2500915872939762806_n.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Sushi',
+    theme: { primary: '#0F1F2F', primaryLight: '#3F4B58', accent: '#D43F3F', accentLight: '#DB6161', accentDark: '#A93232', bg: '#FAFAF8', font: '"Noto Serif", "Lora", serif' },
+    rewards: [
+      { id: 1, name: 'Edamame offert', points_required: 150, type: 'free_service', value: 'edamame' },
+      { id: 2, name: '10% rabais commande', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Plateau signature gratuit', points_required: 700, type: 'free_service', value: 'plateau' },
+      { id: 4, name: 'Forfait découverte 80$', points_required: 1300, type: 'discount_fixed', value: 80 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Le Calao Restaurant et obtiens 75 points!',
+    phone: '418-653-4999', address: '2820 Boulevard Laurier', website: 'https://www.calao-restau.com/',
+  },
+  'griendel-brasserie-artisanale': {
+    businessName: 'Griendel Brasserie Artisanale', slug: 'griendel-brasserie-artisanale',
+    tagline: 'Accumulez des points à chaque visite, profitez de récompenses!',
+    logo: 'https://griendel.com/wp-content/uploads/2020/09/GRIENDEL_logo_w-4.png', logoLight: 'https://griendel.com/wp-content/uploads/2020/09/GRIENDEL_logo_w-4.png', favicon: '☕',
+    heroImage: 'https://griendel.com/wp-content/uploads/2025/10/montcalm-griendel.jpg',
+    galleryImages: ['https://griendel.com/wp-content/uploads/2025/10/montcalm-griendel.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Café',
+    theme: { primary: '#3E2723', primaryLight: '#64524F', accent: '#C8A04A', accentLight: '#D1B16A', accentDark: '#A0803B', bg: '#FAFAF8', font: '"Lora", Georgia, serif' },
+    rewards: [
+      { id: 1, name: 'Café offert', points_required: 100, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '10% rabais sur sac de grains', points_required: 250, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac signature gratuit', points_required: 500, type: 'free_service', value: 'grains' },
+      { id: 4, name: 'Abonnement mensuel 60$', points_required: 1000, type: 'discount_fixed', value: 60 }
+    ],
+    referralMessage: 'Rejoins le programme fidélité Griendel Brasserie Artisanale et obtiens 75 points!',
+    phone: '418-522-2552', address: '44-46 Boulevard René-Lévesque Ouest', website: 'https://griendel.com/',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
