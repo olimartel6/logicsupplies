@@ -15023,6 +15023,160 @@ const configs = {
     referralMessage: 'Rejoins le programme fidélité Clinique Ekinoxe et obtiens 75 points!',
     phone: '418-661-8278', address: 'Succursale Beauport (+ Lebourgneuf)', website: 'https://cliniqueekinoxe.ca',
   },
+  // ========== BATCH 2026-07-05 — 9 cafés/commerces Québec (pour Charlo) ==========
+  'cafe-mila': {
+    businessName: 'Café Mila', slug: 'cafe-mila',
+    tagline: 'Café, buvette et boutique — Limoilou',
+    logo: './images/cafe-mila/logo.png', logoLight: './images/cafe-mila/logo.png', favicon: '☕',
+    heroImage: './images/cafe-mila/logo.png',
+    galleryImages: ['./images/cafe-mila/logo.png'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Mila',
+    theme: { primary: '#4743C5', primaryLight: '#6D6AD5', accent: '#FE7D00', accentLight: '#FF9B3B', accentDark: '#CB6400', bg: '#FCF5E1', font: '"Poppins", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Café filtre offert', points_required: 120, type: 'free_service', value: 'cafe' },
+      { id: 2, name: 'Matcha latté gratuit', points_required: 220, type: 'free_service', value: 'matcha' },
+      { id: 3, name: '10% rabais en boutique', points_required: 300, type: 'discount_percent', value: 10 },
+      { id: 4, name: 'Verre de vin offert (apéro)', points_required: 500, type: 'free_service', value: 'vin' }
+    ],
+    referralMessage: 'Rejoins Café Mila et obtiens 75 points!',
+    website: 'https://www.lecafemila.ca/',
+  },
+  'chouchou-limoilou': {
+    businessName: 'Chouchou', slug: 'chouchou-limoilou',
+    tagline: 'Smash burgers, sandos japonais et crème glacée maison',
+    logo: './images/chouchou-limoilou/logo.jpg', logoLight: './images/chouchou-limoilou/logo.jpg', favicon: '🍔',
+    heroImage: './images/chouchou-limoilou/hero.jpg',
+    galleryImages: ['./images/chouchou-limoilou/g1.jpg', './images/chouchou-limoilou/g2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Chou',
+    theme: { primary: '#E8442C', primaryLight: '#F06A55', accent: '#F4C542', accentLight: '#F7D573', accentDark: '#C39A28', bg: '#FFF8EC', font: '"Poppins", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Boule de crème glacée maison offerte', points_required: 120, type: 'free_service', value: 'creme-glacee' },
+      { id: 2, name: 'Matcha ou thé glacé maison gratuit', points_required: 200, type: 'free_service', value: 'matcha' },
+      { id: 3, name: 'Big Chou (smash burger) offert', points_required: 400, type: 'free_service', value: 'burger' },
+      { id: 4, name: '10% rabais sur la commande', points_required: 300, type: 'discount_percent', value: 10 }
+    ],
+    referralMessage: 'Rejoins Chouchou et obtiens 75 points!',
+    website: 'https://www.instagram.com/chouchoulimoilou/',
+  },
+  'cremerie-chez-mamie': {
+    businessName: 'Crèmerie Chez Mamie', slug: 'cremerie-chez-mamie',
+    tagline: 'Crème glacée molle et desserts gourmands',
+    logo: './images/cremerie-chez-mamie/logo.jpg', logoLight: './images/cremerie-chez-mamie/logo.jpg', favicon: '🍦',
+    heroImage: './images/cremerie-chez-mamie/hero.jpg',
+    galleryImages: ['./images/cremerie-chez-mamie/g1.jpg', './images/cremerie-chez-mamie/g2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Mamie',
+    theme: { primary: '#E75A9C', primaryLight: '#EE84B5', accent: '#C2418A', accentLight: '#D46FA6', accentDark: '#9B3470', bg: '#FFF5FA', font: '"Quicksand", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Cornet simple offert', points_required: 100, type: 'free_service', value: 'cornet' },
+      { id: 2, name: 'Enrobage (trempette) gratuit', points_required: 180, type: 'free_service', value: 'enrobage' },
+      { id: 3, name: 'Nachos glacé ou Splash offert', points_required: 350, type: 'free_service', value: 'dessert' },
+      { id: 4, name: '10% de rabais', points_required: 300, type: 'discount_percent', value: 10 }
+    ],
+    referralMessage: 'Rejoins Crèmerie Chez Mamie et obtiens 75 points!',
+    website: 'https://www.instagram.com/cremeriechezmamie/',
+  },
+  'la-face-cachee': {
+    businessName: 'La Face Café', slug: 'la-face-cachee',
+    tagline: 'Café de quartier à Beauport',
+    logo: './images/la-face-cachee/logo.png', logoLight: './images/la-face-cachee/logo.png', favicon: '☕',
+    heroImage: './images/la-face-cachee/hero.jpg',
+    galleryImages: ['./images/la-face-cachee/g1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points café',
+    theme: { primary: '#FDB347', primaryLight: '#FEC670', accent: '#A42325', accentLight: '#C43A3C', accentDark: '#83191B', bg: '#FFF9F0', font: '"Poppins", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Café filtre offert', points_required: 150, type: 'free_service', value: 'cafe' },
+      { id: 2, name: 'Viennoiserie offerte', points_required: 250, type: 'free_service', value: 'viennoiserie' },
+      { id: 3, name: '10% rabais', points_required: 350, type: 'discount_percent', value: 10 },
+      { id: 4, name: 'Sandwich du midi offert', points_required: 400, type: 'free_service', value: 'sandwich' }
+    ],
+    referralMessage: 'Rejoins La Face Café et obtiens 75 points!',
+    website: 'https://lafacecafe.com/',
+  },
+  'nektar-cafe': {
+    businessName: 'Nektar Torréfacteur', slug: 'nektar-cafe',
+    tagline: 'Micro-torréfacteur québécois depuis 2018',
+    logo: './images/nektar-cafe/logo.png', logoLight: './images/nektar-cafe/logo.png', favicon: '☕',
+    heroImage: './images/nektar-cafe/hero.jpg',
+    galleryImages: ['./images/nektar-cafe/g1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points café',
+    theme: { primary: '#005850', primaryLight: '#1A7A70', accent: '#5B6135', accentLight: '#7A8049', accentDark: '#464B29', bg: '#F7F6F2', font: '"Lora", Georgia, serif' },
+    rewards: [
+      { id: 1, name: 'Espresso offert', points_required: 150, type: 'free_service', value: 'espresso' },
+      { id: 2, name: '10% rabais sur commande café', points_required: 350, type: 'discount_percent', value: 10 },
+      { id: 3, name: 'Sac de café 300g découverte offert', points_required: 500, type: 'free_service', value: 'cafe_300g' },
+      { id: 4, name: 'Atelier dégustation', points_required: 900, type: 'free_service', value: 'atelier' }
+    ],
+    referralMessage: 'Rejoins Nektar Torréfacteur et obtiens 75 points!',
+    website: 'https://nektar.ca/',
+  },
+  'cafe-sobab': {
+    businessName: 'Café Sobab', slug: 'cafe-sobab',
+    tagline: 'Café en vrac et machines espresso — Limoilou',
+    logo: './images/cafe-sobab/logo.jpg', logoLight: './images/cafe-sobab/logo.jpg', favicon: '☕',
+    heroImage: './images/cafe-sobab/hero.jpg',
+    galleryImages: ['./images/cafe-sobab/hero.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points café',
+    theme: { primary: '#18A9D1', primaryLight: '#45BCDC', accent: '#005850', accentLight: '#1A7A70', accentDark: '#00443E', bg: '#F5FAFC', font: '"Poppins", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Café offert', points_required: 150, type: 'free_service', value: 'cafe' },
+      { id: 2, name: '100g de café en vrac offert', points_required: 300, type: 'free_service', value: 'cafe_vrac' },
+      { id: 3, name: '10% rabais', points_required: 350, type: 'discount_percent', value: 10 },
+      { id: 4, name: 'Rabais entretien machine espresso', points_required: 500, type: 'free_service', value: 'entretien' }
+    ],
+    referralMessage: 'Rejoins Café Sobab et obtiens 75 points!',
+    website: 'https://cafesobab.com/',
+  },
+  'brulerie-limoilou': {
+    businessName: 'Les Bruleries', slug: 'brulerie-limoilou',
+    tagline: 'Micro-torréfacteur de quartier — Vieux-Limoilou',
+    logo: './images/brulerie-limoilou/logo.png', logoLight: './images/brulerie-limoilou/logo.png', favicon: '☕',
+    heroImage: './images/brulerie-limoilou/hero.jpg',
+    galleryImages: ['./images/brulerie-limoilou/g1.jpg', './images/brulerie-limoilou/g2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points brûlerie',
+    theme: { primary: '#FE521D', primaryLight: '#FF7649', accent: '#1A1A1A', accentLight: '#3D3D3D', accentDark: '#000000', bg: '#FAF8F6', font: '"Poppins", system-ui, sans-serif' },
+    rewards: [
+      { id: 1, name: 'Café filtre gratuit', points_required: 80, type: 'free_service', value: 'cafe' },
+      { id: 2, name: 'Latte ou cappuccino offert', points_required: 150, type: 'free_service', value: 'latte' },
+      { id: 3, name: 'Sac de café en grains 340g', points_required: 300, type: 'free_service', value: 'grains' },
+      { id: 4, name: 'Atelier dégustation barista', points_required: 500, type: 'free_service', value: 'atelier' }
+    ],
+    referralMessage: 'Rejoins Les Bruleries et obtiens 75 points!',
+    website: 'https://lesbruleries.com/',
+  },
+  'bottega': {
+    businessName: 'Bottega', slug: 'bottega',
+    tagline: 'Épicerie italienne et pizza à la new-yorkaise',
+    logo: './images/bottega/logo.svg', logoLight: './images/bottega/logo.svg', favicon: '🍕',
+    heroImage: './images/bottega/hero.png',
+    galleryImages: ['./images/bottega/hero.png'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Bottega',
+    theme: { primary: '#D21217', primaryLight: '#E23A3E', accent: '#75D69C', accentLight: '#97E2B6', accentDark: '#4FB87A', bg: '#FBF7F2', font: '"Playfair Display", Georgia, serif' },
+    rewards: [
+      { id: 1, name: 'Pointe de pizza offerte', points_required: 100, type: 'free_service', value: 'pizza' },
+      { id: 2, name: 'Gelato maison gratuit', points_required: 120, type: 'free_service', value: 'gelato' },
+      { id: 3, name: 'Salade-repas offerte', points_required: 180, type: 'free_service', value: 'salade' },
+      { id: 4, name: '10% rabais épicerie', points_required: 350, type: 'discount_percent', value: 10 }
+    ],
+    referralMessage: 'Rejoins Bottega et obtiens 75 points!',
+    website: 'https://bottegaqc.com/',
+  },
+  'boite-a-pain': {
+    businessName: 'Boîte à Pain', slug: 'boite-a-pain',
+    tagline: 'Boulangerie artisanale depuis 26 ans',
+    logo: './images/boite-a-pain/logo.jpg', logoLight: './images/boite-a-pain/logo.jpg', favicon: '🥖',
+    heroImage: './images/boite-a-pain/hero.jpg',
+    galleryImages: ['./images/boite-a-pain/g1.jpg', './images/boite-a-pain/g2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points boulanger',
+    theme: { primary: '#B76D2D', primaryLight: '#CE8A4E', accent: '#2A2A2A', accentLight: '#4D4D4D', accentDark: '#0F0F0F', bg: '#FBF6EF', font: '"Lora", Georgia, serif' },
+    rewards: [
+      { id: 1, name: 'Viennoiserie offerte', points_required: 80, type: 'free_service', value: 'viennoiserie' },
+      { id: 2, name: 'Pain artisanal gratuit', points_required: 150, type: 'free_service', value: 'pain' },
+      { id: 3, name: 'Pâtisserie maison offerte', points_required: 200, type: 'free_service', value: 'patisserie' },
+      { id: 4, name: '10% rabais', points_required: 350, type: 'discount_percent', value: 10 }
+    ],
+    referralMessage: 'Rejoins Boîte à Pain et obtiens 75 points!',
+    website: 'https://boiteapain.com/',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
