@@ -2,6 +2,43 @@
 // Each business gets their own config. In production, this is fetched from Supabase by tenant slug.
 
 const configs = {
+  'cremerie-chez-mamie': {
+    businessName: 'Crèmerie Chez Mamie',
+    slug: 'cremerie-chez-mamie',
+    tagline: 'Chaque boule vous rapproche d\'une gâterie gratuite',
+    logo: import.meta.env.BASE_URL + 'logos/cremerie-chez-mamie.png',
+    logoLight: import.meta.env.BASE_URL + 'logos/cremerie-chez-mamie.png',
+    favicon: '🍦',
+    heroImage: import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/hero.jpg',
+    galleryImages: [
+      import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/cornet.jpg',
+      import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/gelato.jpg',
+      import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/milkshake.jpg',
+    ],
+    pointsPerDollar: 10,
+    referralBonus: 75,
+    visitBonus: 25,
+    pointsLabel: 'Points Mamie',
+    theme: {
+      primary: '#7c3a49',
+      primaryLight: '#9a4c5d',
+      accent: '#e47f90',
+      accentLight: '#f0a2af',
+      accentDark: '#d0687a',
+      bg: '#faf4f1',
+      font: '"Gluten", "Baloo 2", system-ui, sans-serif',
+    },
+    rewards: [
+      { id: 1, name: '2$ de rabais', points_required: 200, type: 'discount_fixed', value: 2 },
+      { id: 2, name: 'Cornet classique gratuit', points_required: 350, type: 'free_service', value: 'cornet', image: import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/hero.jpg' },
+      { id: 3, name: 'Milkshake gratuit', points_required: 550, type: 'free_service', value: 'milkshake', image: import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/milkshake.jpg' },
+      { id: 4, name: 'Cornet gourmand spécial', points_required: 800, type: 'free_service', value: 'gourmand', image: import.meta.env.BASE_URL + 'images/cremerie-chez-mamie/cornet.jpg' },
+    ],
+    referralMessage: 'Rejoins Chez Mamie et obtiens 75 points — une gâterie t\'attend!',
+    phone: '',
+    address: 'Plusieurs crèmeries au Québec',
+  },
+
   'institut-epilation': {
     businessName: "Institut d'Épilation Laser",
     slug: 'institut-epilation',
