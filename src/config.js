@@ -15095,23 +15095,6 @@ const configs = {
     referralMessage: 'Rejoins Chouchou et obtiens 75 points!',
     website: 'https://www.instagram.com/chouchoulimoilou/',
   },
-  'cremerie-chez-mamie': {
-    businessName: 'Crèmerie Chez Mamie', slug: 'cremerie-chez-mamie',
-    tagline: 'Crème glacée molle et desserts gourmands',
-    logo: './images/cremerie-chez-mamie/logo.jpg', logoLight: './images/cremerie-chez-mamie/logo.jpg', favicon: '🍦',
-    heroImage: './images/cremerie-chez-mamie/hero.jpg',
-    galleryImages: ['./images/cremerie-chez-mamie/g1.jpg', './images/cremerie-chez-mamie/g2.jpg'],
-    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Mamie',
-    theme: { primary: '#E75A9C', primaryLight: '#EE84B5', accent: '#C2418A', accentLight: '#D46FA6', accentDark: '#9B3470', bg: '#FFF5FA', font: '"Quicksand", system-ui, sans-serif' },
-    rewards: [
-      { id: 1, name: 'Cornet simple offert', points_required: 100, type: 'free_service', value: 'cornet' },
-      { id: 2, name: 'Enrobage (trempette) gratuit', points_required: 180, type: 'free_service', value: 'enrobage' },
-      { id: 3, name: 'Nachos glacé ou Splash offert', points_required: 350, type: 'free_service', value: 'dessert' },
-      { id: 4, name: '10% de rabais', points_required: 300, type: 'discount_percent', value: 10 }
-    ],
-    referralMessage: 'Rejoins Crèmerie Chez Mamie et obtiens 75 points!',
-    website: 'https://www.instagram.com/cremeriechezmamie/',
-  },
   'la-face-cachee': {
     businessName: 'La Face Café', slug: 'la-face-cachee',
     tagline: 'Café de quartier à Beauport',
