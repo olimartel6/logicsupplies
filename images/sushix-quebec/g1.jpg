@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/assets/sushix_logo.png" as="image" fetchpriority="high">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://web.ishopfood.com/" />
+    <link rel="dns-prefetch" href="https://api.ishopfood.com" />
+    
+    <!-- Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NVV5X352');
+    </script>
+    <script type="module" crossorigin src="/assets/index-CZRqIv_P.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-CWU8vmCm.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DyKbXDwz.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-vendor-BJHnFd70.js">
+    <link rel="stylesheet" crossorigin href="/assets/ui-vendor-B7lGeqhT.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CgXyhhka.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVV5X352"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    
+    <div id="root"></div>
+    
+    <!-- Deferred Resources -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- HubSpot -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/40644683.js"></script>
+
+  </body>
+</html>
