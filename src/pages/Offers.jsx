@@ -11,7 +11,12 @@ export default function Offers({ client, business }) {
   const [claimQR, setClaimQR] = useState(null) // { code, title }
 
   useEffect(() => {
-    if (!business?.id || !client?.id) return
+    // Demo mode has no real business/client in Supabase — show the empty
+    // state instead of spinning forever waiting for a fetch that can't happen.
+    if (client?.id === 'demo' || !business?.id || !client?.id) {
+      setLoading(false)
+      return
+    }
     Promise.all([
       getActiveOffers(business.id),
       getClientClaims(client.id),

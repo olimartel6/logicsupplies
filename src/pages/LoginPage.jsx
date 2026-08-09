@@ -4,7 +4,9 @@ import config from '../config'
 import { sendEmail } from '../services/supabase'
 
 export default function LoginPage({ onLogin, onSignup, onAdminLogin, onDemo, referralFrom }) {
-  const [mode, setMode] = useState('login') // 'login' | 'signup'
+  // Prospects land on the demo CTA first; existing customers opt into the
+  // login/signup forms via the secondary link instead of seeing them by default.
+  const [mode, setMode] = useState(onDemo ? 'demo' : 'login') // 'demo' | 'login' | 'signup'
   const [step, setStep] = useState('info') // 'info' | 'verify' (verify only for signup)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -103,6 +105,33 @@ export default function LoginPage({ onLogin, onSignup, onAdminLogin, onDemo, ref
         {referralFrom && mode === 'signup' && (
           <div style={{ background: 'var(--bg-warm)', borderRadius: 'var(--radius-sm)', padding: '12px 16px', marginBottom: 24, fontSize: 13, color: 'var(--accent-dark)', fontWeight: 600 }}>
             Vous avez été parrainé(e) — inscrivez-vous pour recevoir {config.referralBonus} points!
+          </div>
+        )}
+
+        {/* ========== DEMO MODE (default landing for prospects) ========== */}
+        {mode === 'demo' && (
+          <div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={onDemo}
+            >
+              <Eye size={16} />
+              Voir la démo
+            </button>
+            <p style={{ marginTop: 12, fontSize: 12, color: 'var(--text-muted)' }}>
+              Aucun compte requis · démo interactive · 30 secondes
+            </p>
+            <div className="login-divider"><span>ou</span></div>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => switchMode('login')}
+              style={{ fontSize: 13 }}
+            >
+              <LogIn size={16} />
+              Déjà membre du programme? Connectez-vous
+            </button>
           </div>
         )}
 
