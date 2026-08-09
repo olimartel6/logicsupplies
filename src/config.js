@@ -15896,6 +15896,15 @@ const configs = {
     rewards: [{ id: 1, name: 'Café offert', points_required: 150, type: 'free_service', value: 'cafe' }, { id: 2, name: 'Dessert du jour gratuit', points_required: 250, type: 'free_service', value: 'dessert' }, { id: 3, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 5 }, { id: 4, name: 'Repas préparé offert', points_required: 600, type: 'free_service', value: 'repas' }],
     referralMessage: 'Rejoins Délices Quotidiens et obtiens 75 points!', phone: '', address: 'Saint-Anselme',
   },
+  'chez-micheline': {
+    businessName: 'Casse-Croûte Chez Micheline', slug: 'chez-micheline', tagline: '60 ans de poutines et de frites croustillantes à Saint-Augustin-de-Desmaures', favicon: '🍟',
+    logo: import.meta.env.BASE_URL + 'logos/chez-micheline.jpg', logoLight: import.meta.env.BASE_URL + 'logos/chez-micheline.jpg',
+    heroImage: import.meta.env.BASE_URL + 'images/chez-micheline/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/chez-micheline/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Micheline',
+    theme: { primary: '#14245c', primaryLight: '#1f3a8c', accent: '#1e48d8', accentLight: '#4d70e0', accentDark: '#15379e', bg: '#F4F6FC', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Frites régulières gratuites', points_required: 150, type: 'free_service', value: 'frites' }, { id: 2, name: '5$ de rabais', points_required: 250, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Poutine classique gratuite', points_required: 450, type: 'free_service', value: 'poutine' }, { id: 4, name: 'Poutine + boisson gratuites', points_required: 750, type: 'free_service', value: 'combo' }],
+    referralMessage: 'Rejoins Chez Micheline et obtiens 75 points!', phone: '418-878-2663', address: 'Saint-Augustin-de-Desmaures',
+  },
   'chocolat-harmonie': {
     businessName: 'Chocolat Harmonie', slug: 'chocolat-harmonie', tagline: 'Chocolaterie artisanale, des créations gourmandes faites avec coeur', favicon: '🍫',
     heroImage: import.meta.env.BASE_URL + 'images/chocolat-harmonie/g1.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/chocolat-harmonie/g2.jpg'],
