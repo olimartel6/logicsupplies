@@ -15930,6 +15930,15 @@ const configs = {
     rewards: [{ id: 1, name: '5$ de rabais', points_required: 200, type: 'discount_fixed', value: 5 }, { id: 2, name: 'Bol charcuterie & fromage offert', points_required: 400, type: 'free_service', value: 'bol' }, { id: 3, name: '10% de rabais', points_required: 500, type: 'discount_percent', value: 10 }, { id: 4, name: 'Plateau traiteur offert', points_required: 900, type: 'free_service', value: 'plateau' }],
     referralMessage: 'Rejoins Y\'EN A Ras-le-bol et obtiens 75 points!', phone: '581-628-7831', address: 'Pont-Rouge',
   },
+  'to-mirabel': {
+    businessName: 'T-O Mirabel', slug: 'to-mirabel', tagline: 'Le plus beau mini-golf au Canada — terrasse, simulateurs et ambiance tropicale à Mirabel', favicon: '⛳',
+    logo: import.meta.env.BASE_URL + 'logos/to-mirabel.png', logoLight: import.meta.env.BASE_URL + 'logos/to-mirabel.png',
+    heroImage: import.meta.env.BASE_URL + 'images/to-mirabel/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/to-mirabel/gallery1.jpg', import.meta.env.BASE_URL + 'images/to-mirabel/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points T-O',
+    theme: { primary: '#1B4A5C', primaryLight: '#2D7086', accent: '#E2703F', accentLight: '#EF9A6E', accentDark: '#C05430', bg: '#FFF6EE', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '5$ de rabais sur votre partie', points_required: 150, type: 'discount_fixed', value: 5 }, { id: 2, name: 'Partie de mini-golf gratuite (enfant)', points_required: 300, type: 'free_service', value: 'partie-enfant' }, { id: 3, name: '15$ de rabais', points_required: 500, type: 'discount_fixed', value: 15 }, { id: 4, name: 'Forfait familial gratuit', points_required: 900, type: 'free_service', value: 'forfait-familial' }],
+    referralMessage: 'Rejoins T-O Mirabel et obtiens 75 points!', phone: '450-233-9540', address: 'Mirabel',
+  },
   'dentaire-laro-laurier': {
     businessName: 'Clinique dentaire Laro Laurier-Station', slug: 'dentaire-laro-laurier', tagline: 'Soins dentaires complets dans un environnement moderne', favicon: '🦷',
     logo: import.meta.env.BASE_URL + 'logos/dentaire-laro-laurier.png', logoLight: import.meta.env.BASE_URL + 'logos/dentaire-laro-laurier.png', galleryImages: [],
