@@ -15905,6 +15905,15 @@ const configs = {
     rewards: [{ id: 1, name: 'Frites régulières gratuites', points_required: 150, type: 'free_service', value: 'frites' }, { id: 2, name: '5$ de rabais', points_required: 250, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Poutine classique gratuite', points_required: 450, type: 'free_service', value: 'poutine' }, { id: 4, name: 'Poutine + boisson gratuites', points_required: 750, type: 'free_service', value: 'combo' }],
     referralMessage: 'Rejoins Chez Micheline et obtiens 75 points!', phone: '418-878-2663', address: 'Saint-Augustin-de-Desmaures',
   },
+  'maison-musa': {
+    businessName: 'Maison Musa', slug: 'maison-musa', tagline: 'Onglerie premium et soins des mains, une touche italienne à Saint-Augustin-de-Desmaures', favicon: '💅',
+    logo: import.meta.env.BASE_URL + 'logos/maison-musa.png', logoLight: import.meta.env.BASE_URL + 'logos/maison-musa.png',
+    heroImage: import.meta.env.BASE_URL + 'images/maison-musa/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/maison-musa/gallery1.jpg', import.meta.env.BASE_URL + 'images/maison-musa/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Musa',
+    theme: { primary: '#013A51', primaryLight: '#025a7d', accent: '#51BBB8', accentLight: '#7dd0cd', accentDark: '#3a9d9a', bg: '#EAF7F6', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Pose de vernis classique offerte', points_required: 200, type: 'free_service', value: 'vernis' }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Manucure gel offerte', points_required: 600, type: 'free_service', value: 'manucure' }, { id: 4, name: 'Soin des mains et pieds VIP offert', points_required: 1000, type: 'free_service', value: 'vip' }],
+    referralMessage: 'Rejoins Maison Musa et obtiens 75 points!', phone: '418-947-3098', address: 'Saint-Augustin-de-Desmaures',
+  },
   'chocolat-harmonie': {
     businessName: 'Chocolat Harmonie', slug: 'chocolat-harmonie', tagline: 'Chocolaterie artisanale, des créations gourmandes faites avec coeur', favicon: '🍫',
     heroImage: import.meta.env.BASE_URL + 'images/chocolat-harmonie/g1.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/chocolat-harmonie/g2.jpg'],
