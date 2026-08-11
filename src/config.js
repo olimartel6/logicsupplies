@@ -15948,6 +15948,15 @@ const configs = {
     rewards: [{ id: 1, name: 'Café ou thé gratuit', points_required: 150, type: 'free_service', value: 'cafe' }, { id: 2, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Sandwich gratuit', points_required: 550, type: 'free_service', value: 'sandwich' }, { id: 4, name: 'Combo déjeuner complet gratuit', points_required: 900, type: 'free_service', value: 'combo-dejeuner' }],
     referralMessage: 'Rejoins Stockholm Café et obtiens 75 points!', address: '2124 Chemin Sainte-Foy, Québec',
   },
+  'white-room-beauty-spa': {
+    businessName: 'The White Room Beauty Spa', slug: 'white-room-beauty-spa', tagline: 'Laser hair removal, facials and hair services in Kitchener, Ontario', favicon: '✨',
+    logo: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png', logoLight: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png',
+    heroImage: import.meta.env.BASE_URL + 'images/white-room-beauty-spa/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/white-room-beauty-spa/gallery1.jpg', import.meta.env.BASE_URL + 'images/white-room-beauty-spa/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Glow Points',
+    theme: { primary: '#1A1A1A', primaryLight: '#2E2E2E', accent: '#F2C359', accentLight: '#F7D98A', accentDark: '#C99A2E', bg: '#FAF7F0', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Free Brow Laminate & Tint', points_required: 200, type: 'free_service', value: 'brow-laminate' }, { id: 2, name: '$20 off any treatment', points_required: 350, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Free 3-in-1 OxyGeneo Facial', points_required: 600, type: 'free_service', value: 'oxygeneo-facial' }, { id: 4, name: 'Free Laser Hair Removal Session', points_required: 1000, type: 'free_service', value: 'laser-session' }],
+    referralMessage: 'Join The White Room Beauty Spa and get 75 points!', phone: '519-240-0807', address: '871 Victoria St N, Kitchener, ON N2B 3S4',
+  },
   'dentaire-laro-laurier': {
     businessName: 'Clinique dentaire Laro Laurier-Station', slug: 'dentaire-laro-laurier', tagline: 'Soins dentaires complets dans un environnement moderne', favicon: '🦷',
     logo: import.meta.env.BASE_URL + 'logos/dentaire-laro-laurier.png', logoLight: import.meta.env.BASE_URL + 'logos/dentaire-laro-laurier.png', galleryImages: [],
