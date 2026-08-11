@@ -15948,6 +15948,15 @@ const configs = {
     rewards: [{ id: 1, name: 'Café ou thé gratuit', points_required: 150, type: 'free_service', value: 'cafe' }, { id: 2, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Sandwich gratuit', points_required: 550, type: 'free_service', value: 'sandwich' }, { id: 4, name: 'Combo déjeuner complet gratuit', points_required: 900, type: 'free_service', value: 'combo-dejeuner' }],
     referralMessage: 'Rejoins Stockholm Café et obtiens 75 points!', address: '2124 Chemin Sainte-Foy, Québec',
   },
+  'papa-sandwich': {
+    businessName: 'Papa Sandwich', slug: 'papa-sandwich', tagline: 'Tu mérites un vrai sandwich — 5 succursales à Québec', favicon: '🥪',
+    logo: import.meta.env.BASE_URL + 'logos/papa-sandwich.png', logoLight: import.meta.env.BASE_URL + 'logos/papa-sandwich-light.png',
+    heroImage: import.meta.env.BASE_URL + 'images/papa-sandwich/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/papa-sandwich/gallery1.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Papa',
+    theme: { primary: '#0D0D0D', primaryLight: '#262626', accent: '#619F44', accentLight: '#8AC168', accentDark: '#4A7D33', bg: '#F9FCF8', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '3$ de rabais', points_required: 150, type: 'discount_fixed', value: 3 }, { id: 2, name: 'Sandwich froid gratuit', points_required: 350, type: 'free_service', value: 'sandwich-froid' }, { id: 3, name: 'Le Papa gratuit (notre signature)', points_required: 600, type: 'free_service', value: 'le-papa' }, { id: 4, name: 'Combo complet gratuit (sandwich + boisson + chips)', points_required: 1000, type: 'free_service', value: 'combo-complet' }],
+    referralMessage: 'Rejoins Papa Sandwich et obtiens 75 points!', address: 'Cartier, Pyramide, Saint-Augustin, Lebourgneuf — Québec',
+  },
   'white-room-beauty-spa': {
     businessName: 'The White Room Beauty Spa', slug: 'white-room-beauty-spa', tagline: 'Laser hair removal, facials and hair services in Kitchener, Ontario', favicon: '✨',
     logo: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png', logoLight: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png',
