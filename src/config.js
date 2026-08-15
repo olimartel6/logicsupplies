@@ -17238,6 +17238,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: 'Café gratuit', points_required: 300, type: 'free_service', value: 'cafe-gratuit' }, { id: 3, name: '10$ de rabais', points_required: 500, type: 'discount_fixed', value: 10 }, { id: 4, name: 'Carte-cadeau de 25$', points_required: 1000, type: 'discount_fixed', value: 25 }],
     referralMessage: 'Rejoins Café Quoi? et obtiens 75 points!', address: '2 Rue Saint-Jean, Québec, QC G1R 1N5',
   },
+  'tatouage-royal': {
+    businessName: 'Tatouage Royal', slug: 'tatouage-royal', tagline: 'Tatouage de qualité à Montréal', favicon: '🖋️',
+    logo: import.meta.env.BASE_URL + 'logos/tatouage-royal.png', logoLight: import.meta.env.BASE_URL + 'logos/tatouage-royal.png',
+    heroImage: import.meta.env.BASE_URL + 'images/tatouage-royal/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/tatouage-royal/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Royal',
+    theme: { primary: '#1C1714', primaryLight: '#3A2E27', accent: '#C46B4A', accentLight: '#D99777', accentDark: '#9C4E32', bg: '#F7F3EF', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais sur le prochain tatouage', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Retouche gratuite', points_required: 600, type: 'free_service', value: 'retouche' }, { id: 4, name: 'Petit tatouage flash offert', points_required: 1500, type: 'free_service', value: 'flash-offert' }],
+    referralMessage: 'Rejoins Tatouage Royal et obtiens 75 points!', phone: '514-509-2905', address: '4424 Rue Saint-Denis, Montréal, QC H2J 2L1',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
