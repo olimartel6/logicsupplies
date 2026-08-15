@@ -17202,6 +17202,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Taille de barbe gratuite', points_required: 600, type: 'free_service', value: 'taille-barbe' }, { id: 4, name: 'Coupe complète avec soin offerte', points_required: 1200, type: 'free_service', value: 'coupe-soin' }],
     referralMessage: 'Rejoins Legend\'Hair et obtiens 75 points!', phone: '581-889-1234', address: '1400 Avenue Saint-Jean-Baptiste, Québec, QC G2E 5B7',
   },
+  'studio-muso': {
+    businessName: 'Studio Muso', slug: 'studio-muso', tagline: 'Salon de toilettage & boutique — L\'Art du Toilettage pour Animaux', favicon: '🐾',
+    logo: import.meta.env.BASE_URL + 'logos/studio-muso.png', logoLight: import.meta.env.BASE_URL + 'logos/studio-muso.png',
+    heroImage: import.meta.env.BASE_URL + 'images/studio-muso/hero.jpg', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Muso',
+    theme: { primary: '#1A1A1A', primaryLight: '#4B3A2A', accent: '#E3CDA3', accentLight: '#F0E2C4', accentDark: '#C2A876', bg: '#F5F2ED', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Coupe de griffes gratuite', points_required: 500, type: 'free_service', value: 'coupe-griffes' }, { id: 4, name: 'Toilettage complet offert', points_required: 1200, type: 'free_service', value: 'toilettage-complet' }],
+    referralMessage: 'Rejoins Studio Muso et obtiens 75 points!', phone: '579-421-9972', address: '458 Boulevard Curé-Poirier Ouest, Longueuil, QC',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
