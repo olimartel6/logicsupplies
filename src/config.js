@@ -15957,6 +15957,15 @@ const configs = {
     rewards: [{ id: 1, name: '3$ de rabais', points_required: 150, type: 'discount_fixed', value: 3 }, { id: 2, name: 'Sandwich froid gratuit', points_required: 350, type: 'free_service', value: 'sandwich-froid' }, { id: 3, name: 'Le Papa gratuit (notre signature)', points_required: 600, type: 'free_service', value: 'le-papa' }, { id: 4, name: 'Combo complet gratuit (sandwich + boisson + chips)', points_required: 1000, type: 'free_service', value: 'combo-complet' }],
     referralMessage: 'Rejoins Papa Sandwich et obtiens 75 points!', address: 'Cartier, Pyramide, Saint-Augustin, Lebourgneuf — Québec',
   },
+  'epilation-elegance': {
+    businessName: 'Épilation l\'Élégance', slug: 'epilation-elegance', tagline: 'Votre centre esthétique à Brossard — épilation définitive, soins du visage et plus', favicon: '🩷',
+    logo: import.meta.env.BASE_URL + 'logos/epilation-elegance.png', logoLight: import.meta.env.BASE_URL + 'logos/epilation-elegance.png',
+    heroImage: import.meta.env.BASE_URL + 'images/epilation-elegance/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/epilation-elegance/gallery1.jpg', import.meta.env.BASE_URL + 'images/epilation-elegance/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Élégance',
+    theme: { primary: '#3E2C29', primaryLight: '#5C4A3E', accent: '#E0C9C0', accentLight: '#F3E7E3', accentDark: '#9C8A79', bg: '#F8F8F8', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10$ de rabais', points_required: 200, type: 'discount_fixed', value: 10 }, { id: 2, name: 'Zone d\'épilation gratuite (aisselles)', points_required: 400, type: 'free_service', value: 'epilation-aisselles' }, { id: 3, name: 'Soin du visage offert', points_required: 700, type: 'free_service', value: 'soin-visage' }, { id: 4, name: 'Extensions de cils ou microblading offert', points_required: 1200, type: 'free_service', value: 'cils-microblading' }],
+    referralMessage: 'Rejoins Épilation l\'Élégance et obtiens 75 points!', phone: '438-498-9895', address: '7250 Boulevard Taschereau, Brossard',
+  },
   'white-room-beauty-spa': {
     businessName: 'The White Room Beauty Spa', slug: 'white-room-beauty-spa', tagline: 'Laser hair removal, facials and hair services in Kitchener, Ontario', favicon: '✨',
     logo: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png', logoLight: import.meta.env.BASE_URL + 'logos/white-room-beauty-spa.png',
@@ -17147,6 +17156,15 @@ const configs = {
     theme: { primary: '#2c2c2c', primaryLight: '#444444', accent: '#c9a96e', accentLight: '#d4ba8a', accentDark: '#b08d4f', bg: '#faf9f6', font: '"hero-new", system-ui, sans-serif' },
     rewards: [{ id: 1, name: '10% de rabais', points_required: 300, type: 'discount_percent', value: 10 }, { id: 2, name: '25$ de rabais', points_required: 500, type: 'discount_fixed', value: 25 }, { id: 3, name: 'Soin capillaire offert', points_required: 800, type: 'free_service', value: 'soin' }, { id: 4, name: 'Coiffure complète offerte', points_required: 1500, type: 'free_service', value: 'coiffure' }],
     referralMessage: 'Rejoins MCBB et obtiens 75 points!', phone: '418-559-9735', address: '621 Bd Wilfrid-Hamel, Québec',
+  },
+  'poke-station-dorval': {
+    businessName: 'Le Poké Station Dorval', slug: 'poke-station-dorval', tagline: 'Bols poké frais et faits sur mesure à Dorval', favicon: '🐟',
+    logo: import.meta.env.BASE_URL + 'logos/poke-station-dorval.png', logoLight: import.meta.env.BASE_URL + 'logos/poke-station-dorval.png',
+    heroImage: import.meta.env.BASE_URL + 'images/poke-station-dorval/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/poke-station-dorval/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Poké',
+    theme: { primary: '#12141A', primaryLight: '#232631', accent: '#3FB6D6', accentLight: '#7ED4E8', accentDark: '#2C93AE', bg: '#F7FAFB', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '5$ de rabais', points_required: 350, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Frites de patates douces offertes', points_required: 550, type: 'free_service', value: 'frites' }, { id: 4, name: 'Bol gratuit (choix du chef)', points_required: 1500, type: 'free_service', value: 'bol-chef' }],
+    referralMessage: 'Rejoins Le Poké Station Dorval et obtiens 75 points!', phone: '514-538-1248', address: '475 Avenue Dumont, suite 105, Dorval, QC H9S 5W2',
   },
 };
 
