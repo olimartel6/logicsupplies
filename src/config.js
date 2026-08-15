@@ -17220,6 +17220,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Séance de bronzage gratuite', points_required: 500, type: 'free_service', value: 'seance-bronzage' }, { id: 4, name: 'Forfait mensuel illimité offert', points_required: 1200, type: 'free_service', value: 'forfait-illimite' }],
     referralMessage: 'Rejoins Fiesta Bronzage et obtiens 75 points!', phone: '418-836-8011', address: '1855 Route des Rivières, suite 110A, Lévis, QC G7A 4X8',
   },
+  'usine-sherbrooke': {
+    businessName: 'L\'Usine Sherbrooke', slug: 'usine-sherbrooke', tagline: 'Centre d\'entraînement fonctionnel qui aide les adultes occupés à bouger et être en santé pour la vie', favicon: '🏋️',
+    logo: import.meta.env.BASE_URL + 'logos/usine-sherbrooke.png', logoLight: import.meta.env.BASE_URL + 'logos/usine-sherbrooke.png',
+    heroImage: import.meta.env.BASE_URL + 'images/usine-sherbrooke/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/usine-sherbrooke/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Usine',
+    theme: { primary: '#1A1A1A', primaryLight: '#333333', accent: '#EC1C2D', accentLight: '#F15E68', accentDark: '#B8141F', bg: '#FAFAFA', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais sur l\'abonnement', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Séance d\'entraînement privée offerte', points_required: 700, type: 'free_service', value: 'seance-privee' }, { id: 4, name: 'Un mois d\'abonnement offert', points_required: 1500, type: 'free_service', value: 'mois-offert' }],
+    referralMessage: 'Rejoins L\'Usine Sherbrooke et obtiens 75 points!', phone: '819-300-2080', address: '4796 Boulevard Bourque, Sherbrooke, QC J1N 2A7',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
