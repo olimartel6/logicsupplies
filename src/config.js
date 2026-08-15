@@ -17247,6 +17247,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais sur le prochain tatouage', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Retouche gratuite', points_required: 600, type: 'free_service', value: 'retouche' }, { id: 4, name: 'Petit tatouage flash offert', points_required: 1500, type: 'free_service', value: 'flash-offert' }],
     referralMessage: 'Rejoins Tatouage Royal et obtiens 75 points!', phone: '514-509-2905', address: '4424 Rue Saint-Denis, Montréal, QC H2J 2L1',
   },
+  'pain-dalain': {
+    businessName: 'Le Pain d\'Alain', slug: 'pain-dalain', tagline: 'Équipe hors pair qui fabrique des petites gâteries pour vous tous les jours', favicon: '🥐',
+    logo: import.meta.env.BASE_URL + 'logos/pain-dalain.png', logoLight: import.meta.env.BASE_URL + 'logos/pain-dalain.png',
+    heroImage: import.meta.env.BASE_URL + 'images/pain-dalain/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/pain-dalain/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Pain d\'Alain',
+    theme: { primary: '#38325A', primaryLight: '#544B82', accent: '#E3C27E', accentLight: '#F1E2AC', accentDark: '#C2A24E', bg: '#FBF8F0', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: 'Croissant gratuit', points_required: 250, type: 'free_service', value: 'croissant-gratuit' }, { id: 3, name: '10$ de rabais', points_required: 450, type: 'discount_fixed', value: 10 }, { id: 4, name: 'Miche de pain offerte chaque semaine pendant 1 mois', points_required: 1200, type: 'free_service', value: 'pain-mensuel' }],
+    referralMessage: 'Rejoins Le Pain d\'Alain et obtiens 75 points!', phone: '819-595-6917', address: '53 Boulevard Saint-Joseph, Gatineau, QC J8Y 3W1',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
