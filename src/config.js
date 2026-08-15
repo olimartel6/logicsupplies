@@ -17211,6 +17211,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Coupe de griffes gratuite', points_required: 500, type: 'free_service', value: 'coupe-griffes' }, { id: 4, name: 'Toilettage complet offert', points_required: 1200, type: 'free_service', value: 'toilettage-complet' }],
     referralMessage: 'Rejoins Studio Muso et obtiens 75 points!', phone: '579-421-9972', address: '458 Boulevard Curé-Poirier Ouest, Longueuil, QC',
   },
+  'fiesta-bronzage': {
+    businessName: 'Fiesta Bronzage 18+', slug: 'fiesta-bronzage', tagline: 'Salon de bronzage des plus chaleureux — ambiance tropicale à Lévis', favicon: '🌴',
+    logo: import.meta.env.BASE_URL + 'logos/fiesta-bronzage.png', logoLight: import.meta.env.BASE_URL + 'logos/fiesta-bronzage.png',
+    heroImage: import.meta.env.BASE_URL + 'images/fiesta-bronzage/hero.jpg', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Fiesta',
+    theme: { primary: '#E2231A', primaryLight: '#F9A825', accent: '#4FC3D9', accentLight: '#8DDCEA', accentDark: '#2E97AB', bg: '#F7FBFC', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Séance de bronzage gratuite', points_required: 500, type: 'free_service', value: 'seance-bronzage' }, { id: 4, name: 'Forfait mensuel illimité offert', points_required: 1200, type: 'free_service', value: 'forfait-illimite' }],
+    referralMessage: 'Rejoins Fiesta Bronzage et obtiens 75 points!', phone: '418-836-8011', address: '1855 Route des Rivières, suite 110A, Lévis, QC G7A 4X8',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
