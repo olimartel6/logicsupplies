@@ -17184,6 +17184,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Pose de gel gratuite', points_required: 600, type: 'free_service', value: 'pose-gel' }, { id: 4, name: 'Manucure-pédicure complète offerte', points_required: 1200, type: 'free_service', value: 'manucure-pedicure' }],
     referralMessage: 'Rejoins Ongles & Spa Mytiana et obtiens 75 points!', phone: '873-240-1212', address: '2 Rue des Ormeaux, Suite 250, Trois-Rivières, QC G8T 2A5',
   },
+  'new-age-spa': {
+    businessName: 'New Age Spa', slug: 'new-age-spa', tagline: 'Épilation au laser et esthétique médicale à Laval', favicon: '✨',
+    logo: import.meta.env.BASE_URL + 'logos/new-age-spa.png', logoLight: import.meta.env.BASE_URL + 'logos/new-age-spa.png',
+    heroImage: import.meta.env.BASE_URL + 'images/new-age-spa/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/new-age-spa/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points New Age',
+    theme: { primary: '#0D0D0D', primaryLight: '#2E2E2E', accent: '#88A4A8', accentLight: '#C6D9E0', accentDark: '#5F7C80', bg: '#F6F6F6', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Soin du visage offert', points_required: 700, type: 'free_service', value: 'soin-visage' }, { id: 4, name: 'Séance d\'épilation au laser offerte', points_required: 1300, type: 'free_service', value: 'laser-session' }],
+    referralMessage: 'Rejoins New Age Spa et obtiens 75 points!', phone: '1-888-808-0955', address: '1655 Boulevard de l\'Avenir, Laval, QC H7S 2N5',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
