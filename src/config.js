@@ -17175,6 +17175,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '15$ de rabais', points_required: 400, type: 'discount_fixed', value: 15 }, { id: 3, name: 'Brushing gratuit', points_required: 700, type: 'free_service', value: 'brushing' }, { id: 4, name: 'Coupe et coloration complète offerte', points_required: 1400, type: 'free_service', value: 'coupe-couleur' }],
     referralMessage: 'Rejoins Salon En Vogue et obtiens 75 points!', phone: '438-900-0766', address: '204 Rue Notre-Dame Ouest, Local 100, Montréal, QC H2Y 1T3',
   },
+  'ongles-mytiana': {
+    businessName: 'Ongles & Spa Mytiana', slug: 'ongles-mytiana', tagline: 'Salon accueillant consacré aux soins professionnels des ongles et aux services de détente', favicon: '💅',
+    logo: import.meta.env.BASE_URL + 'logos/ongles-mytiana.png', logoLight: import.meta.env.BASE_URL + 'logos/ongles-mytiana.png',
+    heroImage: import.meta.env.BASE_URL + 'images/ongles-mytiana/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/ongles-mytiana/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Mytiana',
+    theme: { primary: '#E6141E', primaryLight: '#FA9696', accent: '#FA9696', accentLight: '#FABEBE', accentDark: '#D14B58', bg: '#FFF6F6', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Pose de gel gratuite', points_required: 600, type: 'free_service', value: 'pose-gel' }, { id: 4, name: 'Manucure-pédicure complète offerte', points_required: 1200, type: 'free_service', value: 'manucure-pedicure' }],
+    referralMessage: 'Rejoins Ongles & Spa Mytiana et obtiens 75 points!', phone: '873-240-1212', address: '2 Rue des Ormeaux, Suite 250, Trois-Rivières, QC G8T 2A5',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
