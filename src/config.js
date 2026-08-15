@@ -17229,6 +17229,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais sur l\'abonnement', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Séance d\'entraînement privée offerte', points_required: 700, type: 'free_service', value: 'seance-privee' }, { id: 4, name: 'Un mois d\'abonnement offert', points_required: 1500, type: 'free_service', value: 'mois-offert' }],
     referralMessage: 'Rejoins L\'Usine Sherbrooke et obtiens 75 points!', phone: '819-300-2080', address: '4796 Boulevard Bourque, Sherbrooke, QC J1N 2A7',
   },
+  'cafe-quoi': {
+    businessName: 'Café Quoi?', slug: 'cafe-quoi', tagline: 'Café spécialisé au cœur de Québec', favicon: '☕',
+    logo: import.meta.env.BASE_URL + 'logos/cafe-quoi.png', logoLight: import.meta.env.BASE_URL + 'logos/cafe-quoi.png',
+    heroImage: import.meta.env.BASE_URL + 'images/cafe-quoi/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/cafe-quoi/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Quoi',
+    theme: { primary: '#1D1D1B', primaryLight: '#3A3A38', accent: '#8E5D3C', accentLight: '#B78F6C', accentDark: '#6B4429', bg: '#FAFAF8', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: 'Café gratuit', points_required: 300, type: 'free_service', value: 'cafe-gratuit' }, { id: 3, name: '10$ de rabais', points_required: 500, type: 'discount_fixed', value: 10 }, { id: 4, name: 'Carte-cadeau de 25$', points_required: 1000, type: 'discount_fixed', value: 25 }],
+    referralMessage: 'Rejoins Café Quoi? et obtiens 75 points!', address: '2 Rue Saint-Jean, Québec, QC G1R 1N5',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
