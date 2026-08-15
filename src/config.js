@@ -17166,6 +17166,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '5$ de rabais', points_required: 350, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Frites de patates douces offertes', points_required: 550, type: 'free_service', value: 'frites' }, { id: 4, name: 'Bol gratuit (choix du chef)', points_required: 1500, type: 'free_service', value: 'bol-chef' }],
     referralMessage: 'Rejoins Le Poké Station Dorval et obtiens 75 points!', phone: '514-538-1248', address: '475 Avenue Dumont, suite 105, Dorval, QC H9S 5W2',
   },
+  'salon-en-vogue': {
+    businessName: 'Salon En Vogue', slug: 'salon-en-vogue', tagline: 'Coloristes expertes et stylistes passionnés, au service de votre beauté depuis 2007', favicon: '✂️',
+    logo: import.meta.env.BASE_URL + 'logos/salon-en-vogue.png', logoLight: import.meta.env.BASE_URL + 'logos/salon-en-vogue.png',
+    heroImage: import.meta.env.BASE_URL + 'images/salon-en-vogue/hero.jpg', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points En Vogue',
+    theme: { primary: '#241C16', primaryLight: '#4A4038', accent: '#C9A366', accentLight: '#DFC48F', accentDark: '#A9834D', bg: '#F5F0E8', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '15$ de rabais', points_required: 400, type: 'discount_fixed', value: 15 }, { id: 3, name: 'Brushing gratuit', points_required: 700, type: 'free_service', value: 'brushing' }, { id: 4, name: 'Coupe et coloration complète offerte', points_required: 1400, type: 'free_service', value: 'coupe-couleur' }],
+    referralMessage: 'Rejoins Salon En Vogue et obtiens 75 points!', phone: '438-900-0766', address: '204 Rue Notre-Dame Ouest, Local 100, Montréal, QC H2Y 1T3',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
