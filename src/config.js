@@ -17193,6 +17193,15 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '20$ de rabais', points_required: 400, type: 'discount_fixed', value: 20 }, { id: 3, name: 'Soin du visage offert', points_required: 700, type: 'free_service', value: 'soin-visage' }, { id: 4, name: 'Séance d\'épilation au laser offerte', points_required: 1300, type: 'free_service', value: 'laser-session' }],
     referralMessage: 'Rejoins New Age Spa et obtiens 75 points!', phone: '1-888-808-0955', address: '1655 Boulevard de l\'Avenir, Laval, QC H7S 2N5',
   },
+  'legendhair-barbier': {
+    businessName: 'Legend\'Hair - Salon de barbier', slug: 'legendhair-barbier', tagline: 'Chez nous, chaque coupe de cheveux est une œuvre d\'art', favicon: '💈',
+    logo: import.meta.env.BASE_URL + 'logos/legendhair-barbier.png', logoLight: import.meta.env.BASE_URL + 'logos/legendhair-barbier.png',
+    heroImage: import.meta.env.BASE_URL + 'images/legendhair-barbier/hero.jpg', galleryImages: [],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Legend',
+    theme: { primary: '#141414', primaryLight: '#2E2E2E', accent: '#C9A227', accentLight: '#E0C468', accentDark: '#A1801C', bg: '#F7F5F0', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: '10$ de rabais', points_required: 350, type: 'discount_fixed', value: 10 }, { id: 3, name: 'Taille de barbe gratuite', points_required: 600, type: 'free_service', value: 'taille-barbe' }, { id: 4, name: 'Coupe complète avec soin offerte', points_required: 1200, type: 'free_service', value: 'coupe-soin' }],
+    referralMessage: 'Rejoins Legend\'Hair et obtiens 75 points!', phone: '581-889-1234', address: '1400 Avenue Saint-Jean-Baptiste, Québec, QC G2E 5B7',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
