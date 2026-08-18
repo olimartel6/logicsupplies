@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.S. Beauty Salon — Mirabel</title>
+<style>
+  :root {
+    --black: #0c0c0d;
+    --black-2: #17171a;
+    --gold: #c9a15a;
+    --gold-light: #e0c489;
+    --cream: #f7f3ec;
+    --grey: #9a9793;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black); color: var(--cream);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow { color: var(--gold); font-family: Arial, sans-serif; font-weight: 700; letter-spacing: 0.26em; font-size: 0.72rem; text-transform: uppercase; }
+
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(12,12,13,0.94); backdrop-filter: blur(6px);
+    border-bottom: 1px solid #232326;
+  }
+  .navbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1080px; margin: 0 auto; }
+  .logo-mark { font-size: 1.5rem; font-style: italic; }
+  .logo-mark .ps { font-family: 'Brush Script MT', cursive; font-size: 1.7rem; color: var(--cream); }
+  .logo-sub { font-family: Arial, sans-serif; font-size: 0.6rem; letter-spacing: 0.34em; color: var(--gold); text-transform: uppercase; margin-top: 2px; }
+  .navbar nav a { font-family: Arial, sans-serif; color: var(--grey); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-left: 26px; }
+  .navbar nav a:hover { color: var(--gold); }
+  .navbar .cta-btn { font-family: Arial, sans-serif; background: var(--gold); color: #0c0c0d; padding: 10px 18px; font-weight: 700; font-size: 0.78rem; border-radius: 2px; text-transform: uppercase; }
+  .navbar .cta-btn:hover { background: var(--gold-light); }
+
+  .hero { position: relative; padding: 120px 24px 100px; text-align: center; background: radial-gradient(ellipse at 50% -10%, rgba(201,161,90,0.14), transparent 55%), var(--black); }
+  .hero .ps-big { font-family: 'Brush Script MT', cursive; font-size: clamp(3.5rem, 10vw, 6rem); color: var(--cream); line-height: 1; }
+  .hero .beauty-salon { font-family: Arial, sans-serif; font-weight: 300; letter-spacing: 0.5em; font-size: clamp(1rem, 2.4vw, 1.4rem); color: var(--gold); text-transform: uppercase; margin-top: 8px; }
+  .hero .rule { width: 60px; height: 1px; background: var(--gold); margin: 22px auto; }
+  .hero p.sub { max-width: 520px; margin: 0 auto 38px; color: #d8d3c8; font-size: 1.05rem; line-height: 1.65; font-style: italic; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; font-family: Arial, sans-serif; }
+  .btn { display: inline-block; padding: 15px 30px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82rem; border-radius: 2px; }
+  .btn-primary { background: var(--gold); color: #0c0c0d; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { border: 1px solid #333; color: var(--cream); }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .info-strip { background: var(--black-2); border-top: 1px solid #232326; border-bottom: 1px solid #232326; padding: 15px 24px; text-align: center; font-family: Arial, sans-serif; font-size: 0.82rem; color: var(--grey); }
+  .info-strip b { color: var(--cream); }
+  .info-strip .dot { color: var(--gold); margin: 0 10px; }
+
+  section { padding: 90px 24px; }
+  .section-head { text-align: center; margin-bottom: 54px; }
+  .section-head h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); margin-top: 10px; font-style: italic; font-weight: 400; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #232326; border: 1px solid #232326; }
+  .service-card { background: var(--black-2); padding: 38px 26px; text-align: center; }
+  .service-card .icon { font-size: 1.9rem; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.05rem; font-style: italic; margin-bottom: 10px; font-weight: 400; }
+  .service-card p { font-family: Arial, sans-serif; color: var(--grey); font-size: 0.85rem; line-height: 1.5; }
+
+  .price-section { background: var(--cream); color: var(--black); }
+  .price-section .eyebrow { color: #a5824a; }
+  .price-table { max-width: 720px; margin: 0 auto; font-family: Arial, sans-serif; }
+  .price-cat { font-family: Georgia, serif; font-style: italic; font-size: 1.15rem; color: #7a5c2e; margin: 34px 0 14px; border-bottom: 1px solid #ddd2ba; padding-bottom: 10px; }
+  .price-cat:first-child { margin-top: 0; }
+  .price-row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 0.92rem; border-bottom: 1px dotted #ddd2ba; }
+  .price-row .label { color: #333; }
+  .price-row .value { font-weight: 700; color: #0c0c0d; white-space: nowrap; margin-left: 16px; }
+  .price-row.sub .label { padding-left: 18px; color: #666; font-size: 0.85rem; }
+
+  .about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+  .about h2 { font-size: clamp(1.6rem, 3.6vw, 2rem); margin: 12px 0 20px; font-style: italic; font-weight: 400; }
+  .about p { font-family: Arial, sans-serif; color: #cfcbc4; line-height: 1.75; margin-bottom: 14px; font-size: 0.95rem; }
+  .info-card { background: var(--black-2); border: 1px solid #232326; border-radius: 4px; padding: 30px; font-family: Arial, sans-serif; }
+  .info-card .row { display: flex; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid #232326; font-size: 0.86rem; gap: 14px; }
+  .info-card .row:last-child { border-bottom: none; }
+  .info-card .row .label { color: var(--grey); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; white-space: nowrap; }
+  .info-card .row .value { color: var(--cream); font-weight: 700; text-align: right; }
+
+  .cta-band { background: linear-gradient(120deg, #7a5c2e, var(--gold)); text-align: center; padding: 78px 24px; color: #0c0c0d; }
+  .cta-band h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); margin-bottom: 14px; font-style: italic; font-weight: 400; }
+  .cta-band p { margin-bottom: 30px; opacity: 0.85; font-family: Arial, sans-serif; font-size: 0.95rem; }
+  .cta-band .btn-primary { background: #0c0c0d; color: var(--gold); }
+  .cta-band .btn-primary:hover { background: #1a1a1b; }
+
+  footer { padding: 40px 24px; text-align: center; color: var(--grey); font-family: Arial, sans-serif; font-size: 0.84rem; border-top: 1px solid #1c1c1e; }
+  footer .brand-line { color: var(--cream); font-style: italic; font-size: 1.05rem; margin-bottom: 8px; }
+  footer .foot-links a { color: var(--grey); margin: 0 8px; }
+  footer .foot-links a:hover { color: var(--gold); }
+
+  @media (max-width: 760px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; gap: 34px; }
+    .navbar nav { display: none; }
+    .price-row .label { font-size: 0.86rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#" class="logo-mark">
+      <span class="ps">P.S.</span>
+      <div class="logo-sub">Beauty Salon</div>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#prix">Nos prix</a>
+      <a href="#about">Nous joindre</a>
+    </nav>
+    <a href="tel:4388666763" class="cta-btn">Réserver</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="ps-big">P.S.</div>
+  <div class="beauty-salon">Beauty Salon</div>
+  <div class="rule"></div>
+  <p class="sub">Épilation laser & électrolyse, maquillage permanent, soins du visage et ongles — à Mirabel.</p>
+  <div class="cta-row">
+    <a href="tel:4388666763" class="btn btn-primary">Réserver — (438) 866-6763</a>
+    <a href="#prix" class="btn btn-outline">Voir la carte des soins</a>
+  </div>
+</div>
+
+<div class="info-strip">16447, rue de l'Esplanade, Mirabel <span class="dot">•</span> Laser & électrolyse <span class="dot">•</span> Maquillage permanent <span class="dot">•</span> Ongles</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Ce qu'on offre</div>
+      <h2>Nos services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">✨</div>
+        <h3>Laser & électrolyse</h3>
+        <p>Épilation définitive adaptée à chaque type de peau, pour femme et homme.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">🖋️</div>
+        <h3>Maquillage permanent</h3>
+        <p>Sourcils, lèvres et yeux — dermopigmentation et correction.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon">💅</div>
+        <h3>Ongles & soins du visage</h3>
+        <p>Manucure, ongles et soins du visage incluant l'Hydrafacial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prix" class="price-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Carte des soins</div>
+      <h2>Nos prix</h2>
+    </div>
+    <div class="price-table">
+      <div class="price-cat">Laser et électrolyse</div>
+      <div class="price-row"><span class="label">Épilation électrolyse — 1 min</span><span class="value">5$</span></div>
+      <div class="price-row"><span class="label">Épilation électrolyse — 60 min</span><span class="value">70$</span></div>
+      <div class="price-row"><span class="label">Épilation laser femme — Aisselles</span><span class="value">40$</span></div>
+      <div class="price-row"><span class="label">Épilation laser femme — Bras</span><span class="value">60$ à 80$</span></div>
+      <div class="price-row"><span class="label">Épilation laser femme — Jambes, bikini et aisselles</span><span class="value">250$</span></div>
+      <div class="price-row"><span class="label">Épilation laser femme — Corps complet</span><span class="value">370$</span></div>
+      <div class="price-row"><span class="label">Épilation laser homme — Poitrine et abdomen</span><span class="value">200$</span></div>
+      <div class="price-row"><span class="label">Épilation laser homme — Visage</span><span class="value">25$ à 100$</span></div>
+
+      <div class="price-cat">Maquillage permanent et correction</div>
+      <div class="price-row"><span class="label">Sourcils — 150 min (retouche gratuite)</span><span class="value">350$</span></div>
+      <div class="price-row sub"><span class="label">Remplissage 1 an</span><span class="value">100$</span></div>
+      <div class="price-row sub"><span class="label">Remplissage 2 ans</span><span class="value">200$</span></div>
+      <div class="price-row sub"><span class="label">Remplissage 3 ans</span><span class="value">300$</span></div>
+      <div class="price-row"><span class="label">Lèvres</span><span class="value">500$</span></div>
+      <div class="price-row"><span class="label">Yeux</span><span class="value">450$</span></div>
+      <div class="price-row"><span class="label">Dermopigmentation corrective</span><span class="value">100$</span></div>
+      <div class="price-row"><span class="label">Détatouage</span><span class="value">200$</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">Nous joindre</div>
+      <h2>Réservez votre soin</h2>
+      <p>P.S. Beauty Salon vous reçoit à Mirabel pour vos traitements d'épilation laser et électrolyse, de maquillage permanent, ainsi que pour vos soins des ongles et du visage.</p>
+      <p>Réservation par téléphone ou par courriel — on se fait un plaisir de répondre à vos questions.</p>
+    </div>
+    <div class="info-card">
+      <div class="row"><span class="label">Téléphone</span><span class="value">(438) 866-6763</span></div>
+      <div class="row"><span class="label">Courriel</span><span class="value">contact@psbeauty.ca</span></div>
+      <div class="row"><span class="label">Adresse</span><span class="value">16447, rue de l'Esplanade,<br>Mirabel, QC J7N 5E4</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Prête pour votre prochain soin?</h2>
+  <p>Contactez-nous pour réserver ou pour toute question sur nos traitements.</p>
+  <a href="tel:4388666763" class="btn btn-primary">(438) 866-6763</a>
+</div>
+
+<footer>
+  <div class="brand-line">P.S. Beauty Salon</div>
+  Laser & électrolyse · Maquillage permanent · Ongles · Soins du visage
+  <div class="foot-links">
+    <a href="mailto:contact@psbeauty.ca">Courriel</a>
+    ·
+    <a href="https://www.instagram.com/psbe.autysalon" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>
