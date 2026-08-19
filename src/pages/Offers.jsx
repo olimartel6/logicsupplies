@@ -11,9 +11,11 @@ export default function Offers({ client, business }) {
   const [claimQR, setClaimQR] = useState(null) // { code, title }
 
   useEffect(() => {
-    // Demo mode has no real business/client in Supabase — show the empty
-    // state instead of spinning forever waiting for a fetch that can't happen.
+    // Demo mode has no real business/client in Supabase — fall back to any
+    // illustrative offers defined in config.js instead of hitting a fetch
+    // that can't happen (same fallback pattern as Rewards.jsx).
     if (client?.id === 'demo' || !business?.id || !client?.id) {
+      setOffers(config.offers || [])
       setLoading(false)
       return
     }
