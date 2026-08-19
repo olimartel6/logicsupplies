@@ -15942,10 +15942,10 @@ const configs = {
   'stockholm-cafe': {
     businessName: 'Stockholm Café', slug: 'stockholm-cafe', tagline: 'Café de quartier sur le Chemin Sainte-Foy à Québec — cafés de spécialités, sandwichs grillés et viennoiseries maison', favicon: '☕',
     logo: import.meta.env.BASE_URL + 'logos/stockholm-cafe.png', logoLight: import.meta.env.BASE_URL + 'logos/stockholm-cafe.png',
-    heroImage: import.meta.env.BASE_URL + 'images/stockholm-cafe/hero.png', galleryImages: [import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery1.png', import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery2.png'],
+    heroImage: import.meta.env.BASE_URL + 'images/stockholm-cafe/hero.png', galleryImages: [import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery1.png', import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery2.png', import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery3.png', import.meta.env.BASE_URL + 'images/stockholm-cafe/gallery4.png'],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Stockholm',
     theme: { primary: '#402818', primaryLight: '#5C4030', accent: '#FF4F1F', accentLight: '#FF8360', accentDark: '#D93E12', bg: '#F7F5F2', font: '"hero-new", system-ui, sans-serif' },
-    rewards: [{ id: 1, name: 'Café ou thé gratuit', points_required: 150, type: 'free_service', value: 'cafe' }, { id: 2, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 5 }, { id: 3, name: 'Sandwich gratuit', points_required: 550, type: 'free_service', value: 'sandwich' }, { id: 4, name: 'Combo déjeuner complet gratuit', points_required: 900, type: 'free_service', value: 'combo-dejeuner' }],
+    rewards: [{ id: 1, name: 'Café ou thé gratuit', points_required: 150, type: 'free_service', value: 'cafe' }, { id: 2, name: 'Boule de crème glacée gratuite', points_required: 220, type: 'free_service', value: 'creme-glacee' }, { id: 3, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 5 }, { id: 4, name: 'Sandwich gratuit', points_required: 550, type: 'free_service', value: 'sandwich' }, { id: 5, name: 'Combo déjeuner complet gratuit', points_required: 900, type: 'free_service', value: 'combo-dejeuner' }, { id: 6, name: 'Panier déjeuner pour deux', points_required: 1300, type: 'free_service', value: 'panier-dejeuner-duo' }],
     referralMessage: 'Rejoins Stockholm Café et obtiens 75 points!', address: '2124 Chemin Sainte-Foy, Québec',
   },
   'papa-sandwich': {
