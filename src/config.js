@@ -15956,10 +15956,15 @@ const configs = {
   'papa-sandwich': {
     businessName: 'Papa Sandwich', slug: 'papa-sandwich', tagline: 'Tu mérites un vrai sandwich — 5 succursales à Québec', favicon: '🥪',
     logo: import.meta.env.BASE_URL + 'logos/papa-sandwich.png', logoLight: import.meta.env.BASE_URL + 'logos/papa-sandwich-light.png',
-    heroImage: import.meta.env.BASE_URL + 'images/papa-sandwich/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/papa-sandwich/gallery1.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery2.jpg'],
+    heroImage: import.meta.env.BASE_URL + 'images/papa-sandwich/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/papa-sandwich/gallery1.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery2.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery4.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery5.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery6.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery3.webp'],
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Papa',
     theme: { primary: '#0D0D0D', primaryLight: '#262626', accent: '#619F44', accentLight: '#8AC168', accentDark: '#4A7D33', bg: '#F9FCF8', font: '"hero-new", system-ui, sans-serif' },
-    rewards: [{ id: 1, name: '3$ de rabais', points_required: 150, type: 'discount_fixed', value: 3 }, { id: 2, name: 'Sandwich froid gratuit', points_required: 350, type: 'free_service', value: 'sandwich-froid' }, { id: 3, name: 'Le Papa gratuit (notre signature)', points_required: 600, type: 'free_service', value: 'le-papa' }, { id: 4, name: 'Combo complet gratuit (sandwich + boisson + chips)', points_required: 1000, type: 'free_service', value: 'combo-complet' }],
+    rewards: [{ id: 1, name: '3$ de rabais', points_required: 150, type: 'discount_fixed', value: 3 }, { id: 2, name: 'Sandwich froid gratuit', points_required: 350, type: 'free_service', value: 'sandwich-froid' }, { id: 3, name: 'Hot Honey Baby gratuit', points_required: 500, type: 'free_service', value: 'hot-honey-baby' }, { id: 4, name: 'Le Papa gratuit (notre signature)', points_required: 600, type: 'free_service', value: 'le-papa' }, { id: 5, name: 'Combo complet gratuit (sandwich + boisson + chips)', points_required: 1000, type: 'free_service', value: 'combo-complet' }, { id: 6, name: 'Carte-cadeau de 30$', points_required: 1800, type: 'discount_fixed', value: 30 }],
+    offers: [
+      { id: 'demo-1', title: 'Duo à partager', description: 'Deux sandwichs chauds au choix + 2 boissons, à prix rabais — parfait pour un lunch entre collègues ou en couple.', image_url: import.meta.env.BASE_URL + 'images/papa-sandwich/gallery4.webp' },
+      { id: 'demo-2', title: 'Le Papa à l\'honneur', description: '2$ de rabais sur notre signature Le Papa cette semaine — jambon, poulet pané, prosciutto, glaçage balsamique, le tout dans notre pain croûté maison.', image_url: import.meta.env.BASE_URL + 'images/papa-sandwich/gallery5.webp' },
+      { id: 'demo-3', title: 'Vendredi Hot Honey', description: 'Le Hot Honey Baby (poulet pané, miel piquant, roquette, tomate) à prix spécial tous les vendredis midi.', image_url: import.meta.env.BASE_URL + 'images/papa-sandwich/gallery6.webp' },
+    ],
     referralMessage: 'Rejoins Papa Sandwich et obtiens 75 points!', address: 'Cartier, Pyramide, Saint-Augustin, Lebourgneuf — Québec',
   },
   'epilation-elegance': {
