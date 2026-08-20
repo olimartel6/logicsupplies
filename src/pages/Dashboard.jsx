@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { CreditCard, MapPin, Users, Gift, ChevronRight, LogOut, Sparkles } from 'lucide-react'
+import { CreditCard, MapPin, Users, Gift, ChevronRight, LogOut, Sparkles, ShoppingBag } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import config from '../config'
 import { getClientTransactions, getClientById } from '../services/supabase'
@@ -203,12 +203,19 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
           href={config.orderUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-accent"
           style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-            width: '100%', marginBottom: 16, textDecoration: 'none',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+            width: '100%', marginBottom: 20, textDecoration: 'none',
+            padding: '18px 28px', borderRadius: '1.55em',
+            background: 'linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 55%, var(--accent-dark) 100%)',
+            color: '#FFFFFF', fontFamily: 'var(--font)', fontSize: 17, fontWeight: 800,
+            letterSpacing: 0.3, textTransform: 'uppercase',
+            boxShadow: '0 8px 28px rgba(var(--accent-rgb), 0.45), 0 2px 8px rgba(0,0,0,0.3)',
+            border: '1px solid rgba(255,255,255,0.15)',
+            animation: 'pulseGlow 2.4s ease-in-out infinite',
           }}
         >
+          <ShoppingBag size={20} strokeWidth={2.5} />
           Commander en ligne
         </a>
       )}
