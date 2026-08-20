@@ -198,6 +198,21 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
         </div>
       </div>
 
+      {config.orderUrl && (
+        <a
+          href={config.orderUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-accent"
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+            width: '100%', marginBottom: 16, textDecoration: 'none',
+          }}
+        >
+          Commander en ligne
+        </a>
+      )}
+
       {nextReward && (
         <div className="next-reward">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

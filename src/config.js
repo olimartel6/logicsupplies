@@ -15955,10 +15955,10 @@ const configs = {
   },
   'papa-sandwich': {
     businessName: 'Papa Sandwich', slug: 'papa-sandwich', tagline: 'Tu mérites un vrai sandwich — 5 succursales à Québec', favicon: '🥪',
-    logo: import.meta.env.BASE_URL + 'logos/papa-sandwich.png', logoLight: import.meta.env.BASE_URL + 'logos/papa-sandwich-light.png',
-    heroImage: import.meta.env.BASE_URL + 'images/papa-sandwich/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/papa-sandwich/gallery1.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery2.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery4.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery5.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery6.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery3.webp'],
-    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Papa',
-    theme: { primary: '#0D0D0D', primaryLight: '#262626', accent: '#619F44', accentLight: '#8AC168', accentDark: '#4A7D33', bg: '#F9FCF8', font: '"hero-new", system-ui, sans-serif' },
+    logo: import.meta.env.BASE_URL + 'logos/papa-sandwich-light.png', logoLight: import.meta.env.BASE_URL + 'logos/papa-sandwich-light.png',
+    heroImage: import.meta.env.BASE_URL + 'images/papa-sandwich/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/papa-sandwich/gallery1.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery2.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery4.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery9.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery5.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery10.jpg', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery6.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery7.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery3.webp', import.meta.env.BASE_URL + 'images/papa-sandwich/gallery8.webp'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Papa', orderUrl: 'https://order.koomi.com/papa-sandwich-B0m9bRnwWQ/',
+    theme: { primary: '#0D0D0D', primaryLight: '#262626', accent: '#619F44', accentLight: '#8AC168', accentDark: '#4A7D33', bg: '#0D0D0D', bgCard: '#1A1A1A', bgWarm: '#1C2318', border: 'rgba(255,255,255,0.08)', text: '#F5F5F0', textLight: '#B8B5AE', textMuted: '#7A7770', font: '"hero-new", system-ui, sans-serif' },
     rewards: [{ id: 1, name: '3$ de rabais', points_required: 150, type: 'discount_fixed', value: 3 }, { id: 2, name: 'Sandwich froid gratuit', points_required: 350, type: 'free_service', value: 'sandwich-froid' }, { id: 3, name: 'Hot Honey Baby gratuit', points_required: 500, type: 'free_service', value: 'hot-honey-baby' }, { id: 4, name: 'Le Papa gratuit (notre signature)', points_required: 600, type: 'free_service', value: 'le-papa' }, { id: 5, name: 'Combo complet gratuit (sandwich + boisson + chips)', points_required: 1000, type: 'free_service', value: 'combo-complet' }, { id: 6, name: 'Carte-cadeau de 30$', points_required: 1800, type: 'discount_fixed', value: 30 }],
     offers: [
       { id: 'demo-1', title: 'Duo à partager', description: 'Deux sandwichs chauds au choix + 2 boissons, à prix rabais — parfait pour un lunch entre collègues ou en couple.', image_url: import.meta.env.BASE_URL + 'images/papa-sandwich/gallery4.webp' },
@@ -17306,6 +17306,12 @@ export function applyTheme(theme) {
   if (theme.accentLight) root.style.setProperty('--accent-light', theme.accentLight);
   if (theme.accentDark) root.style.setProperty('--accent-dark', theme.accentDark);
   if (theme.bg) root.style.setProperty('--bg', theme.bg);
+  if (theme.bgCard) root.style.setProperty('--bg-card', theme.bgCard);
+  if (theme.bgWarm) root.style.setProperty('--bg-warm', theme.bgWarm);
+  if (theme.border) root.style.setProperty('--border', theme.border);
+  if (theme.text) root.style.setProperty('--text', theme.text);
+  if (theme.textLight) root.style.setProperty('--text-light', theme.textLight);
+  if (theme.textMuted) root.style.setProperty('--text-muted', theme.textMuted);
   if (theme.font) root.style.setProperty('--font', theme.font);
   // RGB channels for translucent brand tints (rgba(var(--accent-rgb), a))
   const rgb = hexToRgb(theme.accent);
