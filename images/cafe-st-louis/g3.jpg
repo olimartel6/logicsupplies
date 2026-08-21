@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Introuvable | Page Not Found</title>
+<style>
+.flex-container {
+display: flex;
+flex-direction: column;
+width: 100%;
+max-width: 1090px;
+margin-left: auto;
+margin-right: auto;
+box-sizing: border-box;
+}
+.text-center {
+text-align: center !important;
+}
+.page_404 { 
+padding: 40px 0; 
+background: #f0f0f0; 
+font-family: "Roboto", sans-serif; 
+height: 100vh;
+}
+.page_404 img { width: 100%; }
+.four_zero_four_bg {
+background-image: url(https://assets.restodata.ca/images/404-eat.gif);
+height: 350px;
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+margin-top: -20px;
+}
+.four_zero_four_bg h1, .four_zero_four_bg h3 {
+font-size: 80px;
+}
+p.copyright {
+margin-top: 30px;
+color: gray;
+font-size: 15px;
+}
+.link_404 {      
+background-color: #e54449;
+background-image: linear-gradient(45deg, #ff7a00, #ff0069, #cb3232);
+color: #fff !important;
+font-weight: 700;
+letter-spacing: .1px;
+border-radius: 35px !important;
+display: inline-block;
+font-size: 14px !important;
+line-height: 1;
+padding: 17px 9px !important;
+text-align: center;
+margin: 19px auto auto;
+min-width: 315px;
+text-decoration: none;
+}
+.contant_box_404 { margin-top: -50px; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 0; height: 100vh;">
+<section class="page_404">
+<div class="flex-container">
+<div class="text-center">
+<div class="text-center">
+<a href="https://www.restomontreal.ca">
+<img src="https://assets.restomontreal.ca/logos/logo-sm.png?v3" width="150" style="margin-bottom:20px; width:150px!important;" alt="Restaurants">
+</a>
+</div>
+
+<div class="four_zero_four_bg"></div>
+
+<div class="contant_box_404">
+<h3 class="h2">
+Cette page a disparu / This page has gone missing
+</h3>
+
+<p>La page que vous recherchez n'est pas disponible ! / The page you're looking for is not available!</p>
+
+<a href="https://www.restomontreal.ca" class="link_404">
+Retour à / Back to: restomontreal.ca</a>
+
+<p class="copyright">
+&copy; 2026 Restomontreal</p>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
