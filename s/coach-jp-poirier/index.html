@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jean-Philippe Poirier — Massothérapeute &amp; Kinésiologue | Evolve Thérapie</title>
+<meta name="description" content="Jean-Philippe Poirier, massothérapeute et kinésiologue à Québec. Evolve Thérapie — douleurs, stress, tensions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12160f;
+    --bg-card: #1b2116;
+    --gold: #C9A96E;
+    --gold-light: #E0C793;
+    --text: #F3F1EA;
+    --text-muted: #A6A99C;
+    --border: rgba(201,169,110,0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+  .script { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(18,22,15,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .brand { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.4rem; color: var(--gold-light); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold); color: #1a1a12; font-weight: 700; font-size: 0.9rem;
+    padding: 13px 28px; border-radius: 999px; text-decoration: none; border: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pill:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .pill-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .pill-outline:hover { background: rgba(201,169,110,0.08); }
+
+  .hero { padding: 100px 0 80px; background: radial-gradient(ellipse at top right, rgba(201,169,110,0.09), transparent 60%); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: 60px; align-items: center; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; color: var(--gold); font-weight: 700; margin-bottom: 20px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1.08; text-wrap: balance; }
+  .hero p.lead { margin-top: 26px; font-size: 1.15rem; color: var(--text-muted); max-width: 44ch; }
+  .hero-actions { margin-top: 38px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-photo { border-radius: 100px 20px 100px 20px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 40px 90px -20px rgba(0,0,0,0.7); border: 1px solid var(--border); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding: 84px 0; }
+  section.alt { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head { max-width: 58ch; margin: 0 auto 48px; text-align: center; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(1.9rem, 3.5vw, 2.7rem); text-wrap: balance; }
+  h2 + p { margin-top: 16px; color: var(--text-muted); font-size: 1.05rem; }
+
+  .quote { text-align: center; max-width: 46ch; margin: 0 auto; }
+  .quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.7rem; color: var(--gold-light); line-height: 1.4; }
+
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .service { padding: 34px 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+  .service .mark { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1rem; margin-bottom: 16px; }
+  .service h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+  .service p { color: var(--text-muted); font-size: 0.95rem; }
+
+  .gallery figure { border-radius: 20px; overflow: hidden; max-width: 720px; margin: 0 auto; }
+  .gallery img { width: 100%; height: auto; object-fit: cover; display: block; }
+
+  .cta { text-align: center; padding: 100px 0; }
+  .cta h2 { max-width: 22ch; margin: 0 auto 16px; }
+  .cta p { color: var(--text-muted); margin-bottom: 32px; }
+  .cta .hero-actions { justify-content: center; }
+
+  footer { border-top: 1px solid var(--border); padding: 40px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer p { color: var(--text-muted); font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; aspect-ratio: 16/10; border-radius: 24px; }
+    .services { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Jean-Philippe Poirier</div>
+    <a class="pill" href="https://bit.ly/4db7RFe" target="_blank" rel="noopener">Réserve maintenant</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Massothérapeute &amp; Kinésiologue — Québec</div>
+      <h1>La vie est trop courte pour être <span class="script">tendu</span> et avoir mal.</h1>
+      <p class="lead">Je suis JP. Douleurs, stress, tensions — j'arrange ça. Si t'aimes ça être bien, tu vas aimer ça ici.</p>
+      <div class="hero-actions">
+        <a class="pill" href="https://bit.ly/4db7RFe" target="_blank" rel="noopener">Prendre rendez-vous</a>
+        <a class="pill pill-outline" href="tel:5146498789">514-649-8789</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/headshot.png" alt="Jean-Philippe Poirier, massothérapeute et kinésiologue">
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap quote">
+    <p>« On fait tous pareil : on attend que ça coince dans le cou, que le bas du dos barre, que l'épaule bloque avant de se dire — faudrait peut-être que je prenne rendez-vous. »</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Evolve Thérapie</div>
+      <h2>Une approche qui combine massage et kinésiologie</h2>
+      <p>Le toucher — une pression ferme et constante — déclenche la libération d'ocytocine dans ton cerveau, la même hormone liée au sentiment de sécurité. Ton corps ne fait pas juste « se détendre » pendant une séance, il y a une vraie réponse physiologique, mesurable.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="mark">01</div>
+        <h3>Massothérapie</h3>
+        <p>Pour les douleurs, le stress et les tensions accumulées — cou, dos, épaules.</p>
+      </div>
+      <div class="service">
+        <div class="mark">02</div>
+        <h3>Kinésiologie</h3>
+        <p>Une évaluation du mouvement pour comprendre la source de l'inconfort, pas juste soulager le symptôme.</p>
+      </div>
+      <div class="service">
+        <div class="mark">03</div>
+        <h3>Suivi personnalisé</h3>
+        <p>Chaque séance s'ajuste à ce que ton corps te dit ce jour-là.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">En séance</div>
+      <h2>Un moment pour toi</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="img/massage1.jpg" alt="Séance de massage chez Evolve Thérapie"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Evolve Thérapie</div>
+    <h2>Prends rendez-vous quand ton corps te le demande</h2>
+    <p>3045 Boul. Père-Lelièvre, Québec, QC G2E 3A8</p>
+    <div class="hero-actions">
+      <a class="pill" href="https://bit.ly/4db7RFe" target="_blank" rel="noopener">Réserver en ligne</a>
+      <a class="pill pill-outline" href="https://www.facebook.com/coach.jp.poirier/" target="_blank" rel="noopener">Voir la page Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Jean-Philippe Poirier — Evolve Thérapie · 3045 Boul. Père-Lelièvre, Québec, QC G2E 3A8 · 514-649-8789</p>
+    <p>Site démo par Logic Supplies</p>
+  </div>
+</footer>
+
+</body>
+</html>

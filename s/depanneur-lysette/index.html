@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dépanneur Lysette — Lévis</title>
+<meta name="description" content="Dépanneur Lysette à Lévis — la plus grande sélection de bières de microbrasserie de la région.">
+<style>
+  :root {
+    --bg: #141414;
+    --bg-card: #1e1e1e;
+    --accent: #C8102E;
+    --accent-light: #E13B52;
+    --text: #F5F5F0;
+    --text-muted: #9A9691;
+    --border: rgba(255,255,255,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(20,20,20,0.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; text-transform: lowercase; }
+  .logo span { color: var(--accent); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9rem;
+    padding: 12px 26px; border-radius: 999px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pill:hover { background: var(--accent-light); transform: translateY(-1px); }
+  .pill-outline {
+    background: transparent; border: 1px solid var(--border); color: var(--text);
+  }
+  .pill-outline:hover { background: rgba(255,255,255,0.06); }
+
+  .hero { position: relative; padding: 90px 0 70px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem;
+    color: var(--accent); font-weight: 700; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 5.5vw, 4.4rem); font-weight: 800; letter-spacing: -0.03em;
+    line-height: 1.02; text-wrap: balance;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+  .hero p.lead { margin-top: 24px; font-size: 1.15rem; color: var(--text-muted); max-width: 46ch; }
+  .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-photo {
+    border-radius: 24px; overflow: hidden; aspect-ratio: 4/5;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .stats { display: flex; gap: 48px; margin-top: 56px; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+  .stat span { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  section { padding: 80px 0; }
+  section.alt { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head { max-width: 60ch; margin-bottom: 48px; }
+  .section-head .eyebrow { margin-bottom: 12px; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; text-wrap: balance; }
+  h2 + p { margin-top: 16px; color: var(--text-muted); font-size: 1.05rem; }
+
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .gallery figure { border-radius: 18px; overflow: hidden; aspect-ratio: 1; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .gallery figure:hover img { transform: scale(1.06); }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 8px; }
+  .feature { padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; }
+  .feature .num { font-size: 0.85rem; color: var(--accent); font-weight: 800; letter-spacing: 0.06em; margin-bottom: 14px; }
+  .feature h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+  .feature p { color: var(--text-muted); font-size: 0.95rem; }
+
+  .cta {
+    text-align: center; padding: 100px 0;
+  }
+  .cta h2 { max-width: 24ch; margin: 0 auto 28px; }
+  .cta .hero-actions { justify-content: center; }
+
+  footer { border-top: 1px solid var(--border); padding: 40px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer p { color: var(--text-muted); font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; aspect-ratio: 16/10; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .features { grid-template-columns: 1fr; }
+    .stats { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">dépanneur<span>.</span>lysette</div>
+    <a class="pill" href="https://www.instagram.com/depanneurlysette/" target="_blank" rel="noopener">Suivre sur Instagram</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Lévis, Québec</div>
+      <h1>Le dépanneur du <em>quartier</em>, la sélection d'un connaisseur.</h1>
+      <p class="lead">Dépanneur Lysette, c'est les essentiels de tous les jours — et la plus grande sélection de bières de microbrasserie du coin, choisie avec soin.</p>
+      <div class="hero-actions">
+        <a class="pill" href="https://www.google.com/maps/search/?api=1&query=354+des+Ruisseaux+L%C3%A9vis+Qc" target="_blank" rel="noopener">Voir sur la carte</a>
+        <a class="pill pill-outline" href="https://www.instagram.com/depanneurlysette/" target="_blank" rel="noopener">@depanneurlysette</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>150+</b><span>Bières en stock</span></div>
+        <div class="stat"><b>300+</b><span>Publications Instagram</span></div>
+        <div class="stat"><b>7j/7</b><span>Ouvert dans le quartier</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/storefront.jpg" alt="Façade du Dépanneur Lysette, 354 des Ruisseaux, Lévis">
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">La sélection</div>
+      <h2>Des microbrasseries d'ici et d'ailleurs, sur les tablettes chaque semaine</h2>
+      <p>Le Castor, Brasseurs du Monde, Pixel Brewing et des dizaines d'autres — la rotation change constamment, alors il y a toujours une nouvelle canette à découvrir.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="img/interior1.jpg" alt="Étagère de bières de microbrasserie au Dépanneur Lysette"></figure>
+      <figure><img src="img/interior2.jpg" alt="Coin bar rustique du Dépanneur Lysette"></figure>
+      <figure><img src="img/product1.jpg" alt="Canette de bière de microbrasserie en vedette"></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pourquoi Lysette</div>
+      <h2>Plus qu'un dépanneur</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="num">01</div>
+        <h3>Sélection pointue</h3>
+        <p>Une bière de microbrasserie choisie chaque semaine, pas juste les mêmes marques que partout ailleurs.</p>
+      </div>
+      <div class="feature">
+        <div class="num">02</div>
+        <h3>De proximité</h3>
+        <p>Au 354 des Ruisseaux, en plein cœur du quartier — les essentiels à deux pas de chez vous.</p>
+      </div>
+      <div class="feature">
+        <div class="num">03</div>
+        <h3>Une ambiance qui se remarque</h3>
+        <p>Un décor chaleureux, boisé, pensé pour donner envie de flâner devant les tablettes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta alt">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Passez nous voir</div>
+    <h2>354 des Ruisseaux, Lévis, QC G6C 1K2</h2>
+    <div class="hero-actions">
+      <a class="pill" href="https://www.google.com/maps/search/?api=1&query=354+des+Ruisseaux+L%C3%A9vis+Qc" target="_blank" rel="noopener">Itinéraire</a>
+      <a class="pill pill-outline" href="https://www.instagram.com/depanneurlysette/" target="_blank" rel="noopener">Voir la page Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Dépanneur Lysette — 354 des Ruisseaux, Lévis, QC G6C 1K2</p>
+    <p>Site démo par Logic Supplies</p>
+  </div>
+</footer>
+
+</body>
+</html>
