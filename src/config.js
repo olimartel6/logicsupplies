@@ -17266,6 +17266,33 @@ const configs = {
     rewards: [{ id: 1, name: '10% de rabais', points_required: 200, type: 'discount_percent', value: 10 }, { id: 2, name: 'Croissant gratuit', points_required: 250, type: 'free_service', value: 'croissant-gratuit' }, { id: 3, name: '10$ de rabais', points_required: 450, type: 'discount_fixed', value: 10 }, { id: 4, name: 'Miche de pain offerte chaque semaine pendant 1 mois', points_required: 1200, type: 'free_service', value: 'pain-mensuel' }],
     referralMessage: 'Rejoins Le Pain d\'Alain et obtiens 75 points!', phone: '819-595-6917', address: '53 Boulevard Saint-Joseph, Gatineau, QC J8Y 3W1',
   },
+  'cephalo-headspa': {
+    businessName: 'Cephalo Headspa', slug: 'cephalo-headspa', tagline: 'Votre bien-être commence par votre tête — rituels headspa coréens à Laval', favicon: '🧖‍♀️',
+    logo: import.meta.env.BASE_URL + 'logos/cephalo-headspa.png',
+    heroImage: import.meta.env.BASE_URL + 'images/cephalo-headspa/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery1.jpg', import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery2.jpg', import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery3.jpg', import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery4.jpg', import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery5.jpg', import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery6.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Cephalo',
+    theme: { primary: '#5b472e', primaryLight: '#7a6142', accent: '#9c8a6e', accentLight: '#c9c1ad', accentDark: '#7a6142', bg: '#fffefc', bgCard: '#f1ece7', bgWarm: '#f1ece7', border: 'rgba(91,71,46,0.12)', text: '#3a2e1d', textLight: '#5b472e', textMuted: '#9c8a6e', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '15$ de rabais', points_required: 300, type: 'discount_fixed', value: 15 }, { id: 2, name: 'Surclassement gratuit vers le Scalp Care', points_required: 500, type: 'free_service', value: 'surclassement-scalp-care' }, { id: 3, name: 'Headspa Express offert', points_required: 1400, type: 'free_service', value: 'headspa-express' }, { id: 4, name: 'Headspa K-GLOW offert (notre signature)', points_required: 2200, type: 'free_service', value: 'headspa-kglow' }],
+    offers: [
+      { id: 'demo-1', title: 'Rituel Scalp Care', description: 'Analyse du cuir chevelu, double nettoyage, massage et radiofréquence — 1h15 de détente pure, avec 20 min de coiffage inclus.', image_url: import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery4.jpg' },
+      { id: 'demo-2', title: 'Forfait 3 séances Express', description: 'Trois Headspa Express (45 min) pour 330$ au lieu de 360$ — économisez 30$ en prenant soin de vous régulièrement.', image_url: import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery1.jpg' },
+      { id: 'demo-3', title: 'K-GLOW — le rituel complet', description: 'Notre soin signature de 1h45 combine headspa et soin du visage pour une renaissance complète, esprit et cuir chevelu.', image_url: import.meta.env.BASE_URL + 'images/cephalo-headspa/gallery3.jpg' },
+    ],
+    referralMessage: 'Rejoins Cephalo Headspa et obtiens 75 points!', phone: '450-490-3451', address: 'A-1087 boul. des Laurentides, Laval, QC H7G 2W2',
+  },
+  'place-melrose-esthetique': {
+    businessName: 'Place Melrose Esthétique', slug: 'place-melrose-esthetique', tagline: 'Les spécialistes en madérothérapie et soin du visage à Québec', favicon: '🌸',
+    heroImage: import.meta.env.BASE_URL + 'images/place-melrose-esthetique/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery1.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery2.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery3.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery4.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery5.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery6.jpg', import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery7.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Melrose',
+    theme: { primary: '#8a5346', primaryLight: '#b97b68', accent: '#dfa08f', accentLight: '#f3d6cc', accentDark: '#b97b68', bg: '#FBF6F4', bgCard: '#F7EEEA', bgWarm: '#F7EEEA', border: 'rgba(138,83,70,0.14)', text: '#300303', textLight: '#5c3a32', textMuted: '#9c8078', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10$ de rabais', points_required: 200, type: 'discount_fixed', value: 10 }, { id: 2, name: 'Zone de madérothérapie gratuite (1-2 zones)', points_required: 400, type: 'free_service', value: 'maderotherapie-zone' }, { id: 3, name: 'Soin du visage Éclat Délicat offert', points_required: 700, type: 'free_service', value: 'soin-visage-eclat' }, { id: 4, name: 'L\'expérience Melrose (Head Spa 2h) offerte', points_required: 1500, type: 'free_service', value: 'experience-melrose' }],
+    offers: [
+      { id: 'demo-1', title: 'Combo Détente Velours', description: 'Notre rituel signature combinant soin du visage et détente profonde, pensé pour une pause complète — 169$.', image_url: import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery1.jpg' },
+      { id: 'demo-2', title: 'Forfait madérothérapie 6 zones', description: 'Sculptez et drainez en profondeur avec notre forfait le plus complet — technique brésilienne pratiquée par notre équipe certifiée.', image_url: import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery2.jpg' },
+      { id: 'demo-3', title: 'L\'Éveil sensoriel — Head Spa', description: '1h de massage du cuir chevelu et de vapeur chaude pour relâcher toutes les tensions — dès 119$.', image_url: import.meta.env.BASE_URL + 'images/place-melrose-esthetique/gallery3.jpg' },
+    ],
+    referralMessage: 'Rejoins Place Melrose Esthétique et obtiens 75 points!', phone: '418-261-8675', address: '1771 Av Industrielle, Québec, QC G3K 1L8',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
