@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blooming With Grace — Soins de la peau &amp; bien-être</title>
+<meta name="description" content="Blooming With Grace — routines de soins de la peau et bien-être Nu Skin, choisies avec soin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF6EF;
+    --bg-card: #F3EADC;
+    --brown: #6B4A34;
+    --brown-dark: #4A3122;
+    --sage: #8A9270;
+    --text: #3A2A1E;
+    --text-muted: #7A6A5A;
+    --border: rgba(107,74,52,0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'Jost', -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  .script { font-family: 'Petit Formal Script', cursive; color: var(--brown); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(251,246,239,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { font-family: 'Petit Formal Script', cursive; font-size: 2rem; color: var(--brown); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--brown); color: #fff; font-weight: 600; font-size: 0.88rem;
+    padding: 13px 30px; border-radius: 999px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .pill:hover { background: var(--brown-dark); transform: translateY(-1px); }
+  .pill-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .pill-outline:hover { background: rgba(107,74,52,0.06); }
+
+  .hero { padding: 72px 0 90px; }
+  .hero-photo { border-radius: 26px; overflow: hidden; max-width: 900px; margin: 0 auto; box-shadow: 0 40px 90px -30px rgba(74,49,34,0.35); }
+  .hero-photo img { width: 100%; display: block; }
+  .hero-text { text-align: center; max-width: 54ch; margin: 44px auto 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.76rem; color: var(--sage); font-weight: 600; margin-bottom: 18px; }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; text-wrap: balance; }
+  .hero-text p.lead { margin-top: 20px; font-size: 1.08rem; color: var(--text-muted); }
+  .hero-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+  section { padding: 76px 0; }
+  section.alt { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head { max-width: 60ch; margin: 0 auto 48px; text-align: center; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 600; text-wrap: balance; }
+  h2 + p { margin-top: 14px; color: var(--text-muted); font-size: 1.02rem; }
+
+  .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; max-width: 640px; margin: 0 auto; }
+  .product { background: #fff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .product img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .product-info { padding: 20px 22px 24px; }
+  .product-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .product-info p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; }
+  .price { font-weight: 700; color: var(--brown); font-size: 1.1rem; }
+
+  .about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .about-photo { border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px -25px rgba(74,49,34,0.3); }
+  .about-photo img { width: 100%; display: block; }
+  .about-text .eyebrow { margin-bottom: 16px; }
+  .about-text p { color: var(--text-muted); margin-bottom: 16px; }
+
+  .cta { text-align: center; }
+  .cta h2 { max-width: 22ch; margin: 0 auto 16px; }
+  .cta p { color: var(--text-muted); margin-bottom: 32px; }
+  .cta .hero-actions { justify-content: center; }
+
+  footer { border-top: 1px solid var(--border); padding: 40px 0; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer p { color: var(--text-muted); font-size: 0.88rem; }
+
+  @media (max-width: 860px) {
+    .products { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Blooming With Grace</div>
+    <a class="pill" href="https://blooming-with-grace.company.site/" target="_blank" rel="noopener">Magasiner</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo">
+    <img src="img/hero.jpg" alt="Blooming With Grace">
+  </div>
+  <div class="hero-text">
+    <div class="eyebrow">Soins de la peau &amp; bien-être</div>
+    <h1>Une routine de soins choisie avec <span class="script">soin</span>, pas au hasard.</h1>
+    <p class="lead">Des produits Nu Skin que j'utilise et que j'aime vraiment — pour la peau, le sommeil et le bien-être au quotidien.</p>
+    <div class="hero-actions">
+      <a class="pill" href="https://blooming-with-grace.company.site/" target="_blank" rel="noopener">Découvrir ma routine</a>
+      <a class="pill pill-outline" href="https://blooming-with-grace.company.site/" target="_blank" rel="noopener">Voir la boutique</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mes favoris</div>
+      <h2>Ce que j'utilise, ce que je recommande</h2>
+      <p>Une petite sélection de ma routine — les produits qui reviennent le plus souvent dans mon panier.</p>
+    </div>
+    <div class="products">
+      <div class="product">
+        <img src="img/product3.jpg" alt="Nutricentials Pillow Glow, masque hydratant de nuit">
+        <div class="product-info">
+          <h3>Masque hydratant Pillow Glow</h3>
+          <p>Nutricentials — masque de nuit, 75 mL</p>
+          <div class="price">35,00 $</div>
+        </div>
+      </div>
+      <div class="product">
+        <img src="img/product2.jpg" alt="Dentifrice blanchissant AP24">
+        <div class="product-info">
+          <h3>Dentifrice blanchissant AP24</h3>
+          <p>Nu Skin — sans peroxyde, 110 g</p>
+          <div class="price">15,00 $</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about">
+    <div class="about-photo">
+      <img src="img/product1.jpg" alt="Fondatrice de Blooming With Grace">
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">À propos</div>
+      <h2>Une passion pour les soins, partagée simplement</h2>
+      <p>Blooming With Grace, c'est une sélection de produits Nu Skin choisis et essayés au quotidien — pour la peau, le sommeil et le bien-être général.</p>
+      <p>Pas de discours compliqué : juste ce qui fonctionne vraiment, présenté honnêtement.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt cta">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Prête à essayer?</div>
+    <h2>Trouvez votre prochain produit préféré</h2>
+    <p>Toute la sélection, avec les prix et promotions en cours.</p>
+    <div class="hero-actions">
+      <a class="pill" href="https://blooming-with-grace.company.site/" target="_blank" rel="noopener">Voir toute la boutique</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Blooming With Grace</p>
+    <p>Site démo par Logic Supplies</p>
+  </div>
+</footer>
+
+</body>
+</html>
