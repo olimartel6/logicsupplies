@@ -17420,6 +17420,40 @@ const configs = {
     theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#6B3410', accentLight: '#90664B', accentDark: '#50270C', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
     rewards: [{ id: 1, name: 'Chocolat offert', points_required: 120, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Boîte 4 morceaux', points_required: 300, type: 'discount_fixed', value: 0 }, { id: 3, name: '10$ de rabais', points_required: 500, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Coffret cadeau', points_required: 1000, type: 'discount_fixed', value: 0 }],
   },
+  'chez-mio': {
+    businessName: 'Chez Mio Café-Bistro', slug: 'chez-mio', tagline: 'Café-bistro sur l\'avenue Royale à Boischatel', favicon: '☕',
+    heroImage: import.meta.env.BASE_URL + 'images/chez-mio/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#BD5833', accentLight: '#CD8166', accentDark: '#8D4226', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Frites maison', points_required: 150, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Boisson offerte', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 3, name: '10$ de rabais', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Repas offert', points_required: 900, type: 'discount_fixed', value: 0 }],
+  },
+  'golf-montmorency': {
+    businessName: 'Club de Golf Le Montmorency', slug: 'golf-montmorency', tagline: 'Le parcours de golf de la Côte-de-Beaupré', favicon: '⛳',
+    logo: import.meta.env.BASE_URL + 'logos/golf-montmorency.png', logoLight: import.meta.env.BASE_URL + 'logos/golf-montmorency.png',
+    heroImage: import.meta.env.BASE_URL + 'images/golf-montmorency/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#2E6B3F', accentLight: '#62906F', accentDark: '#22502F', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Partie offerte', points_required: 250, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Location d\'équipement', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 600, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Heure de jeu en groupe', points_required: 1200, type: 'discount_fixed', value: 0 }],
+  },
+  'le-boreal-bar-laitier': {
+    businessName: 'Le Boréal Bar Laitier', slug: 'le-boreal-bar-laitier', tagline: 'Un univers de délices glacés, boulevard Bastien', favicon: '🍦',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#2B5672', accentLight: '#608095', accentDark: '#204055', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Petit format offert', points_required: 150, type: 'discount_fixed', value: 0 }, { id: 2, name: '5$ de rabais', points_required: 300, type: 'discount_fixed', value: 0 }, { id: 3, name: 'Panier découverte', points_required: 700, type: 'discount_fixed', value: 0 }],
+  },
+  'tequila-lounge': {
+    businessName: 'Tequila Lounge', slug: 'tequila-lounge', tagline: 'Resto-bar mexicain sur Saint-Joseph Est', favicon: '🌮',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#DC9631', accentLight: '#E4B064', accentDark: '#A57024', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Cocktail offert', points_required: 250, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Bouchées à partager', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 600, type: 'discount_fixed', value: 0 }],
+  },
+  'dorsay-pub': {
+    businessName: 'Dorsay Pub Britannique', slug: 'dorsay-pub', tagline: 'Pub britannique moderne, rue de Buade au Vieux-Québec', favicon: '🍺',
+    heroImage: import.meta.env.BASE_URL + 'images/dorsay-pub/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#B8860B', accentLight: '#C9A448', accentDark: '#8A6408', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Pinte offerte', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Planche à partager', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 600, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Souper pour deux', points_required: 1100, type: 'discount_fixed', value: 0 }],
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
