@@ -17293,6 +17293,51 @@ const configs = {
     ],
     referralMessage: 'Rejoins Place Melrose Esthétique et obtiens 75 points!', phone: '418-261-8675', address: '1771 Av Industrielle, Québec, QC G3K 1L8',
   },
+  'bbq-quebec': {
+    businessName: 'BBQ Québec', slug: 'bbq-quebec', tagline: 'La culture du gril — deviens un maître du BBQ', favicon: '🔥',
+    logo: import.meta.env.BASE_URL + 'logos/bbq-quebec.png', logoLight: import.meta.env.BASE_URL + 'logos/bbq-quebec.png',
+    heroImage: import.meta.env.BASE_URL + 'images/bbq-quebec/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#FF7C40', accentLight: '#FF9C6F', accentDark: '#BF5D30', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '5$ de rabais', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: '10% sur un achat', points_required: 350, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 600, type: 'discount_fixed', value: 0 }, { id: 4, name: '25$ de rabais', points_required: 1000, type: 'discount_fixed', value: 0 }],
+  },
+  'boite-a-malt': {
+    businessName: 'Microbrasserie La Boîte à Malt', slug: 'boite-a-malt', tagline: 'S\'ouvrir aux saveurs — un arrêt houblonné à Saint-Nicolas', favicon: '🍺',
+    logo: import.meta.env.BASE_URL + 'logos/boite-a-malt.png', logoLight: import.meta.env.BASE_URL + 'logos/boite-a-malt.png',
+    heroImage: import.meta.env.BASE_URL + 'images/boite-a-malt/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#F4821E', accentLight: '#F6A156', accentDark: '#B76116', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Dégustation 4 bières', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Pinte offerte', points_required: 350, type: 'discount_fixed', value: 0 }, { id: 3, name: '10$ de rabais', points_required: 500, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Growler rempli', points_required: 900, type: 'discount_fixed', value: 0 }],
+  },
+  'le-boucan': {
+    businessName: 'Le Boucan', slug: 'le-boucan', tagline: 'Boucherie et traiteur — le fumoir de Saint-Romuald', favicon: '🔥',
+    logo: import.meta.env.BASE_URL + 'logos/le-boucan.png', logoLight: import.meta.env.BASE_URL + 'logos/le-boucan.png',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#D12328', accentLight: '#DC5A5D', accentDark: '#9C1A1E', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '5$ de rabais', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Entrée offerte', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 700, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Plateau 4 personnes', points_required: 1200, type: 'discount_fixed', value: 0 }],
+  },
+  'chien-mondain': {
+    businessName: 'Chien Mondain', slug: 'chien-mondain', tagline: 'Accessoires, vêtements et toilettage pour votre compagnon', favicon: '🐕',
+    heroImage: import.meta.env.BASE_URL + 'images/chien-mondain/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#EFB144', accentLight: '#F3C472', accentDark: '#B38433', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Gâterie offerte', points_required: 150, type: 'discount_fixed', value: 0 }, { id: 2, name: '10% sur les jouets', points_required: 300, type: 'discount_fixed', value: 0 }, { id: 3, name: '10$ de rabais', points_required: 500, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Sac de nourriture', points_required: 1000, type: 'discount_fixed', value: 0 }],
+  },
+  'les-3-chefs': {
+    businessName: 'Les 3 Chefs', slug: 'les-3-chefs', tagline: 'Plats surgelés premium, faits au Québec', favicon: '❄️',
+    logo: import.meta.env.BASE_URL + 'logos/les-3-chefs.png', logoLight: import.meta.env.BASE_URL + 'logos/les-3-chefs.png',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#5C8E61', accentLight: '#84AA88', accentDark: '#456A48', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '5$ de rabais', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Entrée offerte', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 700, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Plateau 4 personnes', points_required: 1200, type: 'discount_fixed', value: 0 }],
+  },
+  'stratos-pizza-poutine': {
+    businessName: 'Stratos Pizza-Poutine', slug: 'stratos-pizza-poutine', tagline: 'Le restaurant familial spécialisé en pizza et poutine', favicon: '🍕',
+    logo: import.meta.env.BASE_URL + 'logos/stratos-pizza.svg', logoLight: import.meta.env.BASE_URL + 'logos/stratos-pizza.svg',
+    heroImage: import.meta.env.BASE_URL + 'images/stratos-pizza-poutine/hero.jpg',
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points',
+    theme: { primary: '#141414', primaryLight: '#2A2A2A', accent: '#EE3124', accentLight: '#F2645A', accentDark: '#B2241B', bg: '#FAFAF8', bgCard: '#FFFFFF', bgWarm: '#F5F3EF', border: 'rgba(0,0,0,0.06)', text: '#141414', textLight: '#5A5A5A', textMuted: '#8A8A8A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: 'Frites maison', points_required: 150, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Boisson offerte', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 3, name: '10$ de rabais', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Repas offert', points_required: 900, type: 'discount_fixed', value: 0 }],
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
