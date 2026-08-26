@@ -10,7 +10,7 @@
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
   <noscript>
-    <meta http-equiv="refresh" content="0;url=https://brasserielafosse.com/wp-content/uploads/2021/03/Groupe-de-masques-2.jpg?ki-cf-botcl=1">
+    <meta http-equiv="refresh" content="0;url=https://brasserielafosse.com/wp-content/uploads/2025/06/cropped-Artboard-8@3x.png?ki-cf-botcl=1">
   </noscript>
 </head>
 <body>
@@ -18,17 +18,17 @@
   <div class="spinner"></div>
   <p>This may take a few seconds.</p>
   <noscript>
-    <p><a href="https://brasserielafosse.com/wp-content/uploads/2021/03/Groupe-de-masques-2.jpg?ki-cf-botcl=1">Click here if you are not redirected automatically</a></p>
+    <p><a href="https://brasserielafosse.com/wp-content/uploads/2025/06/cropped-Artboard-8@3x.png?ki-cf-botcl=1">Click here if you are not redirected automatically</a></p>
   </noscript>
   <script>
     (function() {
       try {
-        window.location.replace("https://brasserielafosse.com/wp-content/uploads/2021/03/Groupe-de-masques-2.jpg?ki-cf-botcl=1");
+        window.location.replace("https://brasserielafosse.com/wp-content/uploads/2025/06/cropped-Artboard-8@3x.png?ki-cf-botcl=1");
       } catch(e) {
         try {
-          window.location.href = "https://brasserielafosse.com/wp-content/uploads/2021/03/Groupe-de-masques-2.jpg?ki-cf-botcl=1";
+          window.location.href = "https://brasserielafosse.com/wp-content/uploads/2025/06/cropped-Artboard-8@3x.png?ki-cf-botcl=1";
         } catch(e2) {
-          document.location = "https://brasserielafosse.com/wp-content/uploads/2021/03/Groupe-de-masques-2.jpg?ki-cf-botcl=1";
+          document.location = "https://brasserielafosse.com/wp-content/uploads/2025/06/cropped-Artboard-8@3x.png?ki-cf-botcl=1";
         }
       }
     })();
