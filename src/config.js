@@ -17549,6 +17549,18 @@ const configs = {
     ],
     referralMessage: 'Rejoins La Muse Clinique et obtiens 75 points!', phone: '418-476-6215', address: '140-1440 Rue Cyrille-Duquet, Québec, QC G1N 2E5',
   },
+  'belysee': {
+    businessName: 'Beauté Élysée', slug: 'belysee', tagline: 'Révélez l\'éclat de votre beauté naturelle — dermo-esthétique à Québec', favicon: '🌷',
+    heroImage: import.meta.env.BASE_URL + 'images/belysee/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/belysee/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Élysée',
+    theme: { primary: '#4A5A3E', primaryLight: '#6C7F5C', accent: '#7C9166', accentLight: '#A3B78C', accentDark: '#5C6E4A', bg: '#FBFAF6', bgCard: '#FFFFFF', bgWarm: '#F1EEE3', border: 'rgba(74,90,62,0.10)', text: '#2B3024', textLight: '#5A6350', textMuted: '#96988A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '15$ de rabais', points_required: 250, type: 'discount_fixed', value: 15 }, { id: 2, name: 'Rehaussement des cils offert', points_required: 450, type: 'free_service', value: 'rehaussement-cils' }, { id: 3, name: 'Épilation à la cire offerte (1 zone)', points_required: 300, type: 'free_service', value: 'epilation-cire' }, { id: 4, name: 'Soin BELA MD offert', points_required: 2000, type: 'free_service', value: 'bela-md' }],
+    offers: [
+      { id: 'demo-1', title: 'Forfait invité', description: 'Valide pour votre première visite : consultation, analyse de la peau et facial de base.', image_url: import.meta.env.BASE_URL + 'images/belysee/gallery1.jpg' },
+      { id: 'demo-2', title: 'Peeling AHA', description: 'Produits Ekseption — exfoliation en douceur pour révéler l\'éclat naturel de la peau, 120$.', image_url: import.meta.env.BASE_URL + 'images/belysee/hero.jpg' },
+    ],
+    referralMessage: 'Rejoins Beauté Élysée et obtiens 75 points!', phone: '581-983-5166', address: '2260 Avenue Bergemont, Québec, QC G1J 3T6',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
