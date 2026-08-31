@@ -17525,6 +17525,18 @@ const configs = {
     ],
     referralMessage: 'Rejoins Le Domaine Esthétique et obtiens 75 points!', phone: '418-319-7650', address: '969 Route de l\'Église, local 310, Québec (Ste-Foy), QC G1V 3V4',
   },
+  'uzuri-naturalis': {
+    businessName: 'Uzuri Naturalis', slug: 'uzuri-naturalis', tagline: 'Soins capillaires et corporels 100% naturels, fabriqués au Québec', favicon: '🌿',
+    heroImage: import.meta.env.BASE_URL + 'images/uzuri-naturalis/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/uzuri-naturalis/gallery1.jpg', import.meta.env.BASE_URL + 'images/uzuri-naturalis/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Uzuri',
+    theme: { primary: '#3D4A34', primaryLight: '#5E6E51', accent: '#8FA876', accentLight: '#B4C99F', accentDark: '#6B8250', bg: '#FBFAF6', bgCard: '#FFFFFF', bgWarm: '#F1EEE3', border: 'rgba(61,74,52,0.10)', text: '#2B3024', textLight: '#5A6350', textMuted: '#96988A', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10$ de rabais', points_required: 200, type: 'discount_fixed', value: 10 }, { id: 2, name: 'Sérum offert (chanvre ou jojoba)', points_required: 350, type: 'free_service', value: 'serum' }, { id: 3, name: 'Shampoing hydratant offert', points_required: 550, type: 'free_service', value: 'shampoing' }, { id: 4, name: 'Gamme de soins Uzuri offerte', points_required: 1400, type: 'free_service', value: 'gamme-complete' }],
+    offers: [
+      { id: 'demo-1', title: 'Savon Coco & Hibiscus', description: 'Savon naturel fait au Québec, infusé de noix de coco et de fleurs d\'hibiscus.', image_url: import.meta.env.BASE_URL + 'images/uzuri-naturalis/gallery1.jpg' },
+      { id: 'demo-2', title: 'Duo Shampoing & Sérum', description: 'Shampoing hydratant au savon noir africain + sérum capillaire — la routine complète.', image_url: import.meta.env.BASE_URL + 'images/uzuri-naturalis/gallery2.jpg' },
+    ],
+    referralMessage: 'Rejoins Uzuri Naturalis et obtiens 75 points!', phone: '581-703-0034', address: 'Québec, QC (boutique en ligne + points de vente)',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
