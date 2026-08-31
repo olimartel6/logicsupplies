@@ -17512,6 +17512,19 @@ const configs = {
     ],
     referralMessage: 'Rejoins Ciseau Noir et obtiens 75 points!', phone: '418-665-5703', address: '2275 Avenue Royale, Québec (Beauport), QC G1C 1P5',
   },
+  'domaine-esthetique': {
+    businessName: 'Le Domaine Esthétique', slug: 'domaine-esthetique', tagline: 'L\'art du soin sur-mesure à Québec — la science de la peau', favicon: '🤍',
+    heroImage: import.meta.env.BASE_URL + 'images/domaine-esthetique/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery1.jpg', import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery2.jpg', import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery3.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Domaine',
+    theme: { primary: '#3A1620', primaryLight: '#5C2A38', accent: '#7A2E3D', accentLight: '#A5566A', accentDark: '#5C2130', bg: '#FBF6EF', bgCard: '#FFFFFF', bgWarm: '#F3E9DC', border: 'rgba(58,22,32,0.10)', text: '#2E1A1E', textLight: '#5C4A4E', textMuted: '#9C8B85', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '15$ de rabais', points_required: 250, type: 'discount_fixed', value: 15 }, { id: 2, name: 'Headspa japonais offert', points_required: 500, type: 'free_service', value: 'headspa' }, { id: 3, name: 'Soin visage offert', points_required: 800, type: 'free_service', value: 'soin-visage' }, { id: 4, name: 'Séance microneedling offerte', points_required: 1300, type: 'free_service', value: 'microneedling' }],
+    offers: [
+      { id: 'demo-1', title: 'Headspa Japonais — L\'évasion totale', description: 'Rituel holistique combinant massages crâniens thérapeutiques, soins capillaires avancés et fine brume pour apaiser l\'esprit.', image_url: import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery1.jpg' },
+      { id: 'demo-2', title: 'Soins Laser — Haute traçabilité anti-âge', description: 'Technologies d\'avant-garde pour corriger les imperfections, unifier le teint et stimuler durablement le collagène.', image_url: import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery2.jpg' },
+      { id: 'demo-3', title: 'Soin Visage — La science de la peau', description: 'Soins sur-mesure combinant actifs hautement concentrés et techniques expertes pour restaurer l\'éclat.', image_url: import.meta.env.BASE_URL + 'images/domaine-esthetique/gallery3.jpg' },
+    ],
+    referralMessage: 'Rejoins Le Domaine Esthétique et obtiens 75 points!', phone: '418-319-7650', address: '969 Route de l\'Église, local 310, Québec (Ste-Foy), QC G1V 3V4',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
