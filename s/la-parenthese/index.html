@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinique La Parenthèse — Dermo-esthétique à Trois-Rivières</title>
+<meta name="description" content="Clinique La Parenthèse, dermo-esthétique infirmière à Trois-Rivières. Soins du visage, traitements anti-âge, produits G.M. Collin.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+  :root{
+    --bg:#F7F2EC;
+    --bg-card:#FFFFFF;
+    --bg-warm:#EFE5D8;
+    --border:rgba(107,84,58,0.14);
+    --text:#3A2E22;
+    --text-muted:#8A7860;
+    --accent:#8A7052;
+    --accent-dark:#6B5539;
+    --accent-light:#C9B79A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    text-wrap:balance;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.68rem;
+    color:var(--accent-dark);
+    font-weight:500;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 32px;
+    border-radius:1px;
+    font-size:0.8rem;
+    letter-spacing:0.06em;
+    font-weight:500;
+    text-transform:uppercase;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-accent{background:var(--accent-dark); color:#FBF8F3;}
+  .btn-accent:hover{background:var(--text); transform:translateY(-1px); box-shadow:0 10px 24px rgba(58,46,34,0.2);}
+  .btn-outline{border:1px solid var(--accent-dark); color:var(--accent-dark);}
+  .btn-outline:hover{background:var(--bg-warm);}
+
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:24px 28px;
+    background:rgba(247,242,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--border);
+  }
+  .logo-word{font-family:'Cormorant Garamond',serif; font-size:1.35rem; letter-spacing:0.14em; text-transform:uppercase;}
+  .logo-word small{display:block; font-size:0.5rem; letter-spacing:0.32em; color:var(--text-muted); font-family:'Jost',sans-serif; margin-top:2px;}
+  header nav{display:flex; gap:32px; align-items:center;}
+  header nav a.link{font-size:0.8rem; letter-spacing:0.03em; color:var(--text-muted); transition:color .2s;}
+  header nav a.link:hover{color:var(--accent-dark);}
+
+  .badge{
+    display:inline-block;
+    padding:6px 16px;
+    border:1px solid var(--accent);
+    border-radius:20px;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    margin-bottom:20px;
+  }
+
+  .hero{
+    padding:180px 0 100px;
+    text-align:center;
+  }
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem); line-height:1.1; margin-bottom:22px;}
+  .hero p.lead{color:var(--text-muted); max-width:520px; margin:0 auto 36px; font-size:1.08rem;}
+  .hero-ctas{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+  section{padding:90px 0;}
+  .section-head{text-align:center; max-width:600px; margin:0 auto 56px;}
+  .section-head h2{font-size:clamp(2rem,4.4vw,2.8rem); margin-top:10px;}
+
+  .gallery-strip{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:18px;
+    align-items:stretch;
+  }
+  .gallery-strip img{border-radius:2px; width:100%; height:100%; object-fit:cover;}
+  .gallery-strip .g-left{aspect-ratio:4/4.6;}
+  .gallery-strip .g-right{aspect-ratio:4/4.6;}
+
+  .services{background:var(--bg-warm);}
+  .service-list{max-width:760px; margin:0 auto;}
+  .service-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:26px 0;
+    border-bottom:1px solid var(--border);
+    gap:20px;
+  }
+  .service-row:last-child{border-bottom:none;}
+  .service-name{font-family:'Cormorant Garamond',serif; font-size:1.5rem;}
+  .service-meta{color:var(--text-muted); font-size:0.85rem; margin-top:4px;}
+  .service-time{color:var(--accent-dark); font-size:0.85rem; white-space:nowrap; text-transform:uppercase; letter-spacing:0.05em;}
+
+  .cta-block{
+    background:var(--text);
+    color:#F7F2EC;
+    border-radius:2px;
+    padding:70px 40px;
+    text-align:center;
+  }
+  .cta-block h2{color:#fff; font-size:clamp(2rem,4.4vw,3rem); margin:14px 0 30px;}
+  .cta-block .eyebrow{color:var(--accent-light);}
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+  }
+  .contact-line{display:flex; gap:14px; margin-bottom:18px; color:var(--text-muted); font-size:0.95rem;}
+  .contact-line svg{flex-shrink:0; stroke:var(--accent-dark); margin-top:2px;}
+
+  footer{
+    padding:44px 0;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:0.82rem;
+    border-top:1px solid var(--border);
+  }
+  footer a{color:var(--accent-dark);}
+
+  @media (max-width:860px){
+    header nav .link{display:none;}
+    .gallery-strip{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-word">La Parenthèse<small>Dermo-esthétique</small></div>
+  <nav>
+    <a href="#soins" class="link">Soins</a>
+    <a href="#galerie" class="link">Galerie</a>
+    <a href="#contact" class="link">Contact</a>
+    <a href="https://app.squareup.com/appointments/book/4zgayiwsk37k89/LN4WVN4CWDBP2/start" class="btn btn-outline" target="_blank" rel="noopener">Réserver</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">Ouverture en septembre — Trois-Rivières</div>
+    <h1>Prenez une vraie parenthèse pour votre peau.</h1>
+    <p class="lead">Clinique esthétique infirmière dédiée aux soins du visage et aux traitements anti-âge, avec les produits professionnels G.M. Collin.</p>
+    <div class="hero-ctas">
+      <a href="https://app.squareup.com/appointments/book/4zgayiwsk37k89/LN4WVN4CWDBP2/start" class="btn btn-accent" target="_blank" rel="noopener">Réserver votre soin</a>
+      <a href="#soins" class="btn btn-outline">Voir les soins</a>
+    </div>
+  </div>
+</section>
+
+<section id="galerie">
+  <div class="wrap">
+    <div class="gallery-strip">
+      <div class="g-left"><img src="img/hero.jpg" alt="Soin du visage Collagen 90+ à La Parenthèse"></div>
+      <div class="g-right"><img src="img/gallery1.jpg" alt="Produit G.M. Collin utilisé à La Parenthèse"></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="soins">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Nos soins</div>
+      <h2>Des traitements pensés pour votre peau</h2>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <div>
+          <div class="service-name">Collagen 90+</div>
+          <div class="service-meta">Traitement exclusif et intensément rajeunissant qui réduit considérablement les rides et ridules visibles. Convient aux peaux matures.</div>
+        </div>
+        <div class="service-time">75–90 min</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Soin exfoliant en poudre</div>
+          <div class="service-meta">Exfoliant innovant à action combinée (granulaire + enzymatique), activé par l'eau pour une peau purifiée et hydratée.</div>
+        </div>
+        <div class="service-time">Sur mesure</div>
+      </div>
+      <div class="service-row">
+        <div>
+          <div class="service-name">Soin du visage signature</div>
+          <div class="service-meta">Soin complet avec les produits professionnels G.M. Collin, adapté à tous les types de peau.</div>
+        </div>
+        <div class="service-time">Sur rendez-vous</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-block">
+      <div class="eyebrow">Ouverture bientôt</div>
+      <h2>Réservez votre première parenthèse</h2>
+      <a href="https://app.squareup.com/appointments/book/4zgayiwsk37k89/LN4WVN4CWDBP2/start" class="btn btn-accent" target="_blank" rel="noopener">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Nous trouver</div>
+        <h2 style="margin:10px 0 24px; font-size:clamp(1.8rem,4vw,2.4rem);">Trois-Rivières</h2>
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          429 Rue Barkoff, Trois-Rivières, QC G8T 2A5
+        </div>
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <a href="https://www.instagram.com/cliniquelaparenthese" target="_blank" rel="noopener">@cliniquelaparenthese</a>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Une clinique, pas un salon</div>
+        <h2 style="margin:10px 0 24px; font-size:clamp(1.8rem,4vw,2.4rem);">Approche infirmière</h2>
+        <p style="color:var(--text-muted);">Une clinique esthétique dirigée par une infirmière, pour des soins encadrés avec la même exigence qu'en milieu clinique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Clinique La Parenthèse — 429 Rue Barkoff, Trois-Rivières, QC · <a href="https://www.instagram.com/cliniquelaparenthese" target="_blank" rel="noopener">Instagram</a> · Site conçu par Logic Supplies
+  </div>
+</footer>
+
+</body>
+</html>
