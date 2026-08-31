@@ -17500,6 +17500,18 @@ const configs = {
     rewards: [{ id: 1, name: 'Pinte offerte', points_required: 200, type: 'discount_fixed', value: 0 }, { id: 2, name: 'Planche à partager', points_required: 400, type: 'discount_fixed', value: 0 }, { id: 3, name: '15$ de rabais', points_required: 600, type: 'discount_fixed', value: 0 }, { id: 4, name: 'Souper pour deux', points_required: 1100, type: 'discount_fixed', value: 0 }],
     referralMessage: 'Rejoins Dorsay et obtiens 75 points!', phone: '418-694-1582', address: '65 Rue de Buade, Québec, QC G1R 4A2',
   },
+  'ciseau-noir': {
+    businessName: 'Ciseau Noir', slug: 'ciseau-noir', tagline: 'Barbershop d\'exception à Beauport — 19 ans d\'expérience', favicon: '✂️',
+    heroImage: import.meta.env.BASE_URL + 'images/ciseau-noir/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/ciseau-noir/gallery1.jpg', import.meta.env.BASE_URL + 'images/ciseau-noir/gallery2.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Ciseau',
+    theme: { primary: '#0D0D0D', primaryLight: '#262626', accent: '#D4AF37', accentLight: '#E8C84A', accentDark: '#B8860B', bg: '#0D0D0D', bgCard: '#1A1A1A', bgWarm: '#1C1912', border: 'rgba(212,175,55,0.14)', text: '#F5F2E8', textLight: '#C7BFA8', textMuted: '#8A8270', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10$ de rabais', points_required: 200, type: 'discount_fixed', value: 10 }, { id: 2, name: 'Rasage / Barbe offert', points_required: 350, type: 'free_service', value: 'rasage-barbe' }, { id: 3, name: 'Coupe + Lavage offerte', points_required: 550, type: 'free_service', value: 'coupe-lavage' }, { id: 4, name: 'Service Premium offert', points_required: 1000, type: 'free_service', value: 'service-premium' }],
+    offers: [
+      { id: 'demo-1', title: 'Coupe + Barbe à la lame', description: 'Coupe classique, rasage à la lame et serviette chaude — le rituel complet, 50$.', image_url: import.meta.env.BASE_URL + 'images/ciseau-noir/gallery1.jpg' },
+      { id: 'demo-2', title: 'Service Premium', description: 'Coupe, rasage, serviette chaude et exfoliant — l\'expérience Ciseau Noir dans son entièreté, 75$.', image_url: import.meta.env.BASE_URL + 'images/ciseau-noir/gallery2.jpg' },
+    ],
+    referralMessage: 'Rejoins Ciseau Noir et obtiens 75 points!', phone: '418-665-5703', address: '2275 Avenue Royale, Québec (Beauport), QC G1C 1P5',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
