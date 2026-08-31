@@ -17537,6 +17537,18 @@ const configs = {
     ],
     referralMessage: 'Rejoins Uzuri Naturalis et obtiens 75 points!', phone: '581-703-0034', address: 'Québec, QC (boutique en ligne + points de vente)',
   },
+  'la-muse-clinique': {
+    businessName: 'La Muse Clinique', slug: 'la-muse-clinique', tagline: 'Inspirer confiance, ressentir l\'élégance — médico-esthétique à Québec', favicon: '🌸',
+    heroImage: import.meta.env.BASE_URL + 'images/la-muse-clinique/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/la-muse-clinique/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Muse',
+    theme: { primary: '#8A6F5C', primaryLight: '#A9917F', accent: '#B08D6E', accentLight: '#D3B99E', accentDark: '#8A6A4C', bg: '#FBF8F4', bgCard: '#FFFFFF', bgWarm: '#F3ECE2', border: 'rgba(138,111,92,0.12)', text: '#3A312A', textLight: '#6B5F54', textMuted: '#A99C8E', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '20$ de rabais', points_required: 300, type: 'discount_fixed', value: 20 }, { id: 2, name: 'Soin du visage offert', points_required: 600, type: 'free_service', value: 'soin-visage' }, { id: 3, name: 'Séance Morpheus8 offerte', points_required: 1200, type: 'free_service', value: 'morpheus8' }, { id: 4, name: 'Consultation injections offerte', points_required: 500, type: 'free_service', value: 'consultation-injections' }],
+    offers: [
+      { id: 'demo-1', title: 'Injections', description: 'Solutions anti-âge personnalisées avec Dre Dorothée Dufour, pour un résultat naturel.', image_url: import.meta.env.BASE_URL + 'images/la-muse-clinique/gallery1.jpg' },
+      { id: 'demo-2', title: 'Morpheus8', description: 'Technologie de pointe pour raffermir et rajeunir la peau en profondeur.', image_url: import.meta.env.BASE_URL + 'images/la-muse-clinique/hero.jpg' },
+    ],
+    referralMessage: 'Rejoins La Muse Clinique et obtiens 75 points!', phone: '418-476-6215', address: '140-1440 Rue Cyrille-Duquet, Québec, QC G1N 2E5',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
