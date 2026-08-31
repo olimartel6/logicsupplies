@@ -17561,6 +17561,18 @@ const configs = {
     ],
     referralMessage: 'Rejoins Beauté Élysée et obtiens 75 points!', phone: '581-983-5166', address: '2260 Avenue Bergemont, Québec, QC G1J 3T6',
   },
+  'maison-boem': {
+    businessName: 'Maison Boem', slug: 'maison-boem', tagline: 'Gel, BIAB, Gel-X, rehaussement de cils coréen et manucure japonaise', favicon: '💅',
+    heroImage: import.meta.env.BASE_URL + 'images/maison-boem/hero.jpg', galleryImages: [import.meta.env.BASE_URL + 'images/maison-boem/gallery1.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Boem',
+    theme: { primary: '#3A0F16', primaryLight: '#5C232C', accent: '#8C2F3A', accentLight: '#B85E68', accentDark: '#6B222B', bg: '#FBF6F4', bgCard: '#FFFFFF', bgWarm: '#F3E6E3', border: 'rgba(58,15,22,0.10)', text: '#2E1518', textLight: '#5C3D40', textMuted: '#9C8385', font: '"hero-new", system-ui, sans-serif' },
+    rewards: [{ id: 1, name: '10$ de rabais', points_required: 200, type: 'discount_fixed', value: 10 }, { id: 2, name: 'Design Niveau 1 offert', points_required: 150, type: 'free_service', value: 'design-1' }, { id: 3, name: 'Vernis gel offert', points_required: 650, type: 'free_service', value: 'vernis-gel' }, { id: 4, name: 'Rehaussement de cils coréen offert', points_required: 900, type: 'free_service', value: 'rehaussement-cils' }],
+    offers: [
+      { id: 'demo-1', title: 'Vernis gel + design', description: 'Manucure douce avec gel couleur et design personnalisé au choix, 65$ + design.', image_url: import.meta.env.BASE_URL + 'images/maison-boem/gallery1.jpg' },
+      { id: 'demo-2', title: 'Rehaussement de cils coréen', description: 'Sans colle, parfait pour les yeux sensibles — résultat durable 6 à 8 semaines, teinture incluse, 90$.', image_url: import.meta.env.BASE_URL + 'images/maison-boem/hero.jpg' },
+    ],
+    referralMessage: 'Rejoins Maison Boem et obtiens 75 points!', phone: '581-309-4293', address: '381-969 Route de l\'Église, Québec, QC G1V 3V4',
+  },
 };
 
 // Detect tenant from URL: ?tenant=slug or subdomain
