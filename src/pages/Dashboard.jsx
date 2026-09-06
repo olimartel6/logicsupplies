@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
-import { CreditCard, MapPin, Users, Gift, ChevronRight, LogOut, Sparkles, ShoppingBag } from 'lucide-react'
+import { CreditCard, MapPin, Users, Gift, ChevronRight, LogOut, Sparkles, ShoppingBag, CalendarCheck, Cake } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import config from '../config'
 import { getClientTransactions, getClientById } from '../services/supabase'
 import { getTier, getNextTier, isBirthdayToday } from '../utils/tiers'
 
 function fireWelcomeConfetti() {
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#C9A96E'
-  const accentDark = getComputedStyle(document.documentElement).getPropertyValue('--accent-dark').trim() || '#B08D4F'
-  const accentLight = getComputedStyle(document.documentElement).getPropertyValue('--accent-light').trim() || '#D4BA8A'
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || 'var(--accent)'
+  const accentDark = getComputedStyle(document.documentElement).getPropertyValue('--accent-dark').trim() || 'var(--accent-dark)'
+  const accentLight = getComputedStyle(document.documentElement).getPropertyValue('--accent-light').trim() || 'var(--accent-light)'
   const colors = [accent, accentDark, accentLight, '#FFFFFF']
   confetti({ particleCount: 100, spread: 120, origin: { y: 0.3 }, colors, scalar: 1.2 })
   setTimeout(() => confetti({ particleCount: 60, spread: 80, origin: { y: 0.4 }, colors }), 250)
@@ -87,12 +87,12 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
             background: 'var(--bg-card)', borderRadius: 28, padding: '40px 28px',
             maxWidth: 360, width: '100%', textAlign: 'center',
             boxShadow: '0 30px 80px rgba(0,0,0,0.25)',
-            border: '1px solid rgba(201,169,110,0.2)',
+            border: '1px solid rgba(var(--accent-rgb, 201,169,110),0.2)',
             position: 'relative', overflow: 'hidden',
           }}>
             <div style={{
               position: 'absolute', top: -40, right: -40, width: 160, height: 160,
-              background: 'radial-gradient(circle, rgba(201,169,110,0.3) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(var(--accent-rgb, 201,169,110),0.3) 0%, transparent 70%)',
               borderRadius: '50%',
             }} />
             <div style={{
@@ -100,7 +100,7 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
               borderRadius: '50%',
               background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: 'white', boxShadow: '0 12px 32px rgba(201,169,110,0.35)',
+              color: 'white', boxShadow: '0 12px 32px rgba(var(--accent-rgb, 201,169,110),0.35)',
               animation: 'pulseGlow 2s ease-in-out infinite',
             }}>
               <Sparkles size={32} />
@@ -177,11 +177,11 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
       {isBirthdayToday(client?.birthday) && (
         <div style={{
           padding: '20px', marginBottom: 16, borderRadius: 'var(--radius-sm)',
-          background: 'linear-gradient(135deg, rgba(201,169,110,0.15) 0%, rgba(201,169,110,0.08) 100%)',
+          background: 'linear-gradient(135deg, rgba(var(--accent-rgb, 201,169,110),0.15) 0%, rgba(var(--accent-rgb, 201,169,110),0.08) 100%)',
           textAlign: 'center', color: 'var(--text)',
           boxShadow: 'var(--shadow-sm)',
         }}>
-          <div style={{ fontSize: 28 }}>🎂</div>
+          <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--accent)' }}><Cake size={28} strokeWidth={1.8} /></div>
           <div style={{ fontWeight: 700, fontSize: 16, marginTop: 4, color: 'var(--accent-dark)' }}>Joyeux anniversaire!</div>
           <div style={{ fontSize: 13, marginTop: 4, color: 'var(--text-light)' }}>100 points bonus ont été ajoutés à votre compte</div>
         </div>
@@ -216,8 +216,8 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
             animation: 'pulseGlow 2.4s ease-in-out infinite',
           }}
         >
-          <ShoppingBag size={20} strokeWidth={2.5} />
-          Commander en ligne
+          {config.orderIcon === 'calendar' ? <CalendarCheck size={20} strokeWidth={2.5} /> : <ShoppingBag size={20} strokeWidth={2.5} />}
+          {config.orderLabel || 'Commander en ligne'}
         </a>
       )}
 

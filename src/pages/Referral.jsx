@@ -82,7 +82,7 @@ export default function Referral({ client, business }) {
           <div style={{
             display: 'inline-block', padding: 14, background: 'white', borderRadius: 16,
             boxShadow: 'var(--shadow)',
-            border: '1px solid rgba(201,169,110,0.15)',
+            border: '1px solid rgba(var(--accent-rgb, 201,169,110),0.15)',
           }}>
             <img
               src={'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(referralLink)}

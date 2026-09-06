@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Tag, X } from 'lucide-react'
+import { Tag, X, Ticket, Timer } from 'lucide-react'
 import config from '../config'
 import { getActiveOffers, claimOffer, getClientClaims } from '../services/supabase'
 
@@ -76,14 +76,14 @@ export default function Offers({ client, business }) {
               color: 'var(--text-light)',
             }}><X size={16} /></button>
 
-            <div style={{ fontSize: 48, marginBottom: 12 }}>🎫</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 12, color: 'var(--accent)' }}><Ticket size={44} strokeWidth={1.6} /></div>
             <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4, color: 'var(--text)' }}>Offre réclamée!</h2>
             <p style={{ fontSize: 14, color: 'var(--text-light)', marginBottom: 20 }}>{claimQR.title}</p>
 
             <div style={{
               display: 'inline-block', padding: 16, background: 'white',
               borderRadius: 16,
-              border: '1px solid rgba(201,169,110,0.15)',
+              border: '1px solid rgba(var(--accent-rgb, 201,169,110),0.15)',
               boxShadow: 'var(--shadow)',
               marginBottom: 16,
             }}>
@@ -119,7 +119,7 @@ export default function Offers({ client, business }) {
 
       {offers.length === 0 ? (
         <div style={{ textAlign: 'center', padding: 40, color: 'var(--text-muted)' }}>
-          <p style={{ fontSize: 40, marginBottom: 12 }}>🎫</p>
+          <p style={{ marginBottom: 12, color: 'var(--accent)' }}><Ticket size={40} strokeWidth={1.6} /></p>
           <p>Aucune offre pour le moment</p>
           <p style={{ fontSize: 13, marginTop: 8 }}>Revenez bientôt!</p>
         </div>
@@ -144,7 +144,7 @@ export default function Offers({ client, business }) {
               )}
               {offer.valid_until && (
                 <p style={{ fontSize: 12, color: 'var(--warning)', fontWeight: 600, marginBottom: 12 }}>
-                  ⏱ Expire le {new Date(offer.valid_until).toLocaleDateString('fr-CA', { day: 'numeric', month: 'long' })}
+                  <Timer size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} />Expire le {new Date(offer.valid_until).toLocaleDateString('fr-CA', { day: 'numeric', month: 'long' })}
                 </p>
               )}
               <button
@@ -153,7 +153,7 @@ export default function Offers({ client, business }) {
                 disabled={isClaimed || isExpired || isFull}
                 onClick={() => handleClaim(offer)}
               >
-                {isClaimed ? '✅ Déjà réclamée' : isExpired ? 'Expirée' : isFull ? 'Complet' : '🎫 Réclamer cette offre'}
+                {isClaimed ? 'Offre réclamée' : isExpired ? 'Expirée' : isFull ? 'Complet' : 'Réclamer cette offre'}
               </button>
             </div>
           )

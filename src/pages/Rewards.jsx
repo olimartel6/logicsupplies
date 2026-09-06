@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Sparkles, DollarSign, Gem, Lock, X } from 'lucide-react'
+import { Sparkles, DollarSign, Gem, Lock, X, PartyPopper, Timer } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import config from '../config'
 import { createRedemption, getClientById } from '../services/supabase'
 
 function fireConfetti() {
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#C9A96E'
-  const accentDark = getComputedStyle(document.documentElement).getPropertyValue('--accent-dark').trim() || '#B08D4F'
-  const accentLight = getComputedStyle(document.documentElement).getPropertyValue('--accent-light').trim() || '#D4BA8A'
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || 'var(--accent)'
+  const accentDark = getComputedStyle(document.documentElement).getPropertyValue('--accent-dark').trim() || 'var(--accent-dark)'
+  const accentLight = getComputedStyle(document.documentElement).getPropertyValue('--accent-light').trim() || 'var(--accent-light)'
   const colors = [accent, accentDark, accentLight, '#FFFFFF']
   const end = Date.now() + 900
   ;(function frame() {
@@ -112,7 +112,7 @@ export default function Rewards({ client, business, setClient }) {
               <X size={16} />
             </button>
 
-            <div style={{ fontSize: 48, marginBottom: 12 }}>🎉</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 12, color: 'var(--accent)' }}><PartyPopper size={44} strokeWidth={1.6} /></div>
             <h2 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4, color: 'var(--text)' }}>Récompense prête!</h2>
             <p style={{ fontSize: 14, color: 'var(--text-light)', marginBottom: 20 }}>
               {redemptionQR.rewardName}
@@ -121,7 +121,7 @@ export default function Rewards({ client, business, setClient }) {
             <div style={{
               display: 'inline-block', padding: 16,
               background: 'white', borderRadius: 16,
-              border: '1px solid rgba(201,169,110,0.2)',
+              border: '1px solid rgba(var(--accent-rgb, 201,169,110),0.2)',
               boxShadow: 'var(--shadow)',
               marginBottom: 16,
             }}>
@@ -151,7 +151,7 @@ export default function Rewards({ client, business, setClient }) {
               color: 'var(--warning)', display: 'flex', alignItems: 'center',
               justifyContent: 'center', gap: 6,
             }}>
-              ⏱ Expire dans <ExpiryTimer expiresAt={redemptionQR.expiresAt} />
+              <Timer size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} />Expire dans <ExpiryTimer expiresAt={redemptionQR.expiresAt} />
             </div>
           </div>
         </div>

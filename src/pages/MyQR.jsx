@@ -33,7 +33,7 @@ export default function MyQR({ client }) {
           backgroundSize: '300% 300%',
           animation: 'shimmer 6s ease infinite',
           borderRadius: 24,
-          boxShadow: '0 24px 60px rgba(201,169,110,0.25), 0 8px 20px rgba(0,0,0,0.08)',
+          boxShadow: '0 24px 60px rgba(var(--accent-rgb, 201,169,110),0.25), 0 8px 20px rgba(0,0,0,0.08)',
         }}>
           <div style={{
             padding: 16, background: '#FFFFFF', borderRadius: 20,

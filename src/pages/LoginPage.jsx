@@ -256,7 +256,7 @@ export default function LoginPage({ onLogin, onSignup, onAdminLogin, onDemo, ref
                 type="checkbox"
                 checked={consent}
                 onChange={e => setConsent(e.target.checked)}
-                style={{ marginTop: 3, width: 18, height: 18, flexShrink: 0, accentColor: '#C9A96E' }}
+                style={{ marginTop: 3, width: 18, height: 18, flexShrink: 0, accentColor: 'var(--accent)' }}
               />
               <span>
                 J'accepte la <a href="#/privacy" style={{ color: 'var(--accent)', fontWeight: 600 }}>politique de confidentialité</a> et je consens à recevoir des courriels relatifs à mon compte fidélité.
