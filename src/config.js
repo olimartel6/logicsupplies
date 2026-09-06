@@ -165,12 +165,12 @@ const configs = {
     pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Smith', orderUrl: 'https://smithcafe.com/collections/cafes-selection-la-maison-smith',
     theme: { primary: '#181818', primaryLight: '#2A2521', accent: '#BE865C', accentLight: '#D9A97C', accentDark: '#A97F61', bg: '#141210', bgCard: '#1F1B17', bgWarm: '#272019', border: 'rgba(253,241,226,0.10)', text: '#FDF1E2', textLight: '#D3C4B1', textMuted: '#8C8074', navBg: 'rgba(20,18,16,0.88)', font: '"Montserrat", "Lora", system-ui, sans-serif' },
     rewards: [
-      { id: 1, name: 'Viennoiserie offerte avec votre café', points_required: 120, type: 'free_service', value: 'viennoiserie' },
-      { id: 2, name: 'Café filtre ou espresso gratuit', points_required: 250, type: 'free_service', value: 'cafe' },
-      { id: 3, name: 'Latte, cappuccino ou matcha au choix', points_required: 450, type: 'free_service', value: 'boisson-specialite' },
-      { id: 4, name: 'Sac de café 340 g gratuit (1653, Limoilou, Montcalm…)', points_required: 800, type: 'free_service', value: 'sac-340g' },
-      { id: 5, name: 'Atelier barista gratuit (valeur 110 $)', points_required: 1400, type: 'free_service', value: 'atelier-barista' },
-      { id: 6, name: 'Carte-cadeau Smith de 50 $', points_required: 2200, type: 'discount_fixed', value: 50 },
+      { id: 1, name: 'Viennoiserie offerte avec votre café', points_required: 120, type: 'free_service', value: 'viennoiserie', image: import.meta.env.BASE_URL + 'images/smith-cafe/viennoiserie.jpg' },
+      { id: 2, name: 'Café filtre ou espresso gratuit', points_required: 250, type: 'free_service', value: 'cafe', image: import.meta.env.BASE_URL + 'images/smith-cafe/chemex.jpg' },
+      { id: 3, name: 'Latte, cappuccino ou matcha au choix', points_required: 450, type: 'free_service', value: 'boisson-specialite', image: import.meta.env.BASE_URL + 'images/smith-cafe/latte-brioche.jpg' },
+      { id: 4, name: 'Sac de café 340 g gratuit (1653, Limoilou, Montcalm…)', points_required: 800, type: 'free_service', value: 'sac-340g', image: import.meta.env.BASE_URL + 'images/smith-cafe/sacs-cafe.jpg' },
+      { id: 5, name: 'Atelier barista gratuit (valeur 110 $)', points_required: 1400, type: 'free_service', value: 'atelier-barista', image: import.meta.env.BASE_URL + 'images/smith-cafe/barista-lait.jpg' },
+      { id: 6, name: 'Carte-cadeau Smith de 50 $', points_required: 2200, type: 'discount_fixed', value: 50, image: import.meta.env.BASE_URL + 'images/smith-cafe/cartes-cadeaux.jpg' },
     ],
     offers: [
       { id: 'demo-1', title: 'Café du mois : Brésil à -15 %', description: 'Le café d\'Ana Cecilia, du domaine São Luiz dans le Cerrado Mineiro — un Brésil aux saveurs complexes, torréfaction brune. Ce mois-ci, 15 % de rabais sur le sac de 340 g, en succursale comme en ligne.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/sac-bresil.png' },

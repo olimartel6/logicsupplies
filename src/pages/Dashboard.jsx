@@ -22,7 +22,8 @@ const typeIcons = {
   redemption: <Gift size={18} />,
   manual: <CreditCard size={18} />
 }
-const typeColors = { purchase: 'var(--success)', visit: 'var(--accent-dark)', referral: '#7C5CFC', redemption: 'var(--danger)', manual: 'var(--success)' }
+// Single brand color for the whole activity feed (premium look, requested 6 sept. 2026)
+const typeColors = { purchase: 'var(--accent)', visit: 'var(--accent)', referral: 'var(--accent)', redemption: 'var(--accent)', manual: 'var(--accent)' }
 
 export default function Dashboard({ client, business, setClient, onLogout }) {
   const [transactions, setTransactions] = useState([])
@@ -157,16 +158,16 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
             boxShadow: 'var(--shadow-sm)',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ fontSize: 24 }}>{tier.icon}</span>
+              <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--accent)', boxShadow: '0 0 0 4px rgba(var(--accent-rgb, 201,169,110),0.18)', display: 'inline-block', flexShrink: 0 }} />
               <div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--accent-dark)' }}>{tier.name}</div>
-                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>x{tier.multiplier} points</div>
+                <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--accent)', letterSpacing: 0.3 }}>Niveau {tier.name}</div>
+                <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Points ×{String(tier.multiplier).replace('.', ',')} sur chaque achat</div>
               </div>
             </div>
             {next && (
               <div style={{ fontSize: 11, color: 'var(--text-light)', textAlign: 'right' }}>
-                <div>Prochain: {next.name}</div>
-                <div style={{ fontWeight: 600, color: 'var(--accent-dark)' }}>{next.min_points - (client?.total_points_earned || 0)} pts restants</div>
+                <div>Prochain niveau : {next.name}</div>
+                <div style={{ fontWeight: 600, color: 'var(--accent-dark)' }}>{next.min_points - (client?.total_points_earned || 0)} points restants</div>
               </div>
             )}
           </div>
@@ -246,13 +247,13 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
           <div className="stat-mini-label">Achats</div>
         </div>
         <div className="stat-mini">
-          <div className="stat-mini-number" style={{ color: 'var(--accent-dark)' }}>
+          <div className="stat-mini-number" style={{ color: 'var(--accent)' }}>
             {transactions.filter(t => t.type === 'visit').length}
           </div>
           <div className="stat-mini-label">Visites</div>
         </div>
         <div className="stat-mini">
-          <div className="stat-mini-number" style={{ color: '#7C5CFC' }}>
+          <div className="stat-mini-number" style={{ color: 'var(--accent)' }}>
             {transactions.filter(t => t.type === 'referral').length}
           </div>
           <div className="stat-mini-label">Parrainages</div>
@@ -291,10 +292,7 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
               <div style={{
                 width: 40, height: 40, borderRadius: 'var(--radius-sm)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: typeColors[t.type] === 'var(--success)' ? 'rgba(34,197,94,0.08)' :
-                  typeColors[t.type] === 'var(--danger)' ? 'rgba(239,68,68,0.08)' :
-                  typeColors[t.type] === '#7C5CFC' ? 'rgba(124,92,252,0.08)' :
-                  'rgba(201,169,110,0.08)',
+                background: 'rgba(var(--accent-rgb, 201,169,110),0.12)',
                 color: typeColors[t.type] || 'var(--accent)', marginRight: 14, flexShrink: 0
               }}>
                 {typeIcons[t.type] || <CreditCard size={18} />}

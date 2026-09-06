@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { mockClient } from '../data/mock'
+import { Download, Share2 } from 'lucide-react'
 import config from '../config'
 import { getTier } from '../utils/tiers'
 
@@ -77,7 +78,7 @@ export default function MyQR({ client }) {
           }}
         >
           <img src="https://developer.apple.com/assets/elements/icons/wallet/wallet-96x96_2x.png" alt="" style={{ width: 18, height: 18 }} />
-          {walletLoading ? 'Génération en cours...' : 'Ajouter au Wallet Apple'}
+          {walletLoading ? 'Génération en cours…' : 'Ajouter à Apple Wallet'}
         </button>
         <div style={{ display: 'flex', gap: 6 }}>
           <button
@@ -99,7 +100,7 @@ export default function MyQR({ client }) {
               }
             }}
           >
-            📥 Sauvegarder le QR
+            <Download size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />Enregistrer le code
           </button>
           <button
             className="btn btn-secondary btn-small"
@@ -114,7 +115,7 @@ export default function MyQR({ client }) {
               }
             }}
           >
-            📤 Partager
+            <Share2 size={14} style={{ marginRight: 6, verticalAlign: '-2px' }} />Partager
           </button>
         </div>
       </div>
@@ -136,9 +137,9 @@ export default function MyQR({ client }) {
         boxShadow: 'var(--shadow-sm)',
         width: 'fit-content',
       }}>
-        <span style={{ fontSize: 18 }}>{tier.icon}</span>
-        <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--accent-dark)' }}>{tier.name}</span>
-        <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>x{tier.multiplier}</span>
+        <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
+        <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--accent)', letterSpacing: 0.3 }}>Niveau {tier.name}</span>
+        <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>· points ×{String(tier.multiplier).replace('.', ',')}</span>
       </div>
     </div>
   )

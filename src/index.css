@@ -257,15 +257,12 @@ body {
   font-size: 11px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.8px; margin-bottom: 3px;
 }
-.transaction-type.purchase { color: var(--success); }
-.transaction-type.visit { color: var(--accent-dark); }
-.transaction-type.referral { color: #7C5CFC; }
-.transaction-type.redemption { color: var(--danger); }
+.transaction-type.purchase, .transaction-type.visit, .transaction-type.referral, .transaction-type.redemption { color: var(--accent); }
 .transaction-desc { font-size: 15px; color: var(--text); font-weight: 500; }
 .transaction-date { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
 .transaction-points { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.transaction-points.positive { color: var(--success); }
-.transaction-points.negative { color: var(--danger); }
+.transaction-points.positive { color: var(--accent); }
+.transaction-points.negative { color: var(--text-light); }
 
 /* === REWARDS === */
 .reward-card {

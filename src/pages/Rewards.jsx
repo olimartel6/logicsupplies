@@ -195,7 +195,7 @@ export default function Rewards({ client, business, setClient }) {
               ) : (
                 <div style={{
                   width: 52, height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: canRedeem ? 'linear-gradient(135deg, #C9A96E, #B08D4F)' : 'rgba(0,0,0,0.03)',
+                  background: canRedeem ? 'linear-gradient(135deg, var(--accent), var(--accent-dark))' : 'rgba(var(--accent-rgb, 201,169,110),0.10)',
                   color: canRedeem ? '#FFFFFF' : 'var(--text-muted)',
                   borderRadius: 'var(--radius-sm)', flexShrink: 0,
                 }}>
