@@ -29,7 +29,7 @@ export default function Dashboard({ client, business, setClient, onLogout }) {
   const [loading, setLoading] = useState(true)
   const [showWelcome, setShowWelcome] = useState(() => localStorage.getItem('loyalty_just_signed_up') === '1')
 
-  const rewards = (business?.rewards && business.rewards.length > 0) ? business.rewards : config.rewards
+  const rewards = (client?.id === 'demo' && config.rewards?.length > 0) ? config.rewards : ((business?.rewards && business.rewards.length > 0) ? business.rewards : config.rewards)
 
   useEffect(() => {
     if (showWelcome) {

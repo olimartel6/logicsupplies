@@ -158,39 +158,28 @@ const configs = {
   },
 
   'smith-cafe': {
-    businessName: 'La Maison Smith',
-    slug: 'smith-cafe',
-    tagline: 'Accumulez des points à chaque café, récoltez les récompenses!',
-    logo: import.meta.env.BASE_URL + 'logos/smith-cafe.png',
-    logoLight: import.meta.env.BASE_URL + 'logos/smith-cafe.png',
-    favicon: '☕',
-    heroImage: import.meta.env.BASE_URL + 'images/smith-cafe/hero.jpg',
-    galleryImages: [
-      import.meta.env.BASE_URL + 'images/smith-cafe/torrefaction.jpg',
-      import.meta.env.BASE_URL + 'images/smith-cafe/giselle.jpg',
-    ],
-    pointsPerDollar: 10,
-    referralBonus: 75,
-    visitBonus: 25,
-    pointsLabel: 'Points Smith',
-    theme: {
-      primary: '#181818',
-      primaryLight: '#333333',
-      accent: '#a97f61',
-      accentLight: '#be865c',
-      accentDark: '#8a6545',
-      bg: '#fdf1e2',
-      font: '"Lora", "Montserrat", system-ui, sans-serif',
-    },
+    businessName: 'Smith Café', slug: 'smith-cafe', tagline: 'Torréfié à Limoilou, servi dans 12 succursales à Québec — votre fidélité, récompensée à chaque tasse', favicon: '☕',
+    logo: import.meta.env.BASE_URL + 'logos/smith-cafe-beige.png', logoLight: import.meta.env.BASE_URL + 'logos/smith-cafe-beige.png',
+    heroImage: import.meta.env.BASE_URL + 'images/smith-cafe/hero-v2.jpg',
+    galleryImages: [import.meta.env.BASE_URL + 'images/smith-cafe/latte-burlap.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/vieux-quebec-facade.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/barista-lait.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/terrasse-vieux-quebec.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/torrefaction-v2.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/sacs-cafe.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/ile-orleans.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/chemex.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/cartes-cadeaux.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/facade-apero.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/grains-verts.jpg', import.meta.env.BASE_URL + 'images/smith-cafe/grains-mains.jpg'],
+    pointsPerDollar: 10, referralBonus: 75, visitBonus: 25, pointsLabel: 'Points Smith', orderUrl: 'https://smithcafe.com/collections/cafes-selection-la-maison-smith',
+    theme: { primary: '#181818', primaryLight: '#2A2521', accent: '#BE865C', accentLight: '#D9A97C', accentDark: '#A97F61', bg: '#141210', bgCard: '#1F1B17', bgWarm: '#272019', border: 'rgba(253,241,226,0.10)', text: '#FDF1E2', textLight: '#D3C4B1', textMuted: '#8C8074', navBg: 'rgba(20,18,16,0.88)', font: '"Montserrat", "Lora", system-ui, sans-serif' },
     rewards: [
-      { id: 1, name: 'Café gratuit', points_required: 100, type: 'free_service', value: 'cafe' },
-      { id: 2, name: '10% rabais', points_required: 250, type: 'discount_percent', value: 10 },
-      { id: 3, name: 'Sac de café 340g gratuit', points_required: 500, type: 'free_service', value: 'sac' },
-      { id: 4, name: 'Expérience torréfaction gratuite', points_required: 1000, type: 'free_service', value: 'torrefaction' },
+      { id: 1, name: 'Viennoiserie offerte avec votre café', points_required: 120, type: 'free_service', value: 'viennoiserie' },
+      { id: 2, name: 'Café filtre ou espresso gratuit', points_required: 250, type: 'free_service', value: 'cafe' },
+      { id: 3, name: 'Latte, cappuccino ou matcha au choix', points_required: 450, type: 'free_service', value: 'boisson-specialite' },
+      { id: 4, name: 'Sac de café 340 g gratuit (1653, Limoilou, Montcalm…)', points_required: 800, type: 'free_service', value: 'sac-340g' },
+      { id: 5, name: 'Atelier barista gratuit (valeur 110 $)', points_required: 1400, type: 'free_service', value: 'atelier-barista' },
+      { id: 6, name: 'Carte-cadeau Smith de 50 $', points_required: 2200, type: 'discount_fixed', value: 50 },
     ],
-    referralMessage: 'Rejoins le programme fidélité La Maison Smith et obtiens 75 points gratuits!',
-    phone: '418-529-0096',
-    address: 'Québec, QC',
+    offers: [
+      { id: 'demo-1', title: 'Café du mois : Brésil à -15 %', description: 'Le café d\'Ana Cecilia, du domaine São Luiz dans le Cerrado Mineiro — un Brésil aux saveurs complexes, torréfaction brune. Ce mois-ci, 15 % de rabais sur le sac de 340 g, en succursale comme en ligne.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/sac-bresil.png' },
+      { id: 'demo-2', title: 'Soirée Trivia à Sainte-Foy', description: 'Un mercredi par mois, 18 h 30 à 20 h 30 : quiz musical des années 80 à aujourd\'hui, en équipe de 2 à 4. Billet à 7 $ et 15 % de rabais sur toute votre facture sur place. Membres : 50 points bonus en présentant l\'app.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/trivia.jpg' },
+      { id: 'demo-3', title: 'Atelier « Initiation à l\'art du latté »', description: '2 heures chez Smith Limoilou avec nos baristas : texture du lait, standards du cappuccino et votre première rosetta. Groupe de 4 maximum. 110 $ — les membres obtiennent 10 % de rabais et 300 points.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/barista-lait.jpg' },
+      { id: 'demo-4', title: 'De l\'espresso à l\'apéro', description: 'Nos succursales passent du café au cocktail en fin de journée. Pour les membres, le 2e verre est à moitié prix lors du 5 à 7 — la façon Smith de finir la journée.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/apero-bar.jpg' },
+      { id: 'demo-5', title: 'Coffret 12 jours de café — points doublés', description: '12 sachets prêts à infuser pour parcourir toute la gamme Smith : le cadeau idéal, et vos points sont doublés sur ce coffret à 26,99 $ jusqu\'à la fin du mois.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/12-jours.png' },
+    ],
+    referralMessage: 'Rejoins le programme fidélité Smith Café et obtiens 75 points gratuits!', phone: '(418) 529-0096', address: 'Place Royale, St-Jean, St-Louis, Plaines d\'Abraham, Belvédère, René-Lévesque, Ste-Foy, Des Jardins, Cap-Rouge, Charlesbourg, Limoilou, Île d\'Orléans',
   },
 
   // ====== PROSPECTS COLD OUTREACH ======
@@ -17619,6 +17608,7 @@ export function applyTheme(theme) {
   if (theme.text) root.style.setProperty('--text', theme.text);
   if (theme.textLight) root.style.setProperty('--text-light', theme.textLight);
   if (theme.textMuted) root.style.setProperty('--text-muted', theme.textMuted);
+  if (theme.navBg) root.style.setProperty('--nav-bg', theme.navBg);
   if (theme.font) root.style.setProperty('--font', theme.font);
   // RGB channels for translucent brand tints (rgba(var(--accent-rgb), a))
   const rgb = hexToRgb(theme.accent);

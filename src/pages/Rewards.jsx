@@ -29,7 +29,7 @@ export default function Rewards({ client, business, setClient }) {
   const [redeeming, setRedeeming] = useState(null)
   const [redemptionQR, setRedemptionQR] = useState(null) // { code, rewardName, expiresAt }
 
-  const rewards = (business?.rewards && business.rewards.length > 0) ? business.rewards : config.rewards
+  const rewards = (client?.id === 'demo' && config.rewards?.length > 0) ? config.rewards : ((business?.rewards && business.rewards.length > 0) ? business.rewards : config.rewards)
 
   useEffect(() => {
     return () => {}
