@@ -16954,7 +16954,7 @@ const configs = {
     referralMessage: 'Rejoins Clinique Pro-Derme et obtiens 75 points!', phone: '581-701-7644', address: '477 Ch Vire-Crêpes, Lévis, QC',
   },
   'cafe-violette': {
-    businessName: 'Violette Café', slug: 'cafe-violette', tagline: 'Café et crèmerie de quartier à Saint-Sacrement — vos points s\'accumulent à chaque café, cornet et pâtisserie', favicon: '☕',
+    businessName: 'Café Violette', slug: 'cafe-violette', tagline: 'Café et crèmerie de quartier à Saint-Sacrement — vos points s\'accumulent à chaque café, cornet et pâtisserie', favicon: '☕',
     logo: import.meta.env.BASE_URL + 'logos/cafe-violette-light.png', logoLight: import.meta.env.BASE_URL + 'logos/cafe-violette-light.png',
     heroImage: import.meta.env.BASE_URL + 'images/cafe-violette/hero-equipe.jpg',
     galleryImages: [import.meta.env.BASE_URL + 'images/cafe-violette/latte-pomme-caramel.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/comptoir-cremerie.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/bols-dejeuner.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/g1-v2.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/matcha-glace.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/g2-v2.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/chiens-cornets.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/matcha-choco-menthe.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/biscuits.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/vitrine.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/g3-v2.jpg', import.meta.env.BASE_URL + 'images/cafe-violette/cafe-grains.jpg'],
@@ -16969,13 +16969,13 @@ const configs = {
       { id: 6, name: 'Sac de café Café Charlevoix ou Manoir du café', points_required: 1500, type: 'free_service', value: 'sac-cafe', image: import.meta.env.BASE_URL + 'images/cafe-violette/sacs-cafe.jpg' },
     ],
     offers: [
-      { id: 'demo-1', title: 'Le latte à la citrouille est de retour', description: 'Crème fouettée, caramel et cannelle : le favori de l\'automne chez Violette, chaud ou glacé, avec le lait de votre choix. Points doublés sur les lattes de saison jusqu\'à la fin d\'octobre.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/latte-citrouille.jpg' },
+      { id: 'demo-1', title: 'Le latte à la citrouille est de retour', description: 'Crème fouettée, caramel et cannelle : le favori de l\'automne au Café Violette, chaud ou glacé, avec le lait de votre choix. Points doublés sur les lattes de saison jusqu\'à la fin d\'octobre.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/latte-citrouille.jpg' },
       { id: 'demo-2', title: 'Crèmerie : le 2e cornet à moitié prix', description: 'Molle, dure ou Blizzard, en cornet ou en coupe. Pour les membres, le deuxième cornet est à moitié prix tous les jours après 15 h, sur la terrasse ou pour emporter.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/comptoir-cremerie.jpg' },
       { id: 'demo-3', title: 'Matcha pistache glacé au lait végétal', description: 'Le matcha de l\'été, au sirop de pistache, avec lait d\'avoine ou d\'amande. Membres : 1 $ de rabais sur tous les matchas (fraise, pistache, choco-menthe) cette semaine.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/matcha-pistache.jpg' },
       { id: 'demo-4', title: 'Bols déjeuner chia et gruau froid', description: 'Chia, matcha, framboises et coco, ou gruau froid aux petits fruits : nos deux petits nouveaux, préparés le matin même. Combo bol + café à prix membre avant 10 h.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/bols-dejeuner.jpg' },
       { id: 'demo-5', title: 'Café en grains Café Charlevoix et Manoir du café', description: 'Les cafés de torréfaction artisanale de la famille, de Baie-Comeau et de Baie-Saint-Paul, à emporter en sac de 340 g. 10 % de rabais pour les membres et 100 points bonus sur chaque sac.', image_url: import.meta.env.BASE_URL + 'images/cafe-violette/cafe-grains.jpg' },
     ],
-    referralMessage: 'Rejoins Violette Café et obtiens 75 points!', phone: '581 997-3847', address: '1362, chemin Sainte-Foy, Saint-Sacrement, Québec',
+    referralMessage: 'Rejoins Café Violette et obtiens 75 points!', phone: '581 997-3847', address: '1362, chemin Sainte-Foy, Saint-Sacrement, Québec',
   },
   'salon-le-confessionnal': {
     businessName: 'Salon Le Confessionnal', slug: 'salon-le-confessionnal', tagline: 'Coiffure haut de gamme et produits professionnels', favicon: '✂️',
