@@ -7,16 +7,7 @@ import {
 import config from '../../config'
 import { getTier, getNextTier } from '../../utils/tiers'
 import { DAYS } from '../../data/gymTemplate'
-import { Panel, SectionTitle, Label, Dots, Bar, Columns, Ring, Sheet, Stat, Toast } from './ui'
-
-const ACTIVITY = [
-  { id: 1, kind: 'entry', label: 'Entrée au gym', detail: 'Saint-Roch — 52 minutes', date: '10 septembre', points: 50 },
-  { id: 2, kind: 'class', label: 'Cours de groupe', detail: 'Cycle Endurance avec Sarah', date: '8 septembre', points: 75 },
-  { id: 3, kind: 'entry', label: 'Entrée au gym', detail: 'Saint-Roch — 58 minutes', date: '5 septembre', points: 50 },
-  { id: 4, kind: 'redemption', label: 'Récompense échangée', detail: 'Smoothie protéiné au bar', date: '4 septembre', points: -200 },
-  { id: 5, kind: 'class', label: 'Cours de groupe', detail: 'HIIT Express à Sainte-Foy', date: '3 septembre', points: 75 },
-  { id: 6, kind: 'referral', label: 'Parrainage confirmé', detail: 'Sophie G. s\'est inscrite', date: '1er septembre', points: 300 },
-]
+import { Panel, SectionTitle, Label, Dots, Bar, Columns, Ring, Sheet, Stat, Toast, Avatar } from './ui'
 
 const ACT_ICON = {
   entry: <ScanLine size={17} />,
@@ -293,7 +284,7 @@ export default function GymHome({ client, business, onLogout }) {
       {/* ---- Coach ---- */}
       <Panel style={{ cursor: 'pointer' }} onClick={() => navigate('/progres')}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <img src={gym.coaches[0].photo} alt="" style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+          <Avatar photo={gym.coaches[0].photo} name={gym.coaches[0].name} size={52} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <Label>Votre entraîneur</Label>
             <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', marginTop: 4 }}>{gym.coaches[0].name}</div>
@@ -366,7 +357,7 @@ export default function GymHome({ client, business, onLogout }) {
       {/* ---- Activite recente ---- */}
       <SectionTitle>Activité récente</SectionTitle>
       <Panel>
-        {ACTIVITY.map(a => (
+        {(gym.activity || []).map(a => (
           <div key={a.id} className="g-list-row">
             <span style={{
               width: 40, height: 40, borderRadius: 12, flexShrink: 0,

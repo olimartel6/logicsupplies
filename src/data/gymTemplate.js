@@ -11,7 +11,7 @@
 //          coaching a distance, historique de visites, reseau de succursales,
 //          statut d'adhesion, reservation de cours, synchro Apple Sante
 //    NOUS: points de fidelite, recompenses locales, serie hebdomadaire,
-//          achalandage en direct, liste d'attente, journal d'entrainement,
+//          achalandage en direct, journal d'entrainement personnel,
 //          records personnels, mesures, defi avec classement, parrainage
 // ============================================================================
 
@@ -316,6 +316,16 @@ export const GYM_DEFAULTS = {
       { label: "Minutes actives", value: "47 min" },
     ],
   },
+
+  // --- Fil d'activite recente ----------------------------------------------
+  activity: [
+    { id: 1, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 52 minutes", date: "10 septembre", points: 50 },
+    { id: 2, kind: "class", label: "Cours de groupe", detail: "Cycle Endurance avec Sarah", date: "8 septembre", points: 75 },
+    { id: 3, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 58 minutes", date: "5 septembre", points: 50 },
+    { id: 4, kind: "redemption", label: "Récompense échangée", detail: "Smoothie protéiné au bar", date: "4 septembre", points: -200 },
+    { id: 5, kind: "class", label: "Cours de groupe", detail: "HIIT Express à Sainte-Foy", date: "3 septembre", points: 75 },
+    { id: 6, kind: "referral", label: "Parrainage confirmé", detail: "Sophie G. s'est inscrite", date: "1er septembre", points: 300 },
+  ],
 
   // --- Historique de visites -----------------------------------------------
   visits: [

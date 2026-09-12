@@ -131,6 +131,26 @@ export function Sheet({ open, onClose, title, subtitle, children }) {
   )
 }
 
+// Portrait d'un entraineur, avec repli sur ses initiales quand la photo manque
+export function Avatar({ photo, name, size = 46 }) {
+  if (photo) {
+    return <img src={photo} alt="" style={{ width: size, height: size, borderRadius: '50%', objectFit: 'cover', flexShrink: 0, display: 'block' }} />
+  }
+  const initials = (name || '')
+    .split(/[\s-]+/).filter(Boolean).slice(0, 2)
+    .map(w => w[0].toUpperCase()).join('')
+  return (
+    <span style={{
+      width: size, height: size, borderRadius: '50%', flexShrink: 0,
+      background: 'rgba(var(--accent-rgb), 0.14)',
+      border: '1px solid rgba(var(--accent-rgb), 0.32)',
+      color: 'var(--accent)', fontFamily: 'var(--font-display)',
+      fontSize: Math.round(size * 0.36), fontWeight: 600, letterSpacing: 0.5,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>{initials}</span>
+  )
+}
+
 export function Toast({ children }) {
   if (!children) return null
   return <div className="toast" style={{ color: '#FFFFFF' }}>{children}</div>

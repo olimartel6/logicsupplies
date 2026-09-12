@@ -93,7 +93,7 @@ export default function LoginPage({ onLogin, onSignup, onAdminLogin, onDemo, ref
       <div className="login-card">
         {config.logo ? (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src={config.logo} alt={config.businessName} className="login-logo" />
+            <img src={config.logoWordmark || config.logo} alt={config.businessName} className="login-logo" />
           </div>
         ) : (
           <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--text)', marginBottom: 8 }}>{config.businessName}</h2>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Trophy, Heart, Send, Download, ArrowDownRight, MapPin, Flame } from 'lucide-react'
 import config from '../../config'
-import { Panel, SectionTitle, Label, Columns, Ring, Bar, Toast, frDate } from './ui'
+import { Panel, SectionTitle, Label, Columns, Ring, Bar, Toast, frDate, Avatar } from './ui'
 
 export default function Progress() {
   const gym = config.gym
@@ -209,7 +209,7 @@ export default function Progress() {
       <SectionTitle>Votre entraîneur</SectionTitle>
       <Panel>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, paddingBottom: 16, borderBottom: '1px solid var(--border)' }}>
-          <img src={gym.coaches[0].photo} alt="" style={{ width: 46, height: 46, borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+          <Avatar photo={gym.coaches[0].photo} name={gym.coaches[0].name} size={46} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>{gym.coaches[0].name}</div>
             <div className="g-meta" style={{ marginTop: 2 }}>{gym.coaches[0].role}</div>

@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Clock, MapPin, Users, Check, CalendarPlus, UserCheck, ChevronRight } from 'lucide-react'
 import config from '../../config'
 import { DAYS, DAYS_SHORT } from '../../data/gymTemplate'
-import { Panel, SectionTitle, Label, Intensity, Sheet, Toast, Bar } from './ui'
+import { Panel, SectionTitle, Label, Intensity, Sheet, Toast, Bar, Avatar } from './ui'
 
 // Numero de jour (0 = lundi) pour aujourd'hui
 const todayIdx = () => { const d = new Date().getDay(); return d === 0 ? 6 : d - 1 }
@@ -21,7 +21,6 @@ export default function Classes() {
   const [day, setDay] = useState(todayIdx())
   const [loc, setLoc] = useState('all')
   const [booked, setBooked] = useState(gym.booked)
-  const [waitlist, setWaitlist] = useState([])
   const [detail, setDetail] = useState(null)
   const [toast, setToast] = useState(null)
 
@@ -44,20 +43,13 @@ export default function Classes() {
   }
 
   const reserve = (c) => {
-    const full = c.taken + (booked.includes(c.id) ? 0 : 0) >= c.capacity
     if (booked.includes(c.id)) {
       setBooked(b => b.filter(x => x !== c.id))
       flash('Réservation annulée')
       return
     }
-    if (full) {
-      if (waitlist.includes(c.id)) {
-        setWaitlist(w => w.filter(x => x !== c.id))
-        flash("Retiré de la liste d'attente")
-      } else {
-        setWaitlist(w => [...w, c.id])
-        flash("Ajouté à la liste d'attente — vous serez prévenu par notification")
-      }
+    if (c.taken >= c.capacity) {
+      flash('Ce cours est complet')
       return
     }
     setBooked(b => [...b, c.id])
@@ -71,7 +63,7 @@ export default function Classes() {
       <div style={{ padding: '18px 0 4px' }}>
         <h2 style={{ fontSize: 23, fontWeight: 700, color: 'var(--text)' }}>Horaire</h2>
         <p className="g-meta" style={{ marginTop: 5, lineHeight: 1.5 }}>
-          Réservez, annulez ou inscrivez-vous à la liste d'attente. Chaque cours suivi vaut {config.pointsPerClass} points.
+          Réservez ou annulez en deux touches. Chaque cours suivi vaut {config.pointsPerClass} points.
         </p>
       </div>
 
@@ -122,7 +114,6 @@ export default function Classes() {
 
       {list.map(c => {
         const isBooked = booked.includes(c.id)
-        const isWait = waitlist.includes(c.id)
         const left = c.capacity - c.taken
         const full = left <= 0
         const fillPct = (c.taken / c.capacity) * 100
@@ -147,13 +138,13 @@ export default function Classes() {
             <div style={{ padding: '0 16px 14px' }}>
               <Bar pct={fillPct} />
               <button
-                className={`g-btn${isBooked || (full && !isWait) ? ' g-btn-ghost' : ''}`}
+                className={`g-btn${isBooked || full ? ' g-btn-ghost' : ''}`}
                 style={{ width: '100%', marginTop: 12, padding: '12px 18px', fontSize: 13 }}
+                disabled={full && !isBooked}
                 onClick={() => reserve(c)}
               >
                 {isBooked ? <><Check size={13} style={{ verticalAlign: '-2px', marginRight: 6 }} />Réservé — annuler</>
-                  : isWait ? "Sur la liste d'attente — se retirer"
-                  : full ? "S'inscrire à la liste d'attente"
+                  : full ? 'Complet'
                   : 'Réserver ce cours'}
               </button>
             </div>
@@ -167,7 +158,7 @@ export default function Classes() {
         <div className="g-meta" style={{ marginBottom: 6, lineHeight: 1.5 }}>{gym.appointments.intro}</div>
         {gym.appointments.slots.map(s => (
           <div key={s.id} className="g-list-row">
-            <img src={coachOf(s.coach)?.photo} alt="" style={{ width: 42, height: 42, borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+            <Avatar photo={coachOf(s.coach)?.photo} name={coachOf(s.coach)?.name} size={42} />
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>{s.label}</div>
               <div className="g-meta" style={{ marginTop: 2 }}>
@@ -207,7 +198,7 @@ export default function Classes() {
               ))}
             </div>
             <div className="g-list-row">
-              <img src={coachOf(detail.coach)?.photo} alt="" style={{ width: 46, height: 46, borderRadius: '50%', objectFit: 'cover' }} />
+                <Avatar photo={coachOf(detail.coach)?.photo} name={coachOf(detail.coach)?.name} size={46} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)' }}>{coachOf(detail.coach)?.name}</div>
                 <div className="g-meta" style={{ marginTop: 2 }}>{coachOf(detail.coach)?.credentials}</div>
@@ -233,15 +224,22 @@ export default function Classes() {
               }}><Clock size={16} /></span>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Annulation sans frais jusqu'à 2 heures avant</div>
-                <div className="g-meta" style={{ marginTop: 2 }}>Passé ce délai, la place est offerte à la liste d'attente.</div>
+                <div className="g-meta" style={{ marginTop: 2 }}>Passé ce délai, la place est remise en ligne pour les autres membres.</div>
               </div>
             </div>
             <button
-              className="g-cta" style={{ marginTop: 20 }}
+              className="g-cta"
+              disabled={detail.capacity - detail.taken <= 0 && !booked.includes(detail.id)}
+              style={{
+                marginTop: 20,
+                ...(detail.capacity - detail.taken <= 0 && !booked.includes(detail.id)
+                  ? { opacity: 0.45, cursor: 'not-allowed', boxShadow: 'none' }
+                  : {}),
+              }}
               onClick={() => { reserve(detail); setDetail(null) }}
             >
               {booked.includes(detail.id) ? 'Annuler ma réservation'
-                : detail.capacity - detail.taken <= 0 ? "Liste d'attente"
+                : detail.capacity - detail.taken <= 0 ? 'Complet'
                 : 'Réserver ce cours'}
             </button>
           </>
