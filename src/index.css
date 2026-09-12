@@ -26,6 +26,7 @@
   --radius: 20px;
   --radius-sm: 14px;
   --font: 'Inter', "hero-new", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Inter', "hero-new", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* === DARK MODE (scoped to root, not applied to .app to preserve tenant branding) === */
@@ -139,7 +140,7 @@ body {
 .btn-secondary {
   background: var(--bg-card);
   color: var(--text);
-  border: 1.5px solid rgba(0,0,0,0.18);
+  border: 1.5px solid rgba(128,128,128,0.34);
   font-weight: 600;
 }
 .btn-secondary:hover {
@@ -161,7 +162,7 @@ body {
 .input-group input, .input-group select {
   width: 100%; padding: 16px 20px; border: none;
   border-radius: var(--radius-sm); font-size: 16px; font-family: var(--font);
-  transition: all 0.3s; background: #FFFFFF; color: var(--text);
+  transition: all 0.3s; background: var(--bg-card, #FFFFFF); color: var(--text);
   box-shadow: var(--shadow-sm);
 }
 .input-group input::placeholder, .input-group select::placeholder {
@@ -202,9 +203,9 @@ body {
   animation: shimmer 3s linear infinite;
 }
 .points-label {
-  font-size: 14px; opacity: 0.6; margin-top: 8px; text-transform: uppercase;
-  letter-spacing: 3px; font-weight: 500; position: relative; z-index: 1;
-  color: rgba(var(--accent-rgb, 201,169,110),0.7);
+  font-size: 14px; opacity: 0.92; margin-top: 8px; text-transform: uppercase;
+  letter-spacing: 3px; font-weight: 600; position: relative; z-index: 1;
+  color: var(--accent-light, #D4BA8A);
 }
 .points-sub {
   font-size: 13px; color: var(--accent-light); margin-top: 14px;
@@ -488,3 +489,155 @@ body {
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   border-radius: 2px; margin-bottom: 16px;
 }
+
+/* ==========================================================================
+   VERTICALE GYM — DEMO 2.0
+   Classes utilisees uniquement par les pages de la verticale gym.
+   Tout passe par les variables de theme : aucune couleur en dur.
+   ========================================================================== */
+
+.g-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.g-panel-tight { padding: 16px; }
+
+.g-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.g-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+.g-meta { font-size: 12px; color: var(--text-muted); }
+
+.g-scroll-x {
+  display: flex; gap: 8px; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+.g-scroll-x::-webkit-scrollbar { display: none; }
+
+.g-chip {
+  flex-shrink: 0; padding: 9px 15px; border-radius: 999px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-light); font-family: var(--font);
+  font-size: 12.5px; font-weight: 600; cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.g-chip:hover { border-color: rgba(var(--accent-rgb), 0.5); color: var(--text); }
+.g-chip.active {
+  background: rgba(var(--accent-rgb), 0.14);
+  border-color: rgba(var(--accent-rgb), 0.55);
+  color: var(--accent);
+}
+
+.g-day {
+  flex-shrink: 0; width: 54px; padding: 10px 0; border-radius: 14px;
+  border: 1px solid var(--border); background: transparent; cursor: pointer;
+  font-family: var(--font); text-align: center; color: var(--text-light);
+  transition: all 0.2s;
+}
+.g-day.active {
+  background: linear-gradient(160deg, var(--accent) 0%, var(--accent-dark) 100%);
+  border-color: transparent; color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.3);
+}
+.g-day-name { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.75; }
+.g-day-num { font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-top: 3px; }
+
+.g-bar-track { flex: 1; height: 6px; border-radius: 3px; background: rgba(var(--accent-rgb), 0.12); overflow: hidden; }
+.g-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent-dark), var(--accent)); }
+
+.g-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.g-col-bar {
+  width: 100%; max-width: 14px; border-radius: 4px 4px 2px 2px;
+  background: rgba(var(--accent-rgb), 0.22);
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.g-col-bar.peak { background: linear-gradient(180deg, var(--accent), var(--accent-dark)); }
+
+.g-sheet-backdrop {
+  position: fixed; inset: 0; z-index: 1100;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  display: flex; align-items: flex-end; justify-content: center;
+  animation: fadeInUp 0.25s ease both;
+}
+.g-sheet {
+  width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto;
+  background: var(--bg-card);
+  border-radius: 26px 26px 0 0;
+  border-top: 1px solid var(--border);
+  padding: 10px 20px calc(28px + env(safe-area-inset-bottom));
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.45);
+  animation: gSheetUp 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes gSheetUp { from { transform: translateY(28px); opacity: 0.6; } to { transform: translateY(0); opacity: 1; } }
+.g-sheet-grip {
+  width: 42px; height: 4px; border-radius: 2px; margin: 4px auto 16px;
+  background: var(--border);
+}
+
+.g-list-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.g-list-row:last-child { border-bottom: none; }
+
+.g-thumb { border-radius: 12px; object-fit: cover; flex-shrink: 0; display: block; }
+
+.g-cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 18px 24px; border: none;
+  border-radius: 1.55em; cursor: pointer;
+  font-family: var(--font); font-size: 15px; font-weight: 800;
+  letter-spacing: 1.2px; text-transform: uppercase; color: #FFFFFF;
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 52%, var(--accent-dark) 100%);
+  box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.35), 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.g-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(var(--accent-rgb), 0.45); }
+
+.g-btn {
+  padding: 10px 18px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font); font-size: 12.5px; font-weight: 700;
+  border: 1px solid rgba(var(--accent-rgb), 0.55);
+  background: rgba(var(--accent-rgb), 0.12); color: var(--accent);
+  transition: all 0.2s; white-space: nowrap;
+}
+.g-btn:hover { background: rgba(var(--accent-rgb), 0.2); }
+.g-btn-ghost { border-color: var(--border); background: transparent; color: var(--text-light); }
+.g-btn-ghost:hover { border-color: rgba(var(--accent-rgb), 0.45); color: var(--accent); background: transparent; }
+.g-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.g-tabs { display: flex; gap: 4px; background: var(--bg-warm); padding: 4px; border-radius: 14px; margin-bottom: 18px; }
+.g-tab {
+  flex: 1; padding: 11px 6px; border: none; border-radius: 11px; cursor: pointer;
+  background: transparent; color: var(--text-muted);
+  font-family: var(--font); font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.3px; transition: all 0.2s;
+}
+.g-tab.active { background: var(--bg-card); color: var(--accent); box-shadow: var(--shadow-sm); }
+
+.g-input {
+  width: 100%; padding: 14px 16px 14px 42px;
+  border: 1px solid var(--border); border-radius: 14px;
+  background: var(--bg-warm); color: var(--text);
+  font-family: var(--font); font-size: 14.5px;
+}
+.g-input::placeholder { color: var(--text-muted); }
+.g-input:focus { outline: none; border-color: rgba(var(--accent-rgb), 0.55); }
+
+.g-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(var(--accent-rgb), 0.22); }
+.g-dot.on { background: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.16); }

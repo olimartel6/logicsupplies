@@ -66,7 +66,7 @@ export default function Referral({ client, business }) {
         </div>
         <h2 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>Parrainez, gagnez</h2>
         <p style={{ fontSize: 14, color: 'var(--text-light)', marginTop: 6, lineHeight: 1.5 }}>
-          Invitez une amie et recevez chacune <strong style={{ color: 'var(--accent-dark)' }}>{config.referralBonus} points</strong>
+          {config.referralInviteLabel || 'Invitez une amie'} et recevez chacun <strong style={{ color: 'var(--accent-dark)' }}>{config.referralBonus} points</strong>
         </p>
       </div>
 

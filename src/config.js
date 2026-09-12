@@ -1,6 +1,8 @@
 // White-label configuration
 // Each business gets their own config. In production, this is fetched from Supabase by tenant slug.
 
+import { buildGym } from './data/gymTemplate';
+
 const configs = {
   'studio-mon-ongle': {
     businessName: 'Studio Mon Ongle',
@@ -180,6 +182,66 @@ const configs = {
       { id: 'demo-5', title: 'Coffret 12 jours de café — points doublés', description: '12 sachets prêts à infuser pour parcourir toute la gamme Smith : le cadeau idéal, et vos points sont doublés sur ce coffret à 26,99 $ jusqu\'à la fin du mois.', image_url: import.meta.env.BASE_URL + 'images/smith-cafe/12-jours.png' },
     ],
     referralMessage: 'Rejoins le programme fidélité Smith Café et obtiens 75 points gratuits!', phone: '(418) 529-0096', address: 'Place Royale, St-Jean, St-Louis, Plaines d\'Abraham, Belvédère, René-Lévesque, Ste-Foy, Des Jardins, Cap-Rouge, Charlesbourg, Limoilou, Île d\'Orléans',
+  },
+
+  // ====== MODELE DE DEMO 2.0 — VERTICALE GYM ======
+  // Point de depart de toute demo envoyee a un gym. Dupliquer ce bloc,
+  // changer la marque, les couleurs, les succursales et les recompenses.
+  'demo-gym': {
+    vertical: 'gym',
+    businessName: 'Forge Athlétique', slug: 'demo-gym',
+    tagline: 'Votre entraînement, vos points, vos récompenses — dans une seule application',
+    favicon: '🏋️',
+    logo: import.meta.env.BASE_URL + 'logos/demo-gym.png',
+    logoLight: import.meta.env.BASE_URL + 'logos/demo-gym.png',
+    heroImage: import.meta.env.BASE_URL + 'images/demo-gym/hero.jpg',
+    galleryImages: [
+      import.meta.env.BASE_URL + 'images/demo-gym/g-halteres.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-musculation.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-corde.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-boxe.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-yoga.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-cables.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-force.jpg',
+      import.meta.env.BASE_URL + 'images/demo-gym/g-recuperation.jpg',
+    ],
+    galleryTitle: 'Le gym',
+    pointsPerDollar: 5, referralBonus: 300, visitBonus: 50, pointsPerVisit: 50, pointsPerClass: 75,
+    pointsLabel: 'Points Forge',
+    referralInviteLabel: 'Invitez un proche',
+    qrHint: 'Présentez ce code au lecteur pour entrer et accumuler vos points',
+    redeemHint: 'Présentez ce code à la réception pour réclamer votre récompense',
+    claimHint: 'Présentez ce code à la réception pour utiliser votre offre',
+    demoClient: { name: 'Alexandre', points_balance: 1240, total_points_earned: 2890, visit_count: 186, created_at: '2025-01-14' },
+    theme: {
+      primary: '#0D0F12', primaryLight: '#191D22',
+      accent: '#CB5A32', accentLight: '#E17B52', accentDark: '#A4421F',
+      bg: '#0B0D10', bgCard: '#15181C', bgWarm: '#1D2126',
+      border: 'rgba(242,237,232,0.10)',
+      text: '#F2EDE8', textLight: '#BFB7AF', textMuted: '#857E76',
+      navBg: 'rgba(11,13,16,0.90)',
+      font: '"Montserrat", system-ui, sans-serif',
+      fontDisplay: '"Oswald", "Montserrat", sans-serif',
+    },
+    gym: buildGym(),
+    rewards: [
+      { id: 1, name: 'Smoothie protéiné offert au bar', points_required: 200, type: 'free_service', value: 'smoothie', image: import.meta.env.BASE_URL + 'images/demo-gym/r-smoothie.jpg' },
+      { id: 2, name: 'Repas santé post-entraînement', points_required: 400, type: 'free_service', value: 'bol-sante', image: import.meta.env.BASE_URL + 'images/demo-gym/r-bol.jpg' },
+      { id: 3, name: 'Laissez-passer invité — amenez un proche', points_required: 700, type: 'free_service', value: 'invite', image: import.meta.env.BASE_URL + 'images/demo-gym/r-invite.jpg' },
+      { id: 4, name: 'Séance privée de 60 minutes avec un entraîneur', points_required: 1200, type: 'free_service', value: 'seance-privee', image: import.meta.env.BASE_URL + 'images/demo-gym/r-coach.jpg' },
+      { id: 5, name: 'Massage sportif de 45 minutes', points_required: 2000, type: 'free_service', value: 'massage', image: import.meta.env.BASE_URL + 'images/demo-gym/r-massage.jpg' },
+      { id: 6, name: 'Un mois d\'abonnement offert', points_required: 3600, type: 'discount_fixed', value: 60, image: import.meta.env.BASE_URL + 'images/demo-gym/r-mois.jpg' },
+    ],
+    offers: [
+      { id: 'demo-1', title: 'Semaine de la rentrée : points doublés', description: 'Du 14 au 20 septembre, chaque entrée au gym vaut 100 points au lieu de 50, et chaque cours de groupe en vaut 150. Rien à réclamer, le compte se fait automatiquement au lecteur.', image_url: import.meta.env.BASE_URL + 'images/demo-gym/g-musculation.jpg' },
+      { id: 'demo-2', title: 'Évaluation de la condition physique offerte', description: '30 minutes avec Maxime : mesures, mobilité, test de force et un plan de huit semaines écrit pour vous. Incluse chaque trimestre avec votre abonnement, sur réservation dans l\'onglet Horaire.', image_url: import.meta.env.BASE_URL + 'images/demo-gym/r-coach.jpg' },
+      { id: 'demo-3', title: 'Deux cours de groupe, le troisième offert', description: 'Réservez deux cours dans la même semaine et le troisième est gratuit, tous formats confondus : cycle, yoga, boxe, HIIT ou mobilité. Le crédit apparaît directement dans vos réservations.', image_url: import.meta.env.BASE_URL + 'images/demo-gym/c-yoga.jpg' },
+      { id: 'demo-4', title: 'Parrainage : 300 points pour vous deux', description: 'Votre proche s\'inscrit avec votre code et vous recevez chacun 300 points, soit assez pour un repas santé au bar. Aucune limite sur le nombre de parrainages.', image_url: import.meta.env.BASE_URL + 'images/demo-gym/r-invite.jpg' },
+      { id: 'demo-5', title: 'Accès aux deux succursales', description: 'Saint-Roch le matin, Sainte-Foy le soir : votre abonnement ouvre les deux portes, 24 heures sur 24, et vos points s\'accumulent au même compte.', image_url: import.meta.env.BASE_URL + 'images/demo-gym/hero.jpg' },
+    ],
+    referralMessage: 'Rejoins-moi chez Forge Athlétique et obtiens 300 points à ton inscription!',
+    phone: '418-000-0000',
+    address: 'Saint-Roch et Sainte-Foy, Québec',
   },
 
   // ====== PROSPECTS COLD OUTREACH ======
@@ -17630,6 +17692,7 @@ export function applyTheme(theme) {
   if (theme.textMuted) root.style.setProperty('--text-muted', theme.textMuted);
   if (theme.navBg) root.style.setProperty('--nav-bg', theme.navBg);
   if (theme.font) root.style.setProperty('--font', theme.font);
+  if (theme.fontDisplay) root.style.setProperty('--font-display', theme.fontDisplay);
   // RGB channels for translucent brand tints (rgba(var(--accent-rgb), a))
   const rgb = hexToRgb(theme.accent);
   if (rgb) root.style.setProperty('--accent-rgb', rgb);

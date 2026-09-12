@@ -28,6 +28,7 @@ export default function Rewards({ client, business, setClient }) {
   const [toast, setToast] = useState(null)
   const [redeeming, setRedeeming] = useState(null)
   const [redemptionQR, setRedemptionQR] = useState(null) // { code, rewardName, expiresAt }
+  const [confirming, setConfirming] = useState(null) // recompense en attente de confirmation
 
   const rewards = (client?.id === 'demo' && config.rewards?.length > 0) ? config.rewards : ((business?.rewards && business.rewards.length > 0) ? business.rewards : config.rewards)
 
@@ -37,17 +38,26 @@ export default function Rewards({ client, business, setClient }) {
 
   const handleRedeem = (reward) => {
     if (!client || client.points_balance < reward.points_required) return
-    // Confirmation step to prevent accidental redemptions
-    const confirmed = window.confirm(
-      `Échanger "${reward.name}" pour ${reward.points_required} points?\n\nVos points seront déduits immédiatement. Cette action est irréversible.`
-    )
-    if (!confirmed) return
-    doRedeem(reward)
+    // Confirmation dans l'app : evite une boite de dialogue native au milieu d'une demo
+    setConfirming(reward)
   }
 
   const doRedeem = async (reward) => {
     setRedeeming(reward.id)
     try {
+      // Mode demo : aucun enregistrement cote serveur, mais l'echange doit
+      // rester demontrable de bout en bout.
+      if (client.id === 'demo' || !business?.id) {
+        const code = 'DEMO' + Math.random().toString(36).slice(2, 6).toUpperCase()
+        setClient({ ...client, points_balance: client.points_balance - reward.points_required })
+        setRedemptionQR({
+          code,
+          rewardName: reward.name,
+          expiresAt: new Date(Date.now() + 15 * 60 * 1000).toISOString(),
+        })
+        fireConfetti()
+        return
+      }
       const redemption = await createRedemption(business.id, client.id, reward.name, reward.points_required)
       const fresh = await getClientById(client.id)
       if (fresh) setClient(fresh)
@@ -68,22 +78,68 @@ export default function Rewards({ client, business, setClient }) {
   // Countdown component
   const ExpiryTimer = ({ expiresAt }) => {
     const [remaining, setRemaining] = useState('')
-    useState(() => {
-      const interval = setInterval(() => {
+    useEffect(() => {
+      const tick = () => {
         const diff = new Date(expiresAt) - new Date()
-        if (diff <= 0) { setRemaining('Expiré'); clearInterval(interval); return }
+        if (diff <= 0) { setRemaining('Expiré'); return }
         const min = Math.floor(diff / 60000)
         const sec = Math.floor((diff % 60000) / 1000)
         setRemaining(`${min}:${sec.toString().padStart(2, '0')}`)
-      }, 1000)
+      }
+      tick()
+      const interval = setInterval(tick, 1000)
       return () => clearInterval(interval)
-    })
+    }, [expiresAt])
     return <span>{remaining}</span>
   }
 
   return (
     <div className="page-content">
       {toast && <div className="toast">{toast}</div>}
+
+      {/* Confirmation */}
+      {confirming && (
+        <div
+          onClick={() => setConfirming(null)}
+          style={{
+            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 1000,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20,
+            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: 'var(--bg-card, #FFFFFF)', border: '1px solid var(--border, transparent)',
+              borderRadius: 24, padding: 30, maxWidth: 340, width: '100%', textAlign: 'center',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.35)',
+            }}
+          >
+            {confirming.image && (
+              <img src={confirming.image} alt="" style={{
+                width: 72, height: 72, borderRadius: 18, objectFit: 'cover', marginBottom: 16,
+              }} />
+            )}
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', lineHeight: 1.3 }}>
+              {confirming.name}
+            </h2>
+            <p style={{ fontSize: 14, color: 'var(--text-light)', marginTop: 10, lineHeight: 1.5 }}>
+              {confirming.points_required.toLocaleString('fr-CA')} points seront retirés de votre solde.
+              Un code à présenter sur place sera généré immédiatement.
+            </p>
+            <div style={{ display: 'flex', gap: 10, marginTop: 22 }}>
+              <button
+                className="btn btn-secondary btn-small" style={{ flex: 1 }}
+                onClick={() => setConfirming(null)}
+              >Annuler</button>
+              <button
+                className="btn btn-accent btn-small" style={{ flex: 1 }}
+                onClick={() => { const r = confirming; setConfirming(null); doRedeem(r) }}
+              >Confirmer</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Redemption QR Modal */}
       {redemptionQR && (
@@ -93,18 +149,19 @@ export default function Rewards({ client, business, setClient }) {
           padding: 20, backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
         }}>
           <div style={{
-            background: '#FFFFFF',
+            background: 'var(--bg-card, #FFFFFF)',
+            border: '1px solid var(--border, transparent)',
             borderRadius: 24, padding: 36,
             maxWidth: 360, width: '100%', textAlign: 'center',
             position: 'relative',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.15)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.35)',
           }}>
             <button
               onClick={() => setRedemptionQR(null)}
               style={{
                 position: 'absolute', top: 14, right: 14,
                 width: 32, height: 32, borderRadius: '50%',
-                border: '1px solid rgba(0,0,0,0.08)', background: 'rgba(0,0,0,0.03)',
+                border: '1px solid var(--border, rgba(0,0,0,0.08))', background: 'transparent',
                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: 'var(--text-light)',
               }}
@@ -143,7 +200,7 @@ export default function Rewards({ client, business, setClient }) {
             </div>
 
             <p style={{ fontSize: 13, color: 'var(--text-light)', lineHeight: 1.5 }}>
-              Montrez ce QR à la caisse pour réclamer votre récompense
+              {config.redeemHint || 'Montrez ce QR à la caisse pour réclamer votre récompense'}
             </p>
 
             <div style={{
@@ -165,7 +222,7 @@ export default function Rewards({ client, business, setClient }) {
           fontSize: 52, fontWeight: 800, marginTop: 4,
           color: 'var(--accent)',
         }}>
-          {client?.points_balance || 0}
+          {(client?.points_balance || 0).toLocaleString('fr-CA')}
         </div>
         <div style={{ fontSize: 13, color: 'var(--text-light)', marginTop: 2 }}>points disponibles</div>
       </div>
@@ -224,7 +281,7 @@ export default function Rewards({ client, business, setClient }) {
               {redeeming === reward.id ? 'En cours...' : canRedeem ? (
                 <>Échanger maintenant</>
               ) : (
-                <><Lock size={14} /> Encore {remaining} points</>
+                <><Lock size={14} /> Encore {remaining.toLocaleString('fr-CA')} points</>
               )}
             </button>
           </div>

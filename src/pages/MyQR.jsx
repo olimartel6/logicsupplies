@@ -54,7 +54,7 @@ export default function MyQR({ client }) {
         textAlign: 'center', fontSize: 12, color: 'var(--text-light)',
         fontWeight: 600, marginBottom: 10, lineHeight: 1.4,
       }}>
-        Montrez ce code à la caisse pour accumuler vos points
+        {config.qrHint || 'Montrez ce code à la caisse pour accumuler vos points'}
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center', marginBottom: 14 }}>

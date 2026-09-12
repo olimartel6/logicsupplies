@@ -8,6 +8,10 @@ import MyQR from './pages/MyQR'
 import Offers from './pages/Offers'
 import Privacy from './pages/Privacy'
 import Admin from './pages/Admin'
+import GymHome from './pages/gym/GymHome'
+import Classes from './pages/gym/Classes'
+import Training from './pages/gym/Training'
+import Progress from './pages/gym/Progress'
 import BottomNav from './components/BottomNav'
 import { config, applyTheme } from './config'
 import { getBusiness, getClientByPhone, createLoyaltyClient, generateReferralCode, sendSMS, sendEmail, generateWalletPass, registerClient, loginClient } from './services/supabase'
@@ -86,6 +90,8 @@ function App() {
       visit_count: 8,
       referral_code: 'MARIE2024',
       created_at: '2026-01-15',
+      // Chaque tenant peut ajuster le profil de demo via config.demoClient
+      ...(config.demoClient || {}),
     }
     setClient(demoClient)
     setIsLoggedIn(true)
@@ -141,7 +147,16 @@ function App() {
     <HashRouter>
       <div className="app">
         <Routes>
-          <Route path="/" element={<Dashboard client={client} business={business} setClient={setClient} onLogout={handleLogout} />} />
+          {config.vertical === 'gym' ? (
+            <>
+              <Route path="/" element={<GymHome client={client} business={business} onLogout={handleLogout} />} />
+              <Route path="/horaire" element={<Classes />} />
+              <Route path="/entrainements" element={<Training />} />
+              <Route path="/progres" element={<Progress />} />
+            </>
+          ) : (
+            <Route path="/" element={<Dashboard client={client} business={business} setClient={setClient} onLogout={handleLogout} />} />
+          )}
           <Route path="/rewards" element={<Rewards client={client} business={business} setClient={setClient} />} />
           <Route path="/offers" element={<Offers client={client} business={business} />} />
           <Route path="/myqr" element={<MyQR client={client} />} />

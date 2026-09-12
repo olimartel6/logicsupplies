@@ -1,7 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Home, Gift, Tag, QrCode, Users } from 'lucide-react'
+import { Home, Gift, Tag, QrCode, Users, CalendarDays, Dumbbell, TrendingUp } from 'lucide-react'
+import config from '../config'
 
-const tabs = [
+const DEFAULT_TABS = [
   { path: '/', icon: Home, label: 'Accueil' },
   { path: '/rewards', icon: Gift, label: 'Récompenses' },
   { path: '/offers', icon: Tag, label: 'Offres' },
@@ -9,9 +10,20 @@ const tabs = [
   { path: '/referral', icon: Users, label: 'Parrainage' },
 ]
 
+// Verticale gym : l'horaire, les entrainements et les progres remplacent
+// les onglets secondaires, qui restent accessibles depuis l'accueil.
+const GYM_TABS = [
+  { path: '/', icon: Home, label: 'Accueil' },
+  { path: '/horaire', icon: CalendarDays, label: 'Horaire' },
+  { path: '/entrainements', icon: Dumbbell, label: 'Entraîner' },
+  { path: '/progres', icon: TrendingUp, label: 'Progrès' },
+  { path: '/rewards', icon: Gift, label: 'Points' },
+]
+
 export default function BottomNav() {
   const location = useLocation()
   const navigate = useNavigate()
+  const tabs = config.vertical === 'gym' ? GYM_TABS : DEFAULT_TABS
 
   return (
     <nav className="bottom-nav">
