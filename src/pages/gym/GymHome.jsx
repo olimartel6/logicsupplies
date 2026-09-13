@@ -129,7 +129,7 @@ export default function GymHome({ client, business, onLogout }) {
         <div className="points-number g-num">{points.toLocaleString('fr-CA')}</div>
         <div className="points-label">{config.pointsLabel}</div>
         <div className="points-sub">
-          {config.pointsPerVisit} points par entrée · {config.pointsPerClass} points par cours de groupe
+          {config.pointsSubline || `${config.pointsPerVisit} points par entrée · ${config.pointsPerClass} points par cours de groupe`}
         </div>
       </div>
 

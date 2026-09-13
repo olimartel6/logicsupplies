@@ -565,6 +565,242 @@ const configs = {
     address: '10 succursales — St-Nicolas, Ste-Foy, Québec, Cap-Rouge, Lévis, Charny, Ste-Marie, St-Apollinaire, St-Agapit',
   },
 
+  // ====== FLEXIGYM QUEBEC — 2 succursales, centre-ville de Quebec ======
+  // Donnees reelles tirees de flexigymquebec.com : slogan, adresses, heures,
+  // tarifs, forfaits. Horaire de seances encadrees a remplacer par le leur.
+  'flexigym': {
+    vertical: 'gym',
+    businessName: 'Flexigym', slug: 'flexigym',
+    tagline: 'Accélérateur de changements — ta salle d\'entraînement au centre-ville de Québec',
+    favicon: '💪',
+    logo: import.meta.env.BASE_URL + 'logos/flexigym-mark.png',
+    logoLight: import.meta.env.BASE_URL + 'logos/flexigym-mark.png',
+    logoWordmark: import.meta.env.BASE_URL + 'logos/flexigym.png',
+    heroImage: import.meta.env.BASE_URL + 'images/flexigym/hero.jpg',
+    galleryImages: [
+      import.meta.env.BASE_URL + 'images/flexigym/g-racks.jpg',
+      import.meta.env.BASE_URL + 'images/flexigym/g-halteres.jpg',
+      import.meta.env.BASE_URL + 'images/flexigym/g-plateau.jpg',
+      import.meta.env.BASE_URL + 'images/flexigym/g-turf.jpg',
+      import.meta.env.BASE_URL + 'images/flexigym/g-machine.jpg',
+    ],
+    galleryTitle: 'Le gym',
+    pointsPerDollar: 5, referralBonus: 300, visitBonus: 50, pointsPerVisit: 50, pointsPerClass: 75,
+    pointsLabel: 'Points Flexi',
+    pointsSubline: '50 points par entrée · 75 points par séance encadrée',
+    referralInviteLabel: 'Invite un proche',
+    qrHint: 'Présente ce code au lecteur pour entrer et accumuler tes points',
+    redeemHint: 'Présente ce code à la réception pour réclamer ta récompense',
+    claimHint: 'Présente ce code à la réception pour utiliser ton offre',
+    demoClient: { name: 'Gabriel', points_balance: 980, total_points_earned: 2100, visit_count: 96, created_at: '2025-03-10' },
+    theme: {
+      primary: '#050715', primaryLight: '#141A28',
+      accent: '#27AAE1', accentLight: '#5CC4EE', accentDark: '#14719E',
+      onAccent: '#04121C',
+      bg: '#06080F', bgCard: '#10141F', bgWarm: '#171D2B',
+      border: 'rgba(239,243,248,0.10)',
+      text: '#EFF3F8', textLight: '#A9B5C5', textMuted: '#71808F',
+      navBg: 'rgba(6,8,15,0.92)',
+      font: '"Montserrat", system-ui, sans-serif',
+      fontDisplay: '"Oswald", "Montserrat", sans-serif',
+    },
+    gym: buildGym({
+      membership: {
+        planName: 'Abonnement ACCÈS', price: '49,99 $', period: 'par mois',
+        status: 'Actif', nextBilling: '10 octobre 2026', memberSince: 'mars 2025',
+        contract: 'Sans engagement à long terme',
+        freezeNote: 'Accès illimité aux deux succursales, 24 h sur 24',
+        accessNote: 'Accès membres 24 heures sur 24, 7 jours sur 7',
+      },
+      locations: [
+        { id: 'st-roch', name: 'Flexigym St-Roch', address: '685, rue du Prince-Édouard, Québec', hours: 'Accès membres 24/7 — service à la clientèle L-V 10 h à 19 h, S 10 h à 14 h', capacity: 70, equipment: ['Plateau de force', 'Comptoir santé', 'Zone fonctionnelle'] },
+        { id: 'st-jean', name: 'Flexigym St-Jean', address: '869, rue Saint-Jean, Québec', hours: 'Accès membres 24/7 — service à la clientèle L-V 10 h à 19 h, S-D 10 h à 15 h', capacity: 60, equipment: ['Plateau de force', 'Comptoir santé', 'Cardio'] },
+      ],
+      homeLocation: 'st-roch',
+      occupancy: {
+        now: 18, capacity: 70, updatedAt: 'il y a 2 minutes',
+        byHour: [
+          { h: '5 h', pct: 14 }, { h: '6 h', pct: 38 }, { h: '7 h', pct: 51 },
+          { h: '8 h', pct: 44 }, { h: '9 h', pct: 26 }, { h: '10 h', pct: 22 },
+          { h: '11 h', pct: 28 }, { h: '12 h', pct: 62 }, { h: '13 h', pct: 47 },
+          { h: '14 h', pct: 25 }, { h: '15 h', pct: 30 }, { h: '16 h', pct: 58 },
+          { h: '17 h', pct: 91 }, { h: '18 h', pct: 95 }, { h: '19 h', pct: 68 },
+          { h: '20 h', pct: 41 }, { h: '21 h', pct: 27 }, { h: '22 h', pct: 15 },
+        ],
+      },
+      goal: { sessionsPerWeek: 3, thisWeek: 2, streakWeeks: 6, bestStreak: 10, weeks: [3, 3, 4, 2, 3, 3, 4, 3, 2, 3, 4, 2] },
+      coaches: [
+        { id: 'felix', name: 'Félix', role: 'Cofondateur et entraîneur certifié', photo: null, credentials: 'St-Roch · encadrement FLEXI et programmes personnalisés' },
+        { id: 'jonathan', name: 'Jonathan', role: 'Cofondateur et entraîneur certifié', photo: null, credentials: 'St-Jean · encadrement FLEXI et suivi des membres' },
+      ],
+      thread: [
+        { id: 1, from: 'coach', who: 'felix', at: 'Hier, 17 h 40', text: 'J\'ai regardé tes trois dernières séances. Ton volume sur le haut du corps est bon, mais tu sautes systématiquement le bas du corps le jeudi. On règle ça cette semaine.' },
+        { id: 2, from: 'me', at: 'Hier, 19 h 15', text: 'Le jeudi je finis tard, j\'arrive au gym vers 21 h et je manque d\'énergie.' },
+        { id: 3, from: 'coach', who: 'felix', at: 'Aujourd\'hui, 8 h 05', text: 'Parfait, on déplace ta séance de jambes au samedi matin et on met une séance courte de 30 minutes le jeudi. Comme l\'accès est 24/7, tu peux aussi venir le mercredi soir si ça adonne mieux.' },
+      ],
+      classes: [
+        { id: 'f1', day: 0, time: '6 h 30', duration: 45, name: 'Séance encadrée — Force', coach: 'felix', location: 'st-roch', room: 'Plateau de force', type: 'Force', intensity: 3, capacity: 8, taken: 5, image: import.meta.env.BASE_URL + 'images/flexigym/w-force.jpg' },
+        { id: 'f2', day: 0, time: '12 h 10', duration: 30, name: 'Séance encadrée — Express', coach: 'jonathan', location: 'st-jean', room: 'Zone fonctionnelle', type: 'HIIT', intensity: 3, capacity: 8, taken: 8, image: import.meta.env.BASE_URL + 'images/flexigym/c-hiit.jpg' },
+        { id: 'f3', day: 1, time: '17 h 30', duration: 45, name: 'Séance encadrée — Corps complet', coach: 'felix', location: 'st-roch', room: 'Plateau de force', type: 'Force', intensity: 2, capacity: 8, taken: 6, image: import.meta.env.BASE_URL + 'images/flexigym/c-libre.jpg' },
+        { id: 'f4', day: 2, time: '6 h 30', duration: 45, name: 'Séance encadrée — Force', coach: 'jonathan', location: 'st-jean', room: 'Plateau de force', type: 'Force', intensity: 3, capacity: 8, taken: 4, image: import.meta.env.BASE_URL + 'images/flexigym/w-force.jpg' },
+        { id: 'f5', day: 2, time: '18 h 00', duration: 45, name: 'Mobilité et récupération', coach: 'felix', location: 'st-roch', room: 'Zone fonctionnelle', type: 'Mobilité', intensity: 1, capacity: 10, taken: 6, image: import.meta.env.BASE_URL + 'images/flexigym/c-mobilite.jpg' },
+        { id: 'f6', day: 3, time: '12 h 10', duration: 30, name: 'Séance encadrée — Express', coach: 'jonathan', location: 'st-roch', room: 'Zone fonctionnelle', type: 'HIIT', intensity: 3, capacity: 8, taken: 7, image: import.meta.env.BASE_URL + 'images/flexigym/c-hiit.jpg' },
+        { id: 'f7', day: 4, time: '17 h 30', duration: 45, name: 'Séance encadrée — Corps complet', coach: 'felix', location: 'st-jean', room: 'Plateau de force', type: 'Force', intensity: 2, capacity: 8, taken: 5, image: import.meta.env.BASE_URL + 'images/flexigym/c-libre.jpg' },
+        { id: 'f8', day: 5, time: '9 h 00', duration: 60, name: 'Séance encadrée du samedi', coach: 'jonathan', location: 'st-roch', room: 'Plateau de force', type: 'Force', intensity: 2, capacity: 10, taken: 7, image: import.meta.env.BASE_URL + 'images/flexigym/w-force.jpg' },
+      ],
+      booked: ['f3', 'f8'],
+      appointments: {
+        intro: 'Le forfait FLEXI comprend l\'accompagnement d\'un entraîneur certifié. La rencontre d\'évaluation est sans frais, même si tu es sur l\'abonnement ACCÈS.',
+        slots: [
+          { id: 'a1', coach: 'felix', label: 'Rencontre d\'évaluation', duration: 45, day: 'Mardi', time: '16 h 00', included: true },
+          { id: 'a2', coach: 'felix', label: 'Séance privée — technique de levée', duration: 60, day: 'Mercredi', time: '13 h 30', price: '65 $' },
+          { id: 'a3', coach: 'jonathan', label: 'Programme d\'entraînement personnalisé', duration: 45, day: 'Jeudi', time: '11 h 00', price: '55 $' },
+          { id: 'a4', coach: 'jonathan', label: 'Séance privée — technique de levée', duration: 60, day: 'Samedi', time: '10 h 30', price: '65 $' },
+        ],
+      },
+      workoutFilters: {
+        durations: [10, 20, 30, 45],
+        types: ['Force', 'HIIT', 'Cardio', 'Mobilité', 'Core'],
+        levels: ['Débutant', 'Intermédiaire', 'Avancé'],
+      },
+      workouts: [
+        { id: 'w1', name: 'Force — Haut du corps', type: 'Force', duration: 45, level: 'Intermédiaire', intensity: 3, equipment: 'Barre et haltères', image: import.meta.env.BASE_URL + 'images/flexigym/w-haut.jpg',
+          summary: 'Poussée et tirage à volume égal. La séance de base du plateau de force.',
+          blocks: [
+            { name: 'Échauffement — 6 min', items: ['Rameur 3 min', 'Rotations externes à la bande — 2 × 15', 'Barre à vide — 2 × 10'] },
+            { name: 'Bloc principal', items: ['Développé couché — 4 × 6', 'Tirage horizontal — 4 × 10', 'Développé incliné aux haltères — 3 × 10', 'Tirage vertical — 3 × 12'] },
+            { name: 'Finisseur', items: ['Élévations latérales — 3 × 15', 'Extensions de triceps — 3 × 15'] },
+          ] },
+        { id: 'w2', name: 'Force — Bas du corps', type: 'Force', duration: 45, level: 'Avancé', intensity: 3, equipment: 'Barre et rack', image: import.meta.env.BASE_URL + 'images/flexigym/w-bas.jpg',
+          summary: 'Squat lourd, puis travail unilatéral pour corriger l\'écart entre les deux jambes.',
+          blocks: [
+            { name: 'Échauffement — 8 min', items: ['Vélo 4 min', 'Mobilité de cheville — 2 × 10', 'Squat au poids du corps — 2 × 12'] },
+            { name: 'Bloc principal', items: ['Squat arrière — 5 × 5', 'Soulevé de terre roumain — 4 × 8', 'Fentes bulgares — 3 × 10 par jambe'] },
+            { name: 'Finisseur', items: ['Extensions de mollets — 4 × 15', 'Gainage latéral — 3 × 45 s'] },
+          ] },
+        { id: 'w3', name: 'Express 20 minutes', type: 'HIIT', duration: 20, level: 'Intermédiaire', intensity: 3, equipment: 'Aucun', image: import.meta.env.BASE_URL + 'images/flexigym/w-hiit.jpg',
+          summary: 'Quatre tours, 40 secondes d\'effort et 20 de repos. À faire quand tu n\'as que 20 minutes entre deux rendez-vous.',
+          blocks: [
+            { name: 'Échauffement — 3 min', items: ['Rotations d\'épaules et de hanches', 'Montées de genoux', 'Fentes marchées'] },
+            { name: 'Bloc principal — 4 tours', items: ['Burpees — 40 s', 'Squats sautés — 40 s', 'Planche dynamique — 40 s', 'Fentes alternées — 40 s'] },
+            { name: 'Retour au calme — 3 min', items: ['Marche lente', 'Étirement des quadriceps'] },
+          ] },
+        { id: 'w4', name: 'Core en 10 minutes', type: 'Core', duration: 10, level: 'Débutant', intensity: 2, equipment: 'Tapis', image: import.meta.env.BASE_URL + 'images/flexigym/w-core.jpg',
+          summary: 'Un circuit court à glisser à la fin de n\'importe quelle séance.',
+          blocks: [{ name: 'Circuit — 2 tours', items: ['Planche — 45 s', 'Gainage latéral — 30 s par côté', 'Ciseaux — 30 s', 'Pont fessier — 20 répétitions'] }] },
+        { id: 'w5', name: 'Mobilité du matin', type: 'Mobilité', duration: 15, level: 'Débutant', intensity: 1, equipment: 'Rouleau de mousse', image: import.meta.env.BASE_URL + 'images/flexigym/w-mobilite.jpg',
+          summary: 'Séquence d\'ouverture des hanches et des épaules, idéale les jours de repos.',
+          blocks: [
+            { name: 'Rouleau — 5 min', items: ['Quadriceps — 45 s par jambe', 'Fessiers — 45 s par côté', 'Dorsaux — 60 s'] },
+            { name: 'Mobilité — 10 min', items: ['Fente avec rotation — 8 par côté', 'Chien tête en bas — 60 s', 'Ouverture de poitrine au mur — 60 s'] },
+          ] },
+        { id: 'w6', name: 'Cardio progressif', type: 'Cardio', duration: 30, level: 'Intermédiaire', intensity: 2, equipment: 'Tapis ou rameur', image: import.meta.env.BASE_URL + 'images/flexigym/w-cardio.jpg',
+          summary: 'Trente minutes faciles avec quatre accélérations, pour bâtir le fond sans épuiser les jambes.',
+          blocks: [{ name: 'Progression', items: ['10 min à allure facile', '4 × 90 s en zone 4 avec 2 min de récupération', '6 min de retour au calme'] }] },
+        { id: 'w7', name: 'Ta première semaine', type: 'Force', duration: 30, level: 'Débutant', intensity: 2, equipment: 'Haltères', image: import.meta.env.BASE_URL + 'images/flexigym/w-debutant.jpg',
+          summary: 'La séance à faire pendant ton essai gratuit. Trois tours, rien de compliqué, tout est expliqué.',
+          blocks: [
+            { name: 'Échauffement — 5 min', items: ['Marche rapide', 'Cercles de bras', 'Squats au poids du corps — 2 × 10'] },
+            { name: 'Circuit — 3 tours', items: ['Squat aux haltères — 12', 'Développé aux haltères — 12', 'Tirage penché — 12', 'Pont fessier — 15', 'Planche — 30 s'] },
+          ] },
+      ],
+      journal: [
+        { id: 'j1', date: '2026-09-11', name: 'Force — Haut du corps', duration: 47, location: 'st-roch', points: 50,
+          exercises: [{ name: 'Développé couché', sets: '4 × 6', load: '80 kg' }, { name: 'Tirage horizontal', sets: '4 × 10', load: '60 kg' }] },
+        { id: 'j2', date: '2026-09-09', name: 'Séance encadrée — Corps complet', duration: 45, location: 'st-roch', points: 75,
+          exercises: [{ name: 'Circuit avec Félix', sets: '3 tours', load: 'Haltères 20 kg', note: 'Technique corrigée sur le soulevé de terre' }] },
+        { id: 'j3', date: '2026-09-07', name: 'Express 20 minutes', duration: 22, location: 'st-jean', points: 50,
+          exercises: [{ name: 'Circuit 4 tours', sets: '40 s / 20 s', load: 'Poids du corps' }] },
+      ],
+      records: [
+        { lift: 'Développé couché', value: 85, unit: 'kg', date: '11 septembre 2026', delta: '+7,5 kg en 3 mois', history: [67.5, 70, 75, 77.5, 80, 82.5, 85] },
+        { lift: 'Squat arrière', value: 115, unit: 'kg', date: '4 septembre 2026', delta: '+10 kg en 3 mois', history: [95, 100, 102.5, 107.5, 110, 112.5, 115] },
+        { lift: 'Soulevé de terre', value: 140, unit: 'kg', date: '30 août 2026', delta: '+12,5 kg en 3 mois', history: [115, 120, 125, 130, 132.5, 137.5, 140] },
+        { lift: 'Tractions', value: 10, unit: 'répétitions', date: '2 septembre 2026', delta: '+4 depuis juin', history: [4, 5, 6, 7, 8, 9, 10] },
+      ],
+      measures: [
+        { label: 'Poids', value: '76,8 kg', delta: '-2,4 kg depuis juin', trend: 'down', good: true },
+        { label: 'Tour de taille', value: '83 cm', delta: '-3 cm depuis juin', trend: 'down', good: true },
+        { label: 'Masse grasse estimée', value: '15,6 %', delta: '-1,9 point depuis juin', trend: 'down', good: true },
+        { label: 'Fréquence cardiaque au repos', value: '56 bpm', delta: '-4 bpm depuis juin', trend: 'down', good: true },
+      ],
+      plan: {
+        weekLabel: 'Semaine du 7 au 13 septembre',
+        intro: 'Bâti avec Félix lors de ta rencontre d\'évaluation du 2 septembre.',
+        tasks: [
+          { id: 'p1', kind: 'training', label: 'Force — Haut du corps', detail: 'Lundi ou mardi, 45 minutes', done: true },
+          { id: 'p2', kind: 'training', label: 'Séance encadrée — Corps complet', detail: 'Mercredi 17 h 30 à St-Roch', done: true },
+          { id: 'p3', kind: 'training', label: 'Force — Bas du corps', detail: 'Samedi matin, 45 minutes', done: false },
+          { id: 'p4', kind: 'nutrition', label: '130 g de protéines par jour', detail: '5 jours sur 7 atteints', done: false },
+          { id: 'p5', kind: 'nutrition', label: '2,5 litres d\'eau par jour', detail: '6 jours sur 7 atteints', done: true },
+          { id: 'p6', kind: 'recovery', label: 'Mobilité du matin', detail: 'Deux fois cette semaine', done: false },
+        ],
+      },
+      challenge: {
+        name: 'Défi 12 entraînements en septembre',
+        description: 'Douze séances enregistrées avant le 30 septembre, aux deux succursales. Les finissants reçoivent 500 points bonus.',
+        endsOn: '30 septembre', myProgress: 7, target: 12, participants: 41,
+        leaderboard: [
+          { rank: 1, name: 'Maxime R.', value: 14 },
+          { rank: 2, name: 'Andréanne P.', value: 12 },
+          { rank: 3, name: 'Vous', value: 7, isMe: true },
+          { rank: 4, name: 'Samuel C.', value: 7 },
+          { rank: 5, name: 'Léa T.', value: 6 },
+        ],
+      },
+      health: {
+        connected: true,
+        note: 'Tes données sont partagées avec Félix uniquement, et tu peux couper la connexion en tout temps.',
+        metrics: [
+          { label: 'Pas aujourd\'hui', value: '8 760' },
+          { label: 'Sommeil cette nuit', value: '7 h 02' },
+          { label: 'Fréquence au repos', value: '56 bpm' },
+          { label: 'Minutes actives', value: '52 min' },
+        ],
+      },
+      activity: [
+        { id: 1, kind: 'entry', label: 'Entrée au gym', detail: 'St-Roch — 47 minutes', date: '11 septembre', points: 50 },
+        { id: 2, kind: 'class', label: 'Séance encadrée', detail: 'Corps complet avec Félix', date: '9 septembre', points: 75 },
+        { id: 3, kind: 'entry', label: 'Entrée au gym', detail: 'St-Jean — 22 minutes', date: '7 septembre', points: 50 },
+        { id: 4, kind: 'redemption', label: 'Récompense échangée', detail: 'Boisson protéinée au comptoir santé', date: '6 septembre', points: -200 },
+        { id: 5, kind: 'entry', label: 'Entrée au gym', detail: 'St-Roch — 51 minutes', date: '4 septembre', points: 50 },
+        { id: 6, kind: 'referral', label: 'Parrainage confirmé', detail: 'Samuel C. s\'est abonné', date: '1er septembre', points: 300 },
+      ],
+      visits: [
+        { date: '2026-09-11', time: '18 h 04', location: 'st-roch', duration: 47, kind: 'Entraînement libre' },
+        { date: '2026-09-09', time: '17 h 30', location: 'st-roch', duration: 45, kind: 'Séance encadrée' },
+        { date: '2026-09-07', time: '12 h 12', location: 'st-jean', duration: 22, kind: 'Entraînement libre' },
+        { date: '2026-09-04', time: '6 h 40', location: 'st-roch', duration: 51, kind: 'Entraînement libre' },
+        { date: '2026-09-02', time: '16 h 05', location: 'st-roch', duration: 45, kind: 'Rencontre d\'évaluation' },
+        { date: '2026-08-31', time: '19 h 20', location: 'st-jean', duration: 38, kind: 'Entraînement libre' },
+        { date: '2026-08-29', time: '9 h 10', location: 'st-roch', duration: 58, kind: 'Séance encadrée' },
+        { date: '2026-08-27', time: '18 h 45', location: 'st-roch', duration: 44, kind: 'Entraînement libre' },
+      ],
+      visitStats: {
+        thisMonth: 7, lastMonth: 12, total: 96, avgDuration: 44,
+        byMonth: [{ m: 'Avr', n: 10 }, { m: 'Mai', n: 13 }, { m: 'Juin', n: 11 }, { m: 'Juil', n: 8 }, { m: 'Août', n: 12 }, { m: 'Sept', n: 7 }],
+      },
+    }),
+    rewards: [
+      { id: 1, name: 'Boisson protéinée au comptoir santé', points_required: 200, type: 'free_service', value: 'proteine', image: import.meta.env.BASE_URL + 'images/flexigym/r-smoothie.jpg' },
+      { id: 2, name: 'Collation santé offerte au comptoir', points_required: 450, type: 'free_service', value: 'collation', image: import.meta.env.BASE_URL + 'images/flexigym/r-bol.jpg' },
+      { id: 3, name: 'Laissez-passer invité pour un proche', points_required: 800, type: 'free_service', value: 'invite', image: import.meta.env.BASE_URL + 'images/flexigym/r-invite.jpg' },
+      { id: 4, name: 'Séance privée de 60 minutes avec un entraîneur', points_required: 1400, type: 'free_service', value: 'privee', image: import.meta.env.BASE_URL + 'images/flexigym/r-coach.jpg' },
+      { id: 5, name: 'Un mois du forfait FLEXI en essai', points_required: 2200, type: 'free_service', value: 'flexi', image: import.meta.env.BASE_URL + 'images/flexigym/r-massage.jpg' },
+      { id: 6, name: 'Un mois d\'abonnement ACCÈS offert', points_required: 3200, type: 'discount_fixed', value: 50, image: import.meta.env.BASE_URL + 'images/flexigym/r-mois.jpg' },
+    ],
+    offers: [
+      { id: 'demo-1', title: 'Essai gratuit pour un proche', description: 'Ton invité vient vivre sa première séance chez nous, sans frais et sans engagement. Le laissez-passer se génère dans l\'app et s\'active au lecteur. S\'il s\'abonne ensuite, tu reçois 300 points.', image_url: import.meta.env.BASE_URL + 'images/flexigym/r-invite.jpg' },
+      { id: 'demo-2', title: 'Rencontre d\'évaluation sans frais', description: 'Quarante-cinq minutes avec Félix ou Jonathan : mesures, mobilité, test de force et un programme bâti pour toi. Se réserve dans l\'onglet Horaire, sans appeler la réception.', image_url: import.meta.env.BASE_URL + 'images/flexigym/r-coach.jpg' },
+      { id: 'demo-3', title: 'Passe au forfait FLEXI', description: 'L\'abonnement ACCÈS te donne la salle 24/7 à partir de 49,99 $ par mois. Le forfait FLEXI ajoute l\'accompagnement complet d\'un entraîneur certifié à partir de 139 $. Les membres ACCÈS obtiennent leur première rencontre FLEXI sans frais.', image_url: import.meta.env.BASE_URL + 'images/flexigym/g-racks.jpg' },
+      { id: 'demo-4', title: 'Points doublés au comptoir santé', description: 'Jusqu\'à la fin du mois, chaque dollar dépensé au comptoir santé vaut 10 points au lieu de 5, aux deux succursales. Aucun coupon, le compte se fait au paiement.', image_url: import.meta.env.BASE_URL + 'images/flexigym/g-plateau.jpg' },
+      { id: 'demo-5', title: 'Deux succursales, un seul abonnement', description: 'St-Roch le matin, St-Jean le soir : ton abonnement ouvre les deux portes, 24 heures sur 24, et tes points s\'accumulent au même compte.', image_url: import.meta.env.BASE_URL + 'images/flexigym/g-turf.jpg' },
+    ],
+    referralMessage: 'Rejoins-moi au Flexigym et obtiens 300 points à ton inscription!',
+    phone: '418-521-5698',
+    address: '685, rue du Prince-Édouard (St-Roch) · 869, rue Saint-Jean (St-Jean), Québec',
+  },
+
   // ====== PROSPECTS COLD OUTREACH ======
 
   'maelstrom': {
@@ -18014,6 +18250,7 @@ export function applyTheme(theme) {
   if (theme.navBg) root.style.setProperty('--nav-bg', theme.navBg);
   if (theme.font) root.style.setProperty('--font', theme.font);
   if (theme.fontDisplay) root.style.setProperty('--font-display', theme.fontDisplay);
+  if (theme.onAccent) root.style.setProperty('--on-accent', theme.onAccent);
   // RGB channels for translucent brand tints (rgba(var(--accent-rgb), a))
   const rgb = hexToRgb(theme.accent);
   if (rgb) root.style.setProperty('--accent-rgb', rgb);
