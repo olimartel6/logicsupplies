@@ -28,7 +28,9 @@ function App() {
 
   useEffect(() => {
     applyTheme(config.theme)
-    document.title = `${config.pointsLabel} — ${config.businessName}`
+    document.title = config.vertical === 'gym'
+      ? `${config.businessName} — l'application`
+      : `${config.pointsLabel} — ${config.businessName}`
 
     // Load business from Supabase
     getBusiness(config.slug)

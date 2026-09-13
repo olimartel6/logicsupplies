@@ -236,7 +236,7 @@ export const GYM_DEFAULTS = {
   // --- Journal d'entrainement (ce que l'app du concurrent ne fait pas) ------
   journal: [
     {
-      id: "j1", date: "2026-09-10", name: "Force — Haut du corps", duration: 52, location: "st-roch", points: 75,
+      id: "j1", date: "2026-09-10", name: "Force — Haut du corps", duration: 52, location: "st-roch",
       exercises: [
         { name: "Développé couché", sets: "4 × 6", load: "75 kg", note: "Dernière série difficile" },
         { name: "Tirage horizontal", sets: "4 × 10", load: "60 kg" },
@@ -244,11 +244,11 @@ export const GYM_DEFAULTS = {
       ],
     },
     {
-      id: "j2", date: "2026-09-08", name: "Cycle Endurance", duration: 50, location: "st-roch", points: 75,
+      id: "j2", date: "2026-09-08", name: "Cycle Endurance", duration: 50, location: "st-roch",
       exercises: [{ name: "Cours de groupe", sets: "50 min", load: "Zone 2 à 3", note: "Fréquence moyenne 142 bpm" }],
     },
     {
-      id: "j3", date: "2026-09-05", name: "Force — Bas du corps", duration: 58, location: "st-roch", points: 75,
+      id: "j3", date: "2026-09-05", name: "Force — Bas du corps", duration: 58, location: "st-roch",
       exercises: [
         { name: "Squat arrière", sets: "5 × 5", load: "110 kg", note: "Nouveau record de série" },
         { name: "Soulevé de terre roumain", sets: "4 × 8", load: "90 kg" },
@@ -291,7 +291,7 @@ export const GYM_DEFAULTS = {
   // --- Defi du mois ---------------------------------------------------------
   challenge: {
     name: "Défi 12 séances en septembre",
-    description: "Douze entraînements enregistrés avant le 30 septembre. Les finissants reçoivent 500 points et une serviette signature.",
+    description: "Douze entraînements enregistrés avant le 30 septembre. Les finissants repartent avec une serviette signature du gym.",
     endsOn: "30 septembre",
     myProgress: 8,
     target: 12,
@@ -319,12 +319,12 @@ export const GYM_DEFAULTS = {
 
   // --- Fil d'activite recente ----------------------------------------------
   activity: [
-    { id: 1, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 52 minutes", date: "10 septembre", points: 50 },
-    { id: 2, kind: "class", label: "Cours de groupe", detail: "Cycle Endurance avec Sarah", date: "8 septembre", points: 75 },
-    { id: 3, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 58 minutes", date: "5 septembre", points: 50 },
-    { id: 4, kind: "redemption", label: "Récompense échangée", detail: "Smoothie protéiné au bar", date: "4 septembre", points: -200 },
-    { id: 5, kind: "class", label: "Cours de groupe", detail: "HIIT Express à Sainte-Foy", date: "3 septembre", points: 75 },
-    { id: 6, kind: "referral", label: "Parrainage confirmé", detail: "Sophie G. s'est inscrite", date: "1er septembre", points: 300 },
+    { id: 1, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 52 minutes", date: "10 septembre" },
+    { id: 2, kind: "class", label: "Cours de groupe", detail: "Cycle Endurance avec Sarah", date: "8 septembre" },
+    { id: 3, kind: "entry", label: "Entrée au gym", detail: "Saint-Roch — 58 minutes", date: "5 septembre" },
+    { id: 4, kind: "class", label: "Cours de groupe", detail: "Mobilité et étirements avec Sarah", date: "4 septembre" },
+    { id: 5, kind: "class", label: "Cours de groupe", detail: "HIIT Express à Sainte-Foy", date: "3 septembre" },
+    { id: 6, kind: "referral", label: "Invitation acceptée", detail: "Sophie G. s'est inscrite", date: "1er septembre" },
   ],
 
   // --- Historique de visites -----------------------------------------------

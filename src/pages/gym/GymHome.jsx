@@ -5,7 +5,6 @@ import {
   CreditCard, MapPin, Gift, Sparkles, MessageSquare, Tag, Share2, Trophy, Clock,
 } from 'lucide-react'
 import config from '../../config'
-import { getTier, getNextTier } from '../../utils/tiers'
 import { DAYS } from '../../data/gymTemplate'
 import { Panel, SectionTitle, Label, Dots, Bar, Columns, Ring, Sheet, Stat, Toast, Avatar } from './ui'
 
@@ -13,7 +12,6 @@ const ACT_ICON = {
   entry: <ScanLine size={17} />,
   class: <CalendarCheck size={17} />,
   referral: <Users size={17} />,
-  redemption: <Gift size={17} />,
   bonus: <Sparkles size={17} />,
 }
 
@@ -24,12 +22,6 @@ export default function GymHome({ client, business, onLogout }) {
   const [tasks, setTasks] = useState(gym.plan.tasks)
   const [toast, setToast] = useState(null)
 
-  const rewards = config.rewards || []
-  const points = client?.points_balance || 0
-  const tier = getTier(client?.total_points_earned || 0, business?.tiers)
-  const nextTier = getNextTier(client?.total_points_earned || 0, business?.tiers)
-  const nextReward = rewards.find(r => r.points_required > points)
-  const rewardPct = nextReward ? (points / nextReward.points_required) * 100 : 100
 
   const home = gym.locations.find(l => l.id === gym.homeLocation) || gym.locations[0]
   const occPct = Math.round((gym.occupancy.now / gym.occupancy.capacity) * 100)
@@ -43,6 +35,11 @@ export default function GymHome({ client, business, onLogout }) {
     const booked = gym.classes.filter(c => gym.booked.includes(c.id))
     const sorted = [...booked].sort((a, b) => ((a.day - idx + 7) % 7) - ((b.day - idx + 7) % 7))
     return sorted[0]
+  }, [gym])
+  const todayClasses = useMemo(() => {
+    const d = new Date().getDay()
+    const idx = d === 0 ? 6 : d - 1
+    return gym.classes.filter(c => c.day === idx).slice(0, 4)
   }, [gym])
   const nextBookedCoach = nextBooked && gym.coaches.find(c => c.id === nextBooked.coach)
   const nextBookedLoc = nextBooked && gym.locations.find(l => l.id === nextBooked.location)
@@ -97,15 +94,13 @@ export default function GymHome({ client, business, onLogout }) {
         </div>
         <div style={{ display: 'flex', gap: 10, marginTop: 16, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
           <div style={{ flex: 1 }}>
-            <Label>Niveau</Label>
+            <Label>Accès</Label>
             <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--accent)', marginTop: 4 }}>
-              {tier.name} · points ×{String(tier.multiplier).replace('.', ',')}
+              {gym.membership.accessNote}
             </div>
-            {nextTier && (
-              <div className="g-meta" style={{ marginTop: 2 }}>
-                {(nextTier.min_points - (client?.total_points_earned || 0)).toLocaleString('fr-CA')} points avant {nextTier.name}
-              </div>
-            )}
+            <div className="g-meta" style={{ marginTop: 2 }}>
+              {gym.visitStats.total} visites depuis {gym.membership.memberSince}
+            </div>
           </div>
           <div style={{ flex: 1 }}>
             <Label>Prochain prélèvement</Label>
@@ -121,41 +116,47 @@ export default function GymHome({ client, business, onLogout }) {
         Entrer au gym
       </button>
 
-      {/* ---- Solde de points ---- */}
+      {/* ---- Ma semaine ---- */}
       <div className="points-display" style={config.heroImage ? {
         backgroundImage: `linear-gradient(rgba(5,7,9,0.70), rgba(5,7,9,0.88)), url(${config.heroImage})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
       } : {}}>
-        <div className="points-number g-num">{points.toLocaleString('fr-CA')}</div>
-        <div className="points-label">{config.pointsLabel}</div>
+        <div className="points-label" style={{ marginTop: 0, marginBottom: 10 }}>Cette semaine</div>
+        <div className="points-number g-num">{gym.goal.thisWeek} <span style={{ fontSize: '0.45em', opacity: 0.65 }}>/ {gym.goal.sessionsPerWeek}</span></div>
         <div className="points-sub">
-          {config.pointsSubline || `${config.pointsPerVisit} points par entrée · ${config.pointsPerClass} points par cours de groupe`}
+          {gym.goal.thisWeek >= gym.goal.sessionsPerWeek
+            ? `Objectif atteint · ${gym.goal.streakWeeks} semaines de suite`
+            : `Encore ${gym.goal.sessionsPerWeek - gym.goal.thisWeek} séance${gym.goal.sessionsPerWeek - gym.goal.thisWeek > 1 ? 's' : ''} · ${gym.goal.streakWeeks} semaines de suite`}
         </div>
       </div>
 
-      {/* ---- Serie et objectif ---- */}
-      <Panel>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <Ring pct={(gym.goal.thisWeek / gym.goal.sessionsPerWeek) * 100} size={70}>
-            <div className="g-num" style={{ fontSize: 20, color: 'var(--accent)' }}>{gym.goal.thisWeek}</div>
-            <div style={{ fontSize: 9, color: 'var(--text-muted)', fontWeight: 700 }}>/ {gym.goal.sessionsPerWeek}</div>
-          </Ring>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <Flame size={16} color="var(--accent)" />
-              <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>
-                {gym.goal.streakWeeks} semaines consécutives
-              </span>
-            </div>
-            <div className="g-meta" style={{ marginTop: 4, lineHeight: 1.45 }}>
-              Objectif de {gym.goal.sessionsPerWeek} séances par semaine. Il en reste {Math.max(0, gym.goal.sessionsPerWeek - gym.goal.thisWeek)} pour garder la série. Meilleure série : {gym.goal.bestStreak} semaines.
-            </div>
-            <div style={{ marginTop: 10 }}>
-              <Dots on={gym.goal.thisWeek} total={gym.goal.sessionsPerWeek} />
-            </div>
-          </div>
-        </div>
-      </Panel>
+      {/* ---- Aujourd'hui au gym ---- */}
+      {todayClasses.length > 0 && (
+        <>
+          <SectionTitle action={<span className="g-meta">{todayClasses.length} cours</span>}>Aujourd'hui au gym</SectionTitle>
+          <Panel tight>
+            {todayClasses.map(c => {
+              const left = c.capacity - c.taken
+              const coach = gym.coaches.find(x => x.id === c.coach)
+              return (
+                <div key={c.id} className="g-list-row" style={{ cursor: 'pointer' }} onClick={() => navigate('/horaire')}>
+                  <img src={c.image} alt="" className="g-thumb" style={{ width: 46, height: 46 }} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                      <span className="g-num" style={{ fontSize: 15, color: 'var(--accent)' }}>{c.time}</span>
+                      <span style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)' }}>{c.name}</span>
+                    </div>
+                    <div className="g-meta" style={{ marginTop: 2 }}>
+                      {coach?.name} · {left > 0 ? `${left} place${left > 1 ? 's' : ''} restante${left > 1 ? 's' : ''}` : 'Complet'}
+                    </div>
+                  </div>
+                  <ChevronRight size={17} color="var(--text-muted)" style={{ flexShrink: 0 }} />
+                </div>
+              )
+            })}
+          </Panel>
+        </>
+      )}
 
       {/* ---- Prochaine reservation ---- */}
       {nextBooked && (
@@ -206,24 +207,6 @@ export default function GymHome({ client, business, onLogout }) {
           L'heure la plus occupée est {gym.occupancy.byHour[peak].h}. Le début d'après-midi reste le moment le plus calme.
         </div>
       </Panel>
-
-      {/* ---- Prochaine recompense ---- */}
-      {nextReward && (
-        <Panel>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            {nextReward.image && <img src={nextReward.image} alt="" className="g-thumb" style={{ width: 52, height: 52 }} />}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <Label>Prochaine récompense</Label>
-              <div style={{ fontSize: 14.5, fontWeight: 600, color: 'var(--text)', margin: '5px 0 10px' }}>{nextReward.name}</div>
-              <Bar pct={rewardPct} />
-              <div className="g-meta" style={{ marginTop: 7 }}>
-                {points.toLocaleString('fr-CA')} / {nextReward.points_required.toLocaleString('fr-CA')} points — encore {(nextReward.points_required - points).toLocaleString('fr-CA')}
-              </div>
-            </div>
-            <ChevronRight size={18} color="var(--text-muted)" style={{ flexShrink: 0, cursor: 'pointer' }} onClick={() => navigate('/rewards')} />
-          </div>
-        </Panel>
-      )}
 
       {/* ---- Plan de la semaine ---- */}
       <SectionTitle action={<span className="g-meta">{doneCount} sur {tasks.length}</span>}>Mon plan de la semaine</SectionTitle>
@@ -299,9 +282,9 @@ export default function GymHome({ client, business, onLogout }) {
       {/* ---- Raccourcis ---- */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
         {[
+          { icon: <CalendarCheck size={18} />, label: 'Horaire', to: '/horaire' },
           { icon: <Tag size={18} />, label: 'Offres', to: '/offers' },
-          { icon: <Share2 size={18} />, label: 'Parrainage', to: '/referral' },
-          { icon: <CreditCard size={18} />, label: 'Mon code', to: '/myqr' },
+          { icon: <CreditCard size={18} />, label: 'Mon accès', to: '/myqr' },
         ].map(s => (
           <button
             key={s.to} onClick={() => navigate(s.to)}
@@ -369,10 +352,7 @@ export default function GymHome({ client, business, onLogout }) {
               <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--text)', marginTop: 3 }}>{a.detail}</div>
               <div className="g-meta" style={{ marginTop: 2 }}>{a.date}</div>
             </div>
-            <span className="g-num" style={{
-              fontSize: 17, flexShrink: 0,
-              color: a.points >= 0 ? 'var(--accent)' : 'var(--text-light)',
-            }}>{a.points >= 0 ? '+' : ''}{a.points}</span>
+            {a.meta && <span className="g-num" style={{ fontSize: 14, flexShrink: 0, color: 'var(--text-light)' }}>{a.meta}</span>}
           </div>
         ))}
       </Panel>
@@ -395,10 +375,10 @@ export default function GymHome({ client, business, onLogout }) {
             />
           </div>
           <div className="g-meta" style={{ marginTop: 16, lineHeight: 1.5, padding: '0 10px' }}>
-            {config.qrHint}. L'entrée est enregistrée dans votre historique et vaut {config.pointsPerVisit} points.
+            {config.qrHint}. L'entrée est enregistrée automatiquement dans votre historique.
           </div>
           <div style={{ display: 'flex', gap: 10, marginTop: 18 }}>
-            <button className="g-btn" style={{ flex: 1 }} onClick={() => { setQrOpen(false); flash(`Entrée enregistrée · +${config.pointsPerVisit} points`) }}>
+            <button className="g-btn" style={{ flex: 1 }} onClick={() => { setQrOpen(false); flash('Entrée enregistrée dans ton historique') }}>
               Simuler une entrée
             </button>
             <button className="g-btn g-btn-ghost" style={{ flex: 1 }} onClick={() => { setQrOpen(false); navigate('/myqr') }}>

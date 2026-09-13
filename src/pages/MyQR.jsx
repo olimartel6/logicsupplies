@@ -120,18 +120,30 @@ export default function MyQR({ client }) {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', marginBottom: 10 }}>
-        <div style={{
-          fontSize: 34, fontWeight: 800,
-          color: 'var(--accent)', lineHeight: 1.1,
-        }}>{user.points_balance || 0}</div>
-        <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>
-          {config.pointsLabel}
+      {config.vertical === 'gym' ? (
+        <div style={{ textAlign: 'center', marginBottom: 10 }}>
+          <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)' }}>
+            {config.gym?.membership?.planName || 'Membre'}
+          </div>
+          <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1, marginTop: 4 }}>
+            Membre depuis {config.gym?.membership?.memberSince || '—'}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ textAlign: 'center', marginBottom: 10 }}>
+          <div style={{
+            fontSize: 34, fontWeight: 800,
+            color: 'var(--accent)', lineHeight: 1.1,
+          }}>{user.points_balance || 0}</div>
+          <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>
+            {config.pointsLabel}
+          </div>
+        </div>
+      )}
 
       <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+        display: config.vertical === 'gym' ? 'none' : 'flex',
+        alignItems: 'center', justifyContent: 'center', gap: 6,
         padding: '7px 14px', margin: '0 auto',
         background: 'var(--bg-warm)', borderRadius: 'var(--radius-sm)',
         boxShadow: 'var(--shadow-sm)',

@@ -48,12 +48,12 @@ export default function Training() {
     setJournal(j => [{
       id: 'n' + Date.now(),
       date: new Date().toISOString().slice(0, 10),
-      name: w.name, duration: w.duration, location: gym.homeLocation, points: config.pointsPerVisit,
+      name: w.name, duration: w.duration, location: gym.homeLocation,
       exercises: w.blocks.flatMap(b => b.items.slice(0, 2).map(it => ({ name: it, sets: '—' }))).slice(0, 3),
     }, ...j])
     setDetail(null)
     setTab('journal')
-    flash(`Séance enregistrée · +${config.pointsPerVisit} points`)
+    flash('Séance enregistrée dans ton journal')
   }
 
   const saveManual = () => {
@@ -64,7 +64,6 @@ export default function Training() {
       name: form.name.trim(),
       duration: parseInt(form.duration) || 45,
       location: gym.homeLocation,
-      points: config.pointsPerVisit,
       exercises: form.exercise.trim()
         ? [{ name: form.exercise.trim(), sets: form.sets.trim() || '—', load: form.load.trim() }]
         : [],
@@ -164,7 +163,7 @@ export default function Training() {
             {[
               { v: journal.length, l: 'Séances notées' },
               { v: `${Math.round(journal.reduce((s, j) => s + j.duration, 0) / Math.max(1, journal.length))} min`, l: 'Durée moyenne' },
-              { v: journal.reduce((s, j) => s + (j.points || 0), 0), l: 'Points gagnés' },
+              { v: `${journal.reduce((s, j) => s + j.duration, 0)} min`, l: 'Temps total' },
             ].map(x => (
               <div key={x.l} style={{ flex: 1, background: 'var(--bg-warm)', borderRadius: 14, padding: '16px 10px', textAlign: 'center' }}>
                 <div className="g-num" style={{ fontSize: 22, color: 'var(--accent)' }}>{x.v}</div>
@@ -183,7 +182,7 @@ export default function Training() {
                     {frDate(j.date)} · {j.duration} min · {locName(j.location)}
                   </div>
                 </div>
-                <span className="g-num" style={{ fontSize: 16, color: 'var(--accent)', flexShrink: 0 }}>+{j.points}</span>
+                <span className="g-num" style={{ fontSize: 15, color: 'var(--text-light)', flexShrink: 0 }}>{j.duration} min</span>
               </div>
               {j.exercises.length > 0 && (
                 <div style={{ marginTop: 12, paddingTop: 4 }}>

@@ -53,7 +53,7 @@ export default function Classes() {
       return
     }
     setBooked(b => [...b, c.id])
-    flash(`Réservé · +${config.pointsPerClass} points après le cours`)
+    flash('Cours réservé — un rappel te sera envoyé')
   }
 
   return (
@@ -63,7 +63,7 @@ export default function Classes() {
       <div style={{ padding: '18px 0 4px' }}>
         <h2 style={{ fontSize: 23, fontWeight: 700, color: 'var(--text)' }}>Horaire</h2>
         <p className="g-meta" style={{ marginTop: 5, lineHeight: 1.5 }}>
-          Réservez ou annulez en deux touches. Chaque cours suivi vaut {config.pointsPerClass} points.
+          Réservez, annulez et voyez les places restantes en direct, sans appeler la réception.
         </p>
       </div>
 

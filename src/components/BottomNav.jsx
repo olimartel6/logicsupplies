@@ -17,7 +17,7 @@ const GYM_TABS = [
   { path: '/horaire', icon: CalendarDays, label: 'Horaire' },
   { path: '/entrainements', icon: Dumbbell, label: 'Entraîner' },
   { path: '/progres', icon: TrendingUp, label: 'Progrès' },
-  { path: '/rewards', icon: Gift, label: 'Points' },
+  { path: '/myqr', icon: QrCode, label: 'Mon accès' },
 ]
 
 export default function BottomNav() {
