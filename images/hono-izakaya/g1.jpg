@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    
+<title>Honō Izakaya - Honō Izakaya</title>
+<meta name="description" content="" />
+
+<meta property="fb:app_id" content="">
+<meta property="og:url" content="https://izakaya.honorestos.com/wp-content/uploads/2024/01/hono-hero.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Honō Izakaya - Honō Izakaya" />
+<meta property="og:image" content="" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="Honō Izakaya" />
+<meta property="og:locale" content="fr_CA" />
+<meta property="og:locale:alternate" content="fr_CA" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:url" content="https://izakaya.honorestos.com/wp-content/uploads/2024/01/hono-hero.jpg" />
+<meta name="twitter:title" content="Honō Izakaya - Honō Izakaya" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+
+
+<link rel="home" href="https://izakaya.honorestos.com/" />
+<link rel="canonical" href="https://izakaya.honorestos.com/wp-content/uploads/2024/01/hono-hero.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/static/favicons/izakaya/favicon.svg">
+<link rel="mask-icon" href="/static/favicons/izakaya/mask-icon.svg" color="#000000">
+<link rel="apple-touch-icon" href="/static/favicons/izakaya/apple-touch-icon.png">
+<link rel="manifest" href="/static/favicons/izakaya/manifest.json">
+<link href="https://honorestos.com/dist/css/app.e7ac2d35.css" rel="stylesheet">
+
+    <svg class="preloaded-logos">
+      <defs>
+        <g id="ramen-logo">
+          <path
+            d="M150.263 433L120.582 240.006L94.6101 231.964V224.541C110.688 221.449 126.147 213.407 135.422 197.324C146.553 178.767 147.79 159.591 147.79 118.766C147.79 72.9915 146.553 55.6714 135.422 37.1143C121.818 12.3715 97.0836 0 64.9285 0H0V433H56.2714V248.666H66.7836L92.1367 433H150.263ZM56.2714 48.8671H62.4551C72.9673 48.8671 80.3877 52.5786 85.953 61.8572C90.2816 69.8986 91.5183 81.6515 91.5183 118.766C91.5183 157.117 90.2815 167.014 85.3346 175.674C79.7693 184.334 72.9673 188.046 62.4551 188.046H56.2714V48.8671Z"
+            fill="white"
+          />
+          <path
+            d="M339.536 433L306.145 0H202.259L168.867 433H228.23L236.269 290.729H271.516L280.173 433H339.536ZM248.637 84.1257L249.255 38.97H258.53L259.149 84.1257L268.424 237.531H239.361L248.637 84.1257Z"
+            fill="white"
+          />
+          <path
+            d="M416.625 433V38.97H425.282L427.755 124.951L448.78 433H529.786L551.429 124.951L552.047 38.97H561.941V433H611.41V0H513.09L493.92 343.307L493.302 394.03H485.263V343.307L464.857 0H367.155V433H416.625Z"
+            fill="white"
+          />
+          <path
+            d="M767.905 433V379.803H704.832V242.48H763.577V189.901H704.832V53.1972H767.905V0H648.56V433H767.905Z"
+            fill="white"
+          />
+          <path
+            d="M843.563 433V38.97H852.839L854.076 167.633L876.955 433H966V0H916.531V394.03H907.874L905.4 264.13L882.52 0H794.094V433H843.563Z"
+            fill="white"
+          />
+        </g>
+        <g id="izakaya-logo">
+          <path d="M56.3753 432.672V0H0V432.672H56.3753Z" fill="black" />
+          <path
+            d="M218.295 432.672V379.515H137.139V370.862L217.056 72.9362V0H84.4807V53.1569H165.017V61.8103L84.4807 359.736V432.672H218.295Z"
+            fill="black"
+          />
+          <path
+            d="M407.923 432.672L374.469 0H270.392L236.938 432.672H296.411L304.465 290.508H339.777L348.45 432.672H407.923ZM316.855 84.062L317.474 38.9405H326.767L327.386 84.062L336.679 237.352H307.562L316.855 84.062Z"
+            fill="black"
+          />
+          <path
+            d="M546.485 0L480.817 229.934H472.143L491.968 148.345V0H435.592V432.672H491.968V303.489L503.738 268.875L544.007 432.672H604.099L539.67 198.411L605.957 0H546.485Z"
+            fill="black"
+          />
+          <path
+            d="M790.276 432.672L756.823 0H652.745L619.291 432.672H678.764L686.818 290.508H722.13L730.803 432.672H790.276ZM699.208 84.062L699.828 38.9405H709.12L709.74 84.062L719.032 237.352H689.916L699.208 84.062Z"
+            fill="black"
+          />
+          <path
+            d="M896.527 0L872.366 172.451V216.954H863.073V172.451L837.673 0H780.678L839.532 289.272V432.672H894.668V291.745L953.521 0H896.527Z"
+            fill="black"
+          />
+          <path
+            d="M1115.16 432.672L1081.7 0H977.624L944.171 432.672H1003.64L1011.7 290.508H1047.01L1055.68 432.672H1115.16ZM1024.09 84.062L1024.71 38.9405H1034L1034.62 84.062L1043.91 237.352H1014.79L1024.09 84.062Z"
+            fill="black"
+          />
+        </g>
+        <g id="error-logo">
+          <path
+            d="M132.718 233.705V5.23345H45.1273L0.413086 217.779V282.094H80.6537V434H132.718V282.094H158.444V233.705H132.718ZM44.5148 224.517L71.4658 60.3606H80.6537V233.705H44.5148V224.517Z"
+          />
+          <path
+            d="M252.825 438.288C290.802 438.288 308.565 424.2 318.365 397.861C324.491 380.71 325.716 358.047 325.716 219.617C325.716 81.1864 324.491 58.523 318.365 41.3723C308.565 15.0338 290.802 0.945801 252.825 0.945801C215.462 0.945801 197.698 15.0338 187.898 40.7598C181.773 58.523 180.548 79.9613 180.548 219.617C180.548 359.272 181.773 380.71 187.898 398.474C197.698 424.2 215.462 438.288 252.825 438.288ZM252.825 386.836C246.088 386.836 242.413 382.548 239.962 375.81C236.9 367.847 235.062 358.047 235.062 219.617C235.062 81.1864 236.9 71.386 239.962 63.4232C242.413 56.6854 246.088 52.3978 252.825 52.3978C259.563 52.3978 263.851 56.6854 266.301 63.4232C269.364 71.386 270.589 90.9868 270.589 219.617C270.589 348.247 269.364 367.847 266.301 375.81C263.851 382.548 259.563 386.836 252.825 386.836Z"
+          />
+          <path
+            d="M482.646 233.705V5.23345H395.055L350.341 217.779V282.094H430.582V434H482.646V282.094H508.372V233.705H482.646ZM394.443 224.517L421.394 60.3606H430.582V233.705H394.443V224.517Z"
+          />
+        </g>
+      </defs>
+    </svg>
+    <style>
+      :root {
+         --global-background-color: #ffffff;
+         --global-text-color: #000000;
+         --global-accent-color: #ff4e2b;
+      }
+
+      body {
+        background-color: var( --global-background-color);
+      }
+
+      .preloaded-logos {
+        position: fixed;
+        pointer-events: none;
+        z-index: -9;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="vue"></div>
+
+    <script>
+      window.__initialData__ = {
+        "sites": [{
+            "name": "Honō Izakaya",
+            "baseUrl": "https://izakaya.honorestos.com/",
+            "id": 1,
+            "lang": "fr-CA",
+            "locale": "fr-CA",
+            "handle": "izakaya_fr",
+            "backgroundColour": "#ffffff",
+            "textColour": "#000000",
+            "accentColour": "#ff4e2b",
+            "label": "Izakaya - Français",
+            "description": "Izakaya - Français","localized": {"ramen_fr": "https://ramen.honorestos.com/"}},
+    {
+            "name": "Honō Ramen",
+            "baseUrl": "https://ramen.honorestos.com/",
+            "id": 2,
+            "lang": "fr-CA",
+            "locale": "fr-CA",
+            "handle": "ramen_fr",
+            "backgroundColour": "#000000",
+            "textColour": "#ffffff",
+            "accentColour": "#a57dfb",
+            "label": "Ramen - Français",
+            "description": "Ramen - Français","localized": {"ramen_fr": "https://ramen.honorestos.com/"}},
+    {
+            "name": "Honō Restos",
+            "baseUrl": "https://honorestos.com/",
+            "id": 3,
+            "lang": "fr-CA",
+            "locale": "fr-CA",
+            "handle": "restos_fr",
+            "backgroundColour": "",
+            "textColour": "",
+            "accentColour": "",
+            "label": "Splash - Français",
+            "description": "Splash - Français","localized": {"ramen_fr": "https://ramen.honorestos.com/"}}
+    ],
+    "currentSite": {
+        "id": 1,
+        "locale": "fr"
+    },
+    "routes": [{
+        "name": "home",
+        "component": "Home",
+        "path":"/",        "meta": {
+            "section": "home",
+            "single": true
+        }
+    },{
+        "name": "error404",
+        "component": "Error404",
+        "path":"/404",
+                        "meta": {
+            "section": "error404",
+            "single": true
+        }
+    }]
+}    </script>
+
+    <script>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()},!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script type="module" src="https://honorestos.com/dist/js/app.8ee0bc1a.js"></script>
+<script src="https://honorestos.com/dist/js/app-legacy.be344b14.js" nomodule></script>
+    <script type="module" src="https://honorestos.com/dist/js/chunk-vendors.6092d5af.js"></script>
+<script src="https://honorestos.com/dist/js/chunk-vendors-legacy.b394e687.js" nomodule></script>
+  </body>
+</html>
